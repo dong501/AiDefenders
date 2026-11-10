@@ -107,7 +107,7 @@ public class GameSfx : MonoBehaviour
         source.minDistance = minDistance;
         source.maxDistance = Mathf.Max(minDistance + 0.1f, maxDistance);
         source.clip = clip;
-        source.volume = volume;
+        AudioCategoryGain.Set(source, volume);
         source.pitch = pitch;
         source.Play();
 
@@ -126,7 +126,7 @@ public class GameSfx : MonoBehaviour
         source.playOnAwake = false;
         source.loop = false;
         source.spatialBlend = 0f;
-        source.volume = 1f;
+        AudioCategoryGain.Set(source, 1f);
         source.priority = 32;
         source.dopplerLevel = 0f;
         source.ignoreListenerPause = true;

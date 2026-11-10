@@ -157,6 +157,7 @@ public class TurretPlatformPlacer : MonoBehaviour
 
     void Update()
     {
+        if (BattlePauseMenu.IsPaused) return;
         if (waveDirector == null)
             waveDirector = FindFirstObjectByType<WaveDirector>();
         if (cctv == null)

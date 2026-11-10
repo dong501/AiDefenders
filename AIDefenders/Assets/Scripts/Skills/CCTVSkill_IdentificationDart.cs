@@ -5,6 +5,11 @@ using UnityEngine.InputSystem;
 
 public class CCTVSkill_IdentificationDart : CCTVActiveSkill
 {
+    protected override string DefaultIconResource
+    {
+        get { return "UI/SkillIcons/IdentificationDart"; }
+    }
+
     public GameObject dartPrefab;
     public float dartSpeed = 40f;
     public float dartGravity = 0f;

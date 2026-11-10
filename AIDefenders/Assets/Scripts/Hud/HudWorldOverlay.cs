@@ -16,6 +16,7 @@ public class HudWorldOverlay
     readonly List<DamageView> liveDamages = new List<DamageView>();
 
     CCTVRadar radar;
+    TurretPlatformPlacer radarBuildPlacer;
     RectTransform radarRt;
     Image radarPanel;
     Image radarBorder;
@@ -100,7 +101,11 @@ public class HudWorldOverlay
             return;
 
         radarRt.sizeDelta = new Vector2(radar.size, radar.size);
-        radarRt.anchoredPosition = new Vector2(-radar.margin, -radar.margin);
+        if (radarBuildPlacer == null) radarBuildPlacer = Object.FindFirstObjectByType<TurretPlatformPlacer>();
+        bool building = radarBuildPlacer != null && radarBuildPlacer.ShowBuildUi;
+        // Leave the top controls clear; move left of the 360px construction sidebar when open.
+        float rightInset = building ? 408f : Mathf.Max(24f, radar.margin);
+        radarRt.anchoredPosition = new Vector2(-rightInset, -200f);
         radarPanel.color = radar.backgroundColor;
         radarBorder.color = radar.borderColor;
 
@@ -338,7 +343,7 @@ public class HudWorldOverlay
         radarRt.anchorMin = new Vector2(1f, 1f);
         radarRt.anchorMax = new Vector2(1f, 1f);
         radarRt.pivot = new Vector2(1f, 1f);
-        radarRt.anchoredPosition = new Vector2(-16f, -16f);
+        radarRt.anchoredPosition = new Vector2(-24f, -200f);
         radarRt.sizeDelta = new Vector2(168f, 168f);
 
         radarBorder = UiFont.AddImage(radarRt, "Border", new Color(0.55f, 0.85f, 0.7f, 0.9f));

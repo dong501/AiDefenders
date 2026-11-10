@@ -93,24 +93,24 @@ public class MusicPlayer : MonoBehaviour
     {
         secondary.Stop();
         secondary.clip = clip;
-        secondary.volume = 0f;
+        AudioCategoryGain.Set(secondary, 0f, true);
         secondary.Play();
 
-        float startA = primary.volume;
+        float startA = AudioCategoryGain.Get(primary);
         float duration = Mathf.Max(0.05f, fadeSeconds);
         float t = 0f;
         while (t < duration)
         {
             t += Time.unscaledDeltaTime;
             float u = Mathf.Clamp01(t / duration);
-            primary.volume = Mathf.Lerp(startA, 0f, u);
-            secondary.volume = Mathf.Lerp(0f, volume, u);
+            AudioCategoryGain.Set(primary, Mathf.Lerp(startA, 0f, u), true);
+            AudioCategoryGain.Set(secondary, Mathf.Lerp(0f, volume, u), true);
             yield return null;
         }
 
         primary.Stop();
-        primary.volume = 0f;
-        secondary.volume = volume;
+        AudioCategoryGain.Set(primary, 0f, true);
+        AudioCategoryGain.Set(secondary, volume, true);
 
         AudioSource swap = primary;
         primary = secondary;
@@ -120,21 +120,21 @@ public class MusicPlayer : MonoBehaviour
 
     IEnumerator FadeOutRoutine()
     {
-        float start = primary.volume;
+        float start = AudioCategoryGain.Get(primary);
         float duration = Mathf.Max(0.05f, fadeSeconds);
         float t = 0f;
         while (t < duration)
         {
             t += Time.unscaledDeltaTime;
             float u = Mathf.Clamp01(t / duration);
-            primary.volume = Mathf.Lerp(start, 0f, u);
-            secondary.volume = 0f;
+            AudioCategoryGain.Set(primary, Mathf.Lerp(start, 0f, u), true);
+            AudioCategoryGain.Set(secondary, 0f, true);
             yield return null;
         }
 
         primary.Stop();
         secondary.Stop();
-        primary.volume = 0f;
+        AudioCategoryGain.Set(primary, 0f, true);
         currentClip = null;
         fadeRoutine = null;
     }
@@ -147,7 +147,7 @@ public class MusicPlayer : MonoBehaviour
         source.playOnAwake = false;
         source.loop = true;
         source.spatialBlend = 0f;
-        source.volume = 0f;
+        AudioCategoryGain.Set(source, 0f, true);
         source.priority = 0;
         return source;
     }

@@ -44,6 +44,7 @@ public class CCTVSkillSystem : MonoBehaviour
 
     void Update()
     {
+        if (BattlePauseMenu.IsPaused) return;
         if (!IsHudActive())
             return;
 

@@ -26,7 +26,7 @@ public class AmbientPlayer : MonoBehaviour
         source.playOnAwake = false;
         source.loop = true;
         source.spatialBlend = 0f;
-        source.volume = 0f;
+        AudioCategoryGain.Set(source, 0f);
         source.priority = 16;
         source.dopplerLevel = 0f;
     }
@@ -84,17 +84,17 @@ public class AmbientPlayer : MonoBehaviour
 
     IEnumerator FadeRoutine(float target)
     {
-        float start = source.volume;
+        float start = AudioCategoryGain.Get(source);
         float duration = Mathf.Max(0.05f, fadeSeconds);
         float t = 0f;
         while (t < duration)
         {
             t += Time.unscaledDeltaTime;
-            source.volume = Mathf.Lerp(start, target, Mathf.Clamp01(t / duration));
+            AudioCategoryGain.Set(source, Mathf.Lerp(start, target, Mathf.Clamp01(t / duration)));
             yield return null;
         }
 
-        source.volume = target;
+        AudioCategoryGain.Set(source, target);
         fadeRoutine = null;
     }
 }

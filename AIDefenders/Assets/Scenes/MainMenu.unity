@@ -955,15 +955,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   campaignStages:
-  - displayName: Grassfield 1
+  - displayName: 1-1 초원 · 낮
+    chapterId: 1
+    chapterName: 초원
     sceneName: Grassfield_1
-    description: 초원 지대
-  - displayName: Grassfield 2
+    description: 챕터 1 · 초원 지대 / 낮
+  - displayName: 1-2 초원 · 저녁
+    chapterId: 1
+    chapterName: 초원
     sceneName: Grassfield_2
-    description: 초원 지대
-  - displayName: Grassfield 3
+    description: 챕터 1 · 초원 지대 / 저녁
+  - displayName: 1-3 초원 · 밤
+    chapterId: 1
+    chapterName: 초원
     sceneName: Grassfield_3
-    description: 초원 지대
+    description: 챕터 1 · 초원 지대 / 밤
+  - displayName: 2-1 사막 · 낮
+    chapterId: 2
+    chapterName: 사막
+    sceneName: Desert_1
+    description: 챕터 2 · 사막 지대 / 낮
+  - displayName: 3-1 도시 · 낮
+    chapterId: 3
+    chapterName: 도시
+    sceneName: City_1
+    description: 챕터 3 · 도심 방어선 / 낮
+  requireStageUnlocks: 0
 --- !u!4 &623362528
 Transform:
   m_ObjectHideFlags: 0

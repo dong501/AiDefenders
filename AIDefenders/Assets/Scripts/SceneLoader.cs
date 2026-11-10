@@ -7,6 +7,7 @@ public class SceneLoader : MonoBehaviour
 {
     static SceneLoader instance;
     static bool loading;
+    public static string PreviousSceneName { get; private set; } = "MainMenu";
 
     CanvasGroup overlay;
     Image fill;
@@ -24,6 +25,9 @@ public class SceneLoader : MonoBehaviour
         if (loading)
             return;
 
+        string current = SceneManager.GetActiveScene().name;
+        if (current != sceneName)
+            PreviousSceneName = current;
         EnsureInstance();
         instance.StartCoroutine(instance.LoadRoutine(sceneName));
     }
@@ -119,7 +123,7 @@ public class SceneLoader : MonoBehaviour
 
         overlay = canvasGo.AddComponent<CanvasGroup>();
 
-        Image dim = UiFont.AddImage(canvasGo.transform, "Dim", new Color(0.04f, 0.05f, 0.07f, 0.94f));
+        Image dim = UiFont.AddImage(canvasGo.transform, "Dim", UiSkin.Navy);
         UiFont.Stretch(dim.rectTransform);
 
         GameObject center = new GameObject("Center");
@@ -147,7 +151,7 @@ public class SceneLoader : MonoBehaviour
         track.rectTransform.offsetMin = Vector2.zero;
         track.rectTransform.offsetMax = Vector2.zero;
 
-        fill = UiFont.AddImage(track.transform, "Fill", new Color(0.55f, 0.82f, 1f, 1f));
+        fill = UiFont.AddImage(track.transform, "Fill", UiSkin.Gold);
         UiFont.Stretch(fill.rectTransform);
         fill.type = Image.Type.Filled;
         fill.fillMethod = Image.FillMethod.Horizontal;

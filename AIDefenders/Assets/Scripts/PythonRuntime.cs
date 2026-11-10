@@ -49,6 +49,30 @@ public static class PythonRuntime
         int driverMajor = ParseLeadingInt(driver);
         float computeCap = ParseComputeCap(compute);
 
+        // Blackwell kernels are absent from the legacy cu126 wheels.
+        if (computeCap >= 10f || name.IndexOf("RTX 50", StringComparison.OrdinalIgnoreCase) >= 0)
+        {
+            if (driverMajor >= 580)
+            {
+                plan.UseCuda = true;
+                plan.CudaTag = "cu130";
+                plan.IndexUrl = "https://download.pytorch.org/whl/cu130";
+                plan.Message = name + " / driver " + driver + " → CUDA 13.0 PyTorch";
+            }
+            else if (driverMajor >= 570)
+            {
+                plan.UseCuda = true;
+                plan.CudaTag = "cu128";
+                plan.IndexUrl = "https://download.pytorch.org/whl/cu128";
+                plan.Message = name + " / driver " + driver + " → CUDA 12.8 PyTorch";
+            }
+            else
+            {
+                plan.Message = name + "은 Blackwell 지원 PyTorch가 필요합니다. NVIDIA 드라이버를 업데이트하세요. 현재는 CPU용을 설치합니다.";
+            }
+            return plan;
+        }
+
         if (computeCap > 0f && computeCap < 5.0f)
         {
             plan.Message = name + " (compute " + compute + ")은 현재 CUDA PyTorch를 지원하지 않아 CPU용을 설치합니다.";
@@ -88,12 +112,13 @@ public static class PythonRuntime
 
     public static bool IsTorchCudaReady()
     {
-        string torchLib = Path.Combine(GetVenvDir(), "Lib", "site-packages", "torch", "lib");
-        if (!Directory.Exists(torchLib))
+        string python = GetVenvPython();
+        if (!File.Exists(python))
             return false;
 
-        string[] cudaRuntime = Directory.GetFiles(torchLib, "cudart*.dll");
-        return cudaRuntime != null && cudaRuntime.Length > 0;
+        // CUDA DLLs and is_available alone do not establish GPU kernel compatibility.
+        string output;
+        return TryRun(python, "-c \"import torch; assert torch.cuda.is_available(); x = torch.ones((16, 16), device='cuda'); (x @ x).sum().item(); torch.cuda.synchronize()\"", out output, 30000);
     }
 
     static bool TryQueryNvidiaGpu(out string name, out string driver, out string compute)
@@ -556,9 +581,10 @@ public static class PythonRuntime
                 return false;
             }
 
+            bool succeeded = process.ExitCode == 0;
             process.Dispose();
             output = (stdout + " " + stderr).Trim();
-            return true;
+            return succeeded;
         }
         catch (Exception)
         {
@@ -715,6 +741,20 @@ public static class PythonRuntime
         }
     }
 
+    static string GetSafeVenvCreateCommand(string systemPython)
+    {
+        if (!string.IsNullOrEmpty(systemPython))
+        {
+            string lower = systemPython.ToLowerInvariant();
+            if (lower.Contains("pythoncore-") && lower.Contains(@"appdata\local\python"))
+            {
+                return "py -3.11 -m venv";
+            }
+        }
+
+        return Quote(systemPython) + " -m venv";
+    }
+
     static string BuildLibrarySetupBat(string serverDir, string systemPython, string venvDir, string venvPython, string requirements, TorchInstallPlan torchPlan)
     {
         if (torchPlan == null)
@@ -723,6 +763,7 @@ public static class PythonRuntime
         var sb = new StringBuilder();
         sb.AppendLine("@echo off");
         sb.AppendLine("setlocal");
+        sb.AppendLine("chcp 65001 >nul");
         sb.AppendLine("cd /d " + Quote(serverDir));
         sb.AppendLine("title YOLO library setup");
         sb.AppendLine("echo Python " + RequiredVersionLabel + " virtualenv / library setup");
@@ -731,7 +772,12 @@ public static class PythonRuntime
         sb.AppendLine("echo.");
         sb.AppendLine("if exist " + Quote(venvPython) + " goto :pip");
         sb.AppendLine("echo Creating virtualenv...");
-        sb.AppendLine(Quote(systemPython) + " -m venv " + Quote(venvDir));
+        sb.AppendLine("where py >nul 2>nul");
+        sb.AppendLine("if not errorlevel 1 (");
+        sb.AppendLine("  py -3.11 -m venv " + Quote(venvDir));
+        sb.AppendLine(") else (");
+        sb.AppendLine("  " + GetSafeVenvCreateCommand(systemPython) + " " + Quote(venvDir));
+        sb.AppendLine(")");
         sb.AppendLine("if errorlevel 1 goto :fail");
         sb.AppendLine(":pip");
         sb.AppendLine("echo Upgrading pip...");
@@ -761,6 +807,9 @@ public static class PythonRuntime
         sb.AppendLine("echo.");
         sb.AppendLine("echo Checking torch.cuda...");
         sb.AppendLine(Quote(venvPython) + " -c \"import torch; print('torch', torch.__version__); print('cuda', torch.cuda.is_available()); print('device', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'cpu')\"");
+        sb.AppendLine("if errorlevel 1 goto :fail");
+        sb.AppendLine(Quote(venvPython) + " -c \"import torch; device = 'cuda' if torch.cuda.is_available() else 'cpu'; x = torch.ones((16, 16), device=device); print('Kernel check:', (x @ x).sum().item())\"");
+        sb.AppendLine("if errorlevel 1 goto :fail");
         sb.AppendLine("echo.");
         sb.AppendLine("echo Setup finished.");
         sb.AppendLine("pause");
@@ -787,6 +836,7 @@ public static class PythonRuntime
         var sb = new StringBuilder();
         sb.AppendLine("@echo off");
         sb.AppendLine("setlocal");
+        sb.AppendLine("chcp 65001 >nul");
         sb.AppendLine("set PYTHONUNBUFFERED=1");
         sb.AppendLine("cd /d " + Quote(serverDir));
         sb.AppendLine("title YOLO train");
@@ -821,6 +871,7 @@ public static class PythonRuntime
         var sb = new StringBuilder();
         sb.AppendLine("@echo off");
         sb.AppendLine("setlocal");
+        sb.AppendLine("chcp 65001 >nul");
         sb.AppendLine("set PYTHONUNBUFFERED=1");
         sb.AppendLine("cd /d " + Quote(serverDir));
         sb.AppendLine("title YOLO server");
@@ -841,6 +892,7 @@ public static class PythonRuntime
 
     static void WriteTextUtf8(string path, string contents)
     {
+        // CMD must decode the script using the same UTF-8 code page as its contents.
         File.WriteAllText(path, contents ?? "", new UTF8Encoding(false));
     }
 

@@ -132,6 +132,7 @@ public class CCTVController : MonoBehaviour
 
     void Update()
     {
+        if (BattlePauseMenu.IsPaused) return;
         PruneDeadTracks();
         RebuildLists();
     }

@@ -36,6 +36,11 @@ public class TurretBuildOption
             if (!string.IsNullOrWhiteSpace(displayName))
                 return displayName;
 
+            if (prefab != null)
+            {
+                if (prefab.name == "Turret_Test Missile") return "미사일 포탑";
+                if (prefab.name == "Turret_Test Laser") return "레이저 포탑";
+            }
             return prefab != null ? prefab.name : "포탑";
         }
     }

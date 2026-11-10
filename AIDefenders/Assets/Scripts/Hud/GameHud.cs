@@ -53,6 +53,7 @@ public class GameHud : MonoBehaviour
             waveBanner = new HudWaveBanner(canvasRt);
             spawnerPreview = new HudSpawnerPreview(canvasRt, waveDirector);
             stageResult = new HudStageResult(canvasRt);
+            gameObject.AddComponent<BattlePauseMenu>().Build(canvasRt, waveDirector);
         }
         Refresh(true);
     }
@@ -119,7 +120,7 @@ public class GameHud : MonoBehaviour
     void HandleFundsChanged(int funds)
     {
         if (fundsText != null)
-            fundsText.text = "자금  $" + funds;
+            fundsText.text = funds.ToString("N0");
     }
 
     void HandleScoreChanged(int score)
@@ -165,9 +166,9 @@ public class GameHud : MonoBehaviour
         if (phaseText != null)
             phaseText.text = waveDirector.HudPhaseLabel;
         if (waveText != null)
-            waveText.text = waveDirector.HudWaveTitle;
+            waveText.text = "ROUND  " + Mathf.Max(1, waveDirector.CurrentWaveIndex + 1) + " / " + waveDirector.WaveCount;
         if (fundsText != null)
-            fundsText.text = "자금  $" + waveDirector.Funds;
+            fundsText.text = waveDirector.Funds.ToString("N0");
         if (scoreText != null)
             scoreText.text = "점수  " + waveDirector.Score;
         RefreshBaseHp(waveDirector.BaseHP, waveDirector.MaxBaseHP);
@@ -199,7 +200,7 @@ public class GameHud : MonoBehaviour
     void RefreshBaseHp(float hp, float max)
     {
         if (baseHpText != null)
-            baseHpText.text = "기지  " + Mathf.CeilToInt(hp) + " / " + Mathf.CeilToInt(max);
+            baseHpText.text = Mathf.CeilToInt(hp) + " / " + Mathf.CeilToInt(max);
 
         if (baseHpFill == null)
             return;
@@ -246,40 +247,41 @@ public class GameHud : MonoBehaviour
         scaler.matchWidthOrHeight = 0.5f;
         canvasGo.AddComponent<GraphicRaycaster>();
 
-        Image panel = UiFont.AddImage(canvasGo.transform, "StatusPanel", new Color(0.08f, 0.1f, 0.14f, 0.82f));
-        panel.raycastTarget = false;
-        RectTransform panelRt = panel.rectTransform;
-        panelRt.anchorMin = new Vector2(0f, 1f);
-        panelRt.anchorMax = new Vector2(0f, 1f);
-        panelRt.pivot = new Vector2(0f, 1f);
-        panelRt.anchoredPosition = new Vector2(24f, -24f);
-        panelRt.sizeDelta = new Vector2(420f, 228f);
-
-        phaseText = AddLabel(panelRt, "Phase", "대기", 28, UiType.Title, 0f, 1f, -16f, 40f);
-        waveText = AddLabel(panelRt, "Wave", "대기", 20, UiType.BodyMedium, 0f, 1f, -58f, 30f);
-        timeText = AddLabel(panelRt, "Time", "시간  --", 22, UiType.BodyMedium, 0f, 1f, -92f, 32f);
-        fundsText = AddLabel(panelRt, "Funds", "자금  $0", 22, UiType.BodyMedium, 0f, 0.55f, -128f, 32f);
-        scoreText = AddLabel(panelRt, "Score", "점수  0", 22, UiType.BodyMedium, 0.55f, 1f, -128f, 32f);
-
-        Image track = UiFont.AddImage(panelRt, "BaseTrack", new Color(0.16f, 0.18f, 0.22f, 1f));
-        track.raycastTarget = false;
-        RectTransform trackRt = track.rectTransform;
-        trackRt.anchorMin = new Vector2(0f, 1f);
-        trackRt.anchorMax = new Vector2(1f, 1f);
-        trackRt.pivot = new Vector2(0.5f, 1f);
-        trackRt.anchoredPosition = new Vector2(0f, -168f);
-        trackRt.sizeDelta = new Vector2(-40f, 18f);
-
-        baseHpFill = UiFont.AddImage(trackRt, "Fill", new Color(0.32f, 0.78f, 0.48f, 1f));
-        baseHpFill.raycastTarget = false;
+        RectTransform root = canvas.transform as RectTransform;
+        Image health = UiFont.AddImage(root, "HealthChip", new Color(.60f, .16f, .18f, 1));
+        UiSkin.Place(health.rectTransform, new Vector2(0, 1), new Vector2(132, -66), new Vector2(216, 84));
+        var heart = new GameObject("HeartIcon", typeof(RectTransform), typeof(CanvasRenderer), typeof(UiHeartIcon));
+        heart.transform.SetParent(health.transform, false);
+        UiSkin.Place(heart.GetComponent<RectTransform>(), new Vector2(0, 1), new Vector2(35, -29), new Vector2(46, 42));
+        heart.GetComponent<UiHeartIcon>().raycastTarget = false;
+        baseHpText = AddLabel(health.rectTransform, "BaseHp", "0 / 0", 24, UiType.Title, 0, 1, -8, 40);
+        baseHpText.rectTransform.offsetMin = new Vector2(66, baseHpText.rectTransform.offsetMin.y);
+        Image track = UiFont.AddImage(health.transform, "BaseTrack", UiSkin.Navy);
+        UiSkin.Place(track.rectTransform, new Vector2(.5f, 0), new Vector2(0, 16), new Vector2(184, 12));
+        baseHpFill = UiFont.AddImage(track.transform, "Fill", UiSkin.Green);
+        UiFont.Stretch(baseHpFill.rectTransform);
         baseHpFill.type = Image.Type.Filled;
         baseHpFill.fillMethod = Image.FillMethod.Horizontal;
-        baseHpFill.fillOrigin = (int)Image.OriginHorizontal.Left;
-        baseHpFill.fillAmount = 1f;
-        UiFont.Stretch(baseHpFill.rectTransform);
-
-        baseHpText = AddLabel(panelRt, "BaseHp", "기지  0 / 0", 16, UiType.Body, 0f, 1f, -190f, 24f);
-        baseHpText.color = new Color(0.86f, 0.88f, 0.9f, 1f);
+        baseHpFill.raycastTarget = track.raycastTarget = health.raycastTarget = false;
+        Image money = UiFont.AddImage(root, "FundsChip", UiSkin.Gold);
+        UiSkin.Place(money.rectTransform, new Vector2(0, 1), new Vector2(360, -66), new Vector2(216, 84));
+        var coin = new GameObject("CoinIcon", typeof(RectTransform), typeof(CanvasRenderer), typeof(UiCoinIcon));
+        coin.transform.SetParent(money.transform, false);
+        UiSkin.Place(coin.GetComponent<RectTransform>(), new Vector2(0, .5f), new Vector2(36, 0), new Vector2(52, 52));
+        coin.GetComponent<UiCoinIcon>().raycastTarget = false;
+        fundsText = AddLabel(money.rectTransform, "Funds", "0", 30, UiType.Title, 0, 1, -12, 58);
+        fundsText.rectTransform.offsetMin = new Vector2(72, fundsText.rectTransform.offsetMin.y);
+        Image points = UiFont.AddImage(root, "ScoreChip", UiSkin.Panel);
+        UiSkin.Place(points.rectTransform, new Vector2(0, 1), new Vector2(588, -66), new Vector2(216, 84));
+        scoreText = AddLabel(points.rectTransform, "Score", "SCORE  0", 24, UiType.Title, 0, 1, -12, 58);
+        Image phase = UiFont.AddImage(root, "PhaseChip", UiSkin.Panel);
+        UiSkin.Place(phase.rectTransform, new Vector2(0, 1), new Vector2(900, -66), new Vector2(360, 84));
+        phaseText = AddLabel(phase.rectTransform, "Phase", "", 21, UiType.BodyBold, 0, 1, -6, 30);
+        timeText = AddLabel(phase.rectTransform, "Time", "", 24, UiType.Title, 0, 1, -38, 36);
+        Image round = UiFont.AddImage(root, "RoundChip", UiSkin.Panel);
+        UiSkin.Place(round.rectTransform, new Vector2(1, 1), new Vector2(-294, -66), new Vector2(300, 84));
+        waveText = AddLabel(round.rectTransform, "Wave", "ROUND  --", 30, UiType.Title, 0, 1, -12, 58);
+        money.raycastTarget = points.raycastTarget = phase.raycastTarget = round.raycastTarget = false;
     }
 
     static Text AddLabel(

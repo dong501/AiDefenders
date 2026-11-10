@@ -18,6 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/GameStages/GrassField/Grassfield_3.unity
     guid: 73573fa0b7f0de54fa6c9c11581d184d
   - enabled: 1
+    path: Assets/Scenes/GameStages/Desert/Desert_1.unity
+    guid: d3531dffab9200a48a6e8eff130ec210
+  - enabled: 1
+    path: Assets/Scenes/GameStages/City/City_1.unity
+    guid: 6966c47236dc42148ad3ad1eefc0af8b
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1

@@ -408,6 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CCTVSkill_IdentificationDart
   displayName: "\uC2DD\uBCC4 \uB2E4\uD2B8"
+  icon: {fileID: 21300000, guid: d5647f4ce0f6ee94391e8aae09aff9cb, type: 3}
   cooldown: 6
   startCooldownOnUse: 0
   dartPrefab: {fileID: 3223724401015827084, guid: 153daffb4d05f174eb8be740f40da321, type: 3}
@@ -429,6 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CCTVSkill_TrapMissile
   displayName: "\uACF0\uB36B \uBBF8\uC0AC\uC77C"
+  icon: {fileID: 21300000, guid: a926f27eba15cf6438ece0250be93737, type: 3}
   cooldown: 12
   startCooldownOnUse: 1
   rocketPrefab: {fileID: 8136110642335116717, guid: 836fb2bf217f7a145bbfee31b65bc6df, type: 3}

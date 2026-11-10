@@ -1,26 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 namespace Houidisoft.SimpleWater{
-[InitializeOnLoad]
-public static class WaterUpgradePopupLoader
-{
-    static WaterUpgradePopupLoader()
-    {
-        EditorApplication.delayCall += OpenPopupSafely;
-    }
-
-    static void OpenPopupSafely()
-    {
-        if (EditorApplication.isCompiling || EditorApplication.isUpdating)
-        {
-            EditorApplication.delayCall += OpenPopupSafely;
-            return;
-        }
-
-        WaterUpgradePopup.Open();
-    }
-}
-
+// Promotional windows are opened only from the explicit menu commands below.
 public class WaterUpgradePopup : EditorWindow
 {
     const string STORE_URL = "https://assetstore.unity.com/packages/slug/essw-easy-setup-stylized-water-2-0-317597";

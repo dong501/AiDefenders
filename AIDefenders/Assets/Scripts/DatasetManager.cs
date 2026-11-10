@@ -93,6 +93,12 @@ public class DatasetManager : MonoBehaviour
     Coroutine generateRoutine;
     System.Diagnostics.Process trainProcess;
     bool waitingForTrain;
+    DatasetGuiSkin uiSkin;
+    string returnScene = "MainMenu";
+    float UiScale { get { return Mathf.Min(Screen.width / 1600f, Screen.height / 900f); } }
+    float UiWidth { get { return Screen.width / UiScale; } }
+    float UiHeight { get { return Screen.height / UiScale; } }
+    bool IsDialogOpen { get { return waitingForTrain || showTrainResult || showGenerateDialog || showTrainDialog || showPrefabDialog || showTerrainDialog || showNameDialog; } }
     bool showTrainResult;
     TrainResultData trainResult;
 
@@ -173,6 +179,7 @@ public class DatasetManager : MonoBehaviour
 
     void Start()
     {
+        returnScene = SceneLoader.PreviousSceneName == "TurretLab" ? "TurretLab" : "MainMenu";
         EnsureCaptureDefaults();
         ResolveTerrainsRoot();
         RefreshDatasetList();
@@ -201,6 +208,7 @@ public class DatasetManager : MonoBehaviour
 
     void OnDestroy()
     {
+        if (uiSkin != null) uiSkin.Dispose();
         ClearPreview();
         if (pixelTexture != null)
             Destroy(pixelTexture);
@@ -208,13 +216,35 @@ public class DatasetManager : MonoBehaviour
 
     void OnGUI()
     {
+        GUISkin previousSkin = GUI.skin;
+        Matrix4x4 previousMatrix = GUI.matrix;
+        bool previousEnabled = GUI.enabled;
+        if (uiSkin == null) uiSkin = new DatasetGuiSkin(previousSkin);
+        GUI.skin = uiSkin.Skin;
+        GUI.matrix = Matrix4x4.Scale(new Vector3(UiScale, UiScale, 1f));
+        try { DrawFactoryGui(); }
+        finally { GUI.skin = previousSkin; GUI.matrix = previousMatrix; GUI.enabled = previousEnabled; }
+    }
+
+    void DrawFactoryGui()
+    {
+        DrawFillRect(new Rect(0, 0, UiWidth, UiHeight), new Color(.025f, .08f, .16f, .8f));
+        DrawFactoryHeader();
+        GUI.enabled = !IsDialogOpen;
         if (editMode)
         {
             DrawSampleEditor();
             DrawCaptureSettingsPanel();
         }
         else
+        {
             DrawDatasetSidebar();
+            DrawFactoryOverview();
+        }
+
+        GUI.enabled = true;
+        if (IsDialogOpen)
+            DrawFillRect(new Rect(0, 0, UiWidth, UiHeight), new Color(0, .02f, .07f, .65f));
 
         if (waitingForTrain)
             DrawTrainProgressDialog();
@@ -237,9 +267,64 @@ public class DatasetManager : MonoBehaviour
         lastFocusedSetting = GUI.GetNameOfFocusedControl();
     }
 
+    void DrawFactoryHeader()
+    {
+        GUI.Box(new Rect(12, 10, UiWidth - 24, 72), "");
+        GUI.enabled = !IsDialogOpen && generateRoutine == null;
+        if (GUI.Button(new Rect(26, 24, 132, 42), editMode ? "‹ 목록으로" : "‹ 뒤로"))
+            GoBack();
+        GUI.enabled = true;
+        GUI.Label(new Rect(180, 22, 600, 48), "데이터셋 팩토리", uiSkin.Title);
+        GUI.Label(new Rect(UiWidth - 370, 30, 330, 30), generateRoutine != null ? "샘플 생성 중…" : waitingForTrain ? "모델 학습 중…" : editMode ? "샘플 편집 · 생성 · 학습" : "나만의 인식 모델 만들기", uiSkin.Muted);
+    }
+
+    public void GoBack()
+    {
+        if (waitingForTrain || generateRoutine != null || IsDialogOpen) return;
+        if (editMode) { ExitEditMode(); return; }
+        SceneLoader.Load(returnScene);
+    }
+
+    void DrawFactoryOverview()
+    {
+        Rect panel = new Rect(388, 98, UiWidth - 404, UiHeight - 114);
+        GUI.Box(panel, "");
+        GUILayout.BeginArea(new Rect(panel.x + 28, panel.y + 24, panel.width - 56, panel.height - 48));
+        GUILayout.Label("AI 학습 작업실", uiSkin.Title);
+        GUILayout.Label("데이터셋을 선택하고 편집을 눌러 샘플을 만들거나 모델을 학습하세요.", uiSkin.Muted);
+        GUILayout.Space(24);
+        GUILayout.BeginHorizontal();
+        DrawWorkflowStep("01", "데이터셋 준비", "새 데이터셋을 만들거나\n왼쪽 목록에서 선택하세요.");
+        DrawWorkflowStep("02", "샘플 생성", "대상·지형과 촬영 조건을 정해\n학습용 이미지를 생성하세요.");
+        DrawWorkflowStep("03", "모델 학습", "학습과 검증 샘플을 확인하고\n게임에서 사용할 모델을 만드세요.");
+        GUILayout.EndHorizontal();
+        GUILayout.Space(26);
+        GUILayout.Label(string.IsNullOrEmpty(selectedDataset) ? "선택한 데이터셋이 없습니다." : "선택한 데이터셋  /  " + selectedDataset, uiSkin.Title);
+        GUILayout.Label("보유 데이터셋 " + datasetNames.Count + "개", uiSkin.Muted);
+        GUILayout.Space(18);
+        GUILayout.BeginHorizontal();
+        GUI.enabled = !IsDialogOpen;
+        if (GUILayout.Button("+ 새 데이터셋", uiSkin.GoldButton, GUILayout.Width(220), GUILayout.Height(52))) OpenNameDialog(false);
+        GUI.enabled = !IsDialogOpen && !string.IsNullOrEmpty(selectedDataset);
+        if (GUILayout.Button("선택한 데이터셋 편집  ›", uiSkin.GreenButton, GUILayout.Width(280), GUILayout.Height(52))) EnterEditMode(selectedDataset);
+        GUI.enabled = true;
+        GUILayout.EndHorizontal();
+        GUILayout.EndArea();
+    }
+
+    void DrawWorkflowStep(string number, string title, string description)
+    {
+        GUILayout.BeginVertical(GUI.skin.box, GUILayout.ExpandWidth(true), GUILayout.Height(180));
+        GUILayout.Label(number, uiSkin.Title);
+        GUILayout.Space(10);
+        GUILayout.Label(title);
+        GUILayout.Label(description, uiSkin.Muted);
+        GUILayout.EndVertical();
+    }
+
     void DrawDatasetSidebar()
     {
-        Rect panel = new Rect(12f, 12f, 320f, Screen.height - 24f);
+        Rect panel = new Rect(12f, 98f, 360f, UiHeight - 114f);
         GUI.Box(panel, "");
 
         GUILayout.BeginArea(new Rect(panel.x + 8f, panel.y + 8f, panel.width - 16f, panel.height - 16f));
@@ -255,13 +340,13 @@ public class DatasetManager : MonoBehaviour
             GUILayout.BeginHorizontal();
 
             bool selected = name == selectedDataset;
-            if (GUILayout.Toggle(selected, name, "Button", GUILayout.ExpandWidth(true), GUILayout.Height(24f)) && !selected)
+            if (GUILayout.Toggle(selected, name, "Button", GUILayout.ExpandWidth(true), GUILayout.Height(34f)) && !selected)
                 selectedDataset = name;
 
-            if (GUILayout.Button("편집", GUILayout.Width(44f), GUILayout.Height(24f)))
+            if (GUILayout.Button("편집", GUILayout.Width(48f), GUILayout.Height(34f)))
                 EnterEditMode(name);
 
-            if (GUILayout.Button("삭제", GUILayout.Width(44f), GUILayout.Height(24f)))
+            if (GUILayout.Button("삭제", GUILayout.Width(48f), GUILayout.Height(34f)))
                 DeleteDataset(name);
 
             GUILayout.EndHorizontal();
@@ -270,7 +355,7 @@ public class DatasetManager : MonoBehaviour
         GUILayout.EndScrollView();
         GUILayout.Space(8f);
 
-        if (GUILayout.Button("새로 만들기", GUILayout.Height(32f)))
+        if (GUILayout.Button("+ 새 데이터셋", uiSkin.GoldButton, GUILayout.Height(42f)))
             OpenNameDialog(false);
 
         GUILayout.Space(6f);
@@ -282,15 +367,13 @@ public class DatasetManager : MonoBehaviour
 
     void DrawSampleEditor()
     {
-        Rect panel = new Rect(12f, 12f, 340f, Screen.height - 24f);
+        Rect panel = new Rect(12f, 98f, 360f, UiHeight - 114f);
         GUI.Box(panel, "");
 
         GUILayout.BeginArea(new Rect(panel.x + 8f, panel.y + 8f, panel.width - 16f, panel.height - 16f));
 
         GUILayout.BeginHorizontal();
         GUILayout.Label(string.IsNullOrEmpty(editingDataset) ? "샘플" : editingDataset);
-        if (GUILayout.Button("뒤로", GUILayout.Width(52f), GUILayout.Height(24f)))
-            ExitEditMode();
         GUILayout.EndHorizontal();
 
         GUILayout.Label("샘플 리스트");
@@ -316,7 +399,7 @@ public class DatasetManager : MonoBehaviour
         GUILayout.EndScrollView();
         GUILayout.Space(6f);
         GUILayout.Label("미리보기");
-        float previewHeight = Mathf.Clamp(Screen.height * 0.32f, 160f, 280f);
+        float previewHeight = Mathf.Clamp(UiHeight * 0.32f, 160f, 280f);
         Rect previewBox = GUILayoutUtility.GetRect(1f, previewHeight, GUILayout.ExpandWidth(true));
         DrawSamplePreview(previewBox);
 
@@ -325,8 +408,8 @@ public class DatasetManager : MonoBehaviour
 
     void DrawCaptureSettingsPanel()
     {
-        float width = 360f;
-        Rect panel = new Rect(Screen.width - width - 12f, 12f, width, Screen.height - 24f);
+        float width = 400f;
+        Rect panel = new Rect(UiWidth - width - 12f, 98f, width, UiHeight - 114f);
         GUI.Box(panel, "");
         GUILayout.BeginArea(new Rect(panel.x + 8f, panel.y + 8f, panel.width - 16f, panel.height - 16f));
 
@@ -424,8 +507,8 @@ public class DatasetManager : MonoBehaviour
 
         GUILayout.Space(6f);
         bool canGenerate = CanGenerateSamples();
-        GUI.enabled = canGenerate;
-        if (GUILayout.Button("샘플 생성하기", GUILayout.Height(36f)))
+        GUI.enabled = !IsDialogOpen && canGenerate;
+        if (GUILayout.Button("샘플 생성하기", uiSkin.GoldButton, GUILayout.Height(42f)))
         {
             SaveCaptureSettings();
             generateDialogError = "";
@@ -434,14 +517,14 @@ public class DatasetManager : MonoBehaviour
             showPrefabDialog = false;
             showTerrainDialog = false;
         }
-        GUI.enabled = true;
+        GUI.enabled = !IsDialogOpen;
         if (!canGenerate && generateRoutine == null && !waitingForTrain)
             GUILayout.Label("대상과 지형을 각각 하나 이상 추가하세요.");
 
         GUILayout.Space(4f);
         bool canTrain = CanTrainModel();
-        GUI.enabled = canTrain;
-        if (GUILayout.Button("모델 학습시키기", GUILayout.Height(36f)))
+        GUI.enabled = !IsDialogOpen && canTrain;
+        if (GUILayout.Button("모델 학습시키기", uiSkin.GreenButton, GUILayout.Height(42f)))
         {
             RefreshSampleList();
             SaveCaptureSettings();
@@ -451,7 +534,7 @@ public class DatasetManager : MonoBehaviour
             showPrefabDialog = false;
             showTerrainDialog = false;
         }
-        GUI.enabled = true;
+        GUI.enabled = !IsDialogOpen;
         if (!canTrain && generateRoutine == null && !waitingForTrain)
             GUILayout.Label("학습(train)과 검증(val) 샘플이 각각 하나 이상 있어야 합니다.");
 
@@ -632,7 +715,7 @@ public class DatasetManager : MonoBehaviour
 
     void DrawTrainResultDialog()
     {
-        Rect screen = new Rect(0f, 0f, Screen.width, Screen.height);
+        Rect screen = new Rect(0f, 0f, UiWidth, UiHeight);
         Rect box = CenterDialogRect(480f, 300f);
         GUI.Button(screen, GUIContent.none, GUIStyle.none);
         GUI.Box(box, trainResult != null && trainResult.status == "failed" ? "학습 실패" : "학습 완료");
@@ -797,8 +880,8 @@ public class DatasetManager : MonoBehaviour
     Rect CenterDialogRect(float width, float height)
     {
         return new Rect(
-            (Screen.width - width) * 0.5f,
-            (Screen.height - height) * 0.5f,
+            (UiWidth - width) * 0.5f,
+            (UiHeight - height) * 0.5f,
             width,
             height
         );
@@ -1030,10 +1113,10 @@ public class DatasetManager : MonoBehaviour
     void DrawNameDialog()
     {
         float width = 360f;
-        float height = 150f;
+        float height = 210f;
         Rect box = new Rect(
-            (Screen.width - width) * 0.5f,
-            (Screen.height - height) * 0.5f,
+            (UiWidth - width) * 0.5f,
+            (UiHeight - height) * 0.5f,
             width,
             height
         );

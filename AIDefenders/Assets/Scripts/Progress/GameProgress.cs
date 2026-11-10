@@ -18,7 +18,9 @@ public static class GameProgress
     {
         "Grassfield_1",
         "Grassfield_2",
-        "Grassfield_3"
+        "Grassfield_3",
+        "Desert_1",
+        "City_1"
     };
 
     const string FileName = "progress.json";

@@ -142,6 +142,7 @@ public class CCTVDroneController : MonoBehaviour
 
     void Update()
     {
+        if (BattlePauseMenu.IsPaused) return;
         TickFlightLoop();
         if (!flying)
             return;
@@ -156,8 +157,8 @@ public class CCTVDroneController : MonoBehaviour
             return;
 
         ReadLook(out float mouseX, out float mouseY);
-        yaw += mouseX * mouseSensitivity;
-        pitch = Mathf.Clamp(pitch - mouseY * mouseSensitivity, minPitch, maxPitch);
+        yaw += mouseX * mouseSensitivity * GameAudioSettings.LookSensitivity;
+        pitch = Mathf.Clamp(pitch - mouseY * mouseSensitivity * GameAudioSettings.LookSensitivity, minPitch, maxPitch);
         transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
 
         UpdateZoom();
@@ -206,12 +207,13 @@ public class CCTVDroneController : MonoBehaviour
         Vector3 velocity = body.linearVelocity;
 
         if (wish.sqrMagnitude > 0.0001f)
-            velocity += wish.normalized * acceleration * Time.fixedDeltaTime;
+            velocity += wish.normalized * acceleration * GameAudioSettings.MoveSensitivity * Time.fixedDeltaTime;
         else
             velocity = Vector3.MoveTowards(velocity, Vector3.zero, brake * Time.fixedDeltaTime);
 
-        if (velocity.magnitude > maxSpeed)
-            velocity = velocity.normalized * maxSpeed;
+        float speedLimit = maxSpeed * GameAudioSettings.MoveSensitivity;
+        if (velocity.magnitude > speedLimit)
+            velocity = velocity.normalized * speedLimit;
 
         velocity = ConstrainToLimit(velocity);
         body.linearVelocity = velocity;
@@ -359,7 +361,7 @@ public class CCTVDroneController : MonoBehaviour
         flightSource.spatialBlend = 0f;
         flightSource.dopplerLevel = 0f;
         flightSource.priority = 64;
-        flightSource.volume = 0f;
+        AudioCategoryGain.Set(flightSource, 0f);
         flightSource.pitch = idleLoopPitch;
     }
 
@@ -391,7 +393,7 @@ public class CCTVDroneController : MonoBehaviour
         currentPitch = Mathf.MoveTowards(currentPitch, targetPitch, loopPitchSmooth * Time.deltaTime);
         currentVolume = Mathf.MoveTowards(currentVolume, targetVolume, loopVolumeSmooth * Time.deltaTime);
         flightSource.pitch = currentPitch;
-        flightSource.volume = currentVolume;
+        AudioCategoryGain.Set(flightSource, currentVolume);
 
         if (currentVolume > 0.001f)
         {
