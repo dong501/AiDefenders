@@ -1,0 +1,33 @@
+{
+  "slide_count": 1,
+  "size_mm": [
+    594,
+    719
+  ],
+  "black_text_only": true,
+  "margins_mm": {
+    "horizontal": 40,
+    "vertical": 30
+  },
+  "text_overflow": false,
+  "images": [
+    {
+      "file": "01_GrasslandTurret.png",
+      "pixels": [
+        6000,
+        1800
+      ],
+      "dpi_at_514mm": 296
+    },
+    {
+      "file": "02_SystemArchitecture.png",
+      "pixels": [
+        6000,
+        1800
+      ],
+      "dpi_at_514mm": 296
+    }
+  ],
+  "embedded_font_parts": 3,
+  "zip": "포트폴리오_동현우_유기현.zip"
+}

@@ -1,0 +1,90 @@
+﻿[
+    {
+        "Name":  "ProjectTitle",
+        "Font":  "HY견고딕",
+        "Size":  44,
+        "BoundHeight":  51.8,
+        "BoxHeight":  56.7,
+        "Overflow":  false
+    },
+    {
+        "Name":  "TeamAndAdvisor",
+        "Font":  "맑은 고딕",
+        "Size":  28,
+        "BoundHeight":  34.3,
+        "BoxHeight":  42.5,
+        "Overflow":  false
+    },
+    {
+        "Name":  "OverviewHeading",
+        "Font":  "HY견고딕",
+        "Size":  44,
+        "BoundHeight":  51.8,
+        "BoxHeight":  56.7,
+        "Overflow":  false
+    },
+    {
+        "Name":  "TechnologyHeading",
+        "Font":  "HY견고딕",
+        "Size":  44,
+        "BoundHeight":  51.8,
+        "BoxHeight":  56.7,
+        "Overflow":  false
+    },
+    {
+        "Name":  "OverviewBody",
+        "Font":  "맑은 고딕",
+        "Size":  30,
+        "BoundHeight":  278.7,
+        "BoxHeight":  317.5,
+        "Overflow":  false
+    },
+    {
+        "Name":  "TechnologyBody",
+        "Font":  "맑은 고딕",
+        "Size":  28,
+        "BoundHeight":  297.7,
+        "BoxHeight":  317.5,
+        "Overflow":  false
+    },
+    {
+        "Name":  "PhotosHeading",
+        "Font":  "HY견고딕",
+        "Size":  44,
+        "BoundHeight":  51.8,
+        "BoxHeight":  56.7,
+        "Overflow":  false
+    },
+    {
+        "Name":  "GrasslandCaption",
+        "Font":  "맑은 고딕",
+        "Size":  28,
+        "BoundHeight":  34.3,
+        "BoxHeight":  42.5,
+        "Overflow":  false
+    },
+    {
+        "Name":  "ArchitectureCaption",
+        "Font":  "맑은 고딕",
+        "Size":  28,
+        "BoundHeight":  34.3,
+        "BoxHeight":  42.5,
+        "Overflow":  false
+    },
+    {
+        "Name":  "ConclusionHeading",
+        "Font":  "HY견고딕",
+        "Size":  44,
+        "BoundHeight":  51.8,
+        "BoxHeight":  56.7,
+        "Overflow":  false
+    },
+    {
+        "Name":  "ConclusionBody",
+        "Font":  "맑은 고딕",
+        "Size":  30,
+        "BoundHeight":  117.4,
+        "BoxHeight":  124.7,
+        "Overflow":  false
+    }
+]
