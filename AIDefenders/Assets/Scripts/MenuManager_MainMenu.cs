@@ -393,6 +393,7 @@ public class MenuManager_MainMenu : MonoBehaviour
         rays.transform.SetParent(background.transform, false);
         UiFont.Stretch(rays.GetComponent<RectTransform>());
         rays.GetComponent<TitleScreenRays>().raycastTarget = false;
+        MenuEnergyParticles.Create(background.transform);
         var logo = new GameObject("MenuLogo", typeof(RectTransform), typeof(RawImage));
         logo.transform.SetParent(background.transform, false);
         var logoImage = logo.GetComponent<RawImage>();
@@ -404,11 +405,12 @@ public class MenuManager_MainMenu : MonoBehaviour
         UiLogoDepth.Apply(logoImage);
         Text subtitle = UiFont.AddText(background.transform, "Subtitle", "인식하고, 연구하고, 방어하라", 28, TextAnchor.MiddleCenter, Color.white, UiType.BodyBold);
         UiSkin.Place(subtitle.rectTransform, new Vector2(.5f, .70f), Vector2.zero, new Vector2(1000, 60));
-        MenuTurret(background.transform, "Build_Turret_Test Missile", new Vector2(.20f, .59f), -12, true);
-        MenuTurret(background.transform, "Build_Turret_Test Laser", new Vector2(.80f, .59f), 12, false);
-        MenuTurret(background.transform, "Build_Turret_MG", new Vector2(.20f, .37f), 8, true);
-        MenuTurret(background.transform, "Build_Turret_PrecisionShot", new Vector2(.80f, .37f), -8, false);
-        UiSkin.Preview(background.transform, "Build_Turret_MG", new Vector2(.5f, .49f), new Vector2(580, 435));
+        MenuTurret(background.transform, "Menu_Tier1_Missile", new Vector2(.20f, .59f), -12, true);
+        MenuTurret(background.transform, "Menu_Tier1_Laser", new Vector2(.80f, .59f), 12, false);
+        MenuTurret(background.transform, "Menu_Tier1_Plasma", new Vector2(.20f, .37f), 8, true);
+        MenuTurret(background.transform, "Menu_Tier1_Precision", new Vector2(.80f, .37f), -8, false);
+        var centerTurret = UiSkin.Preview(background.transform, "Menu_Tier1_MachineGun", new Vector2(.5f, .49f), new Vector2(580, 435));
+        if (centerTurret != null) UiAmbientMotion.Apply(centerTurret.rectTransform,0,20,1.8f,.025f,1.2f);
         UiSkin.Button(background.transform, "Settings", "설정", UiSkin.Sky, new Vector2(1, 1), new Vector2(-120, -65), new Vector2(180, 76)).onClick.AddListener(() =>
         {
             if (!AudioSettingsUi.IsOpen) settingsPanel = AudioSettingsUi.Create(canvas.transform);
@@ -417,7 +419,7 @@ public class MenuManager_MainMenu : MonoBehaviour
         {
             if (!AudioSettingsUi.IsOpen) AudioSettingsUi.CreateHelp(canvas.transform);
         });
-        UiSkin.Button(background.transform, "Campaign", "캠페인 시작  ›", UiSkin.Gold, new Vector2(.5f, .28f), Vector2.zero, new Vector2(600, 110)).onClick.AddListener(OpenCampaign);
+        UiSkin.Button(background.transform, "Campaign", "게임 시작  ›", UiSkin.Gold, new Vector2(.5f, .28f), Vector2.zero, new Vector2(600, 110)).onClick.AddListener(OpenCampaign);
         UiSkin.Button(background.transform, "TurretLab", "포탑 연구소", UiSkin.Blue, new Vector2(.32f, .15f), Vector2.zero, new Vector2(360, 100)).onClick.AddListener(() => LoadScene("TurretLab"));
         UiSkin.Button(background.transform, "DatasetFactory", "데이터셋 팩토리", UiSkin.Blue, new Vector2(.55f, .15f), Vector2.zero, new Vector2(420, 100)).onClick.AddListener(() => LoadScene("DatasetGeneratorScene"));
         UiSkin.Button(background.transform, "Quit", "종료", UiSkin.Navy, new Vector2(.77f, .15f), Vector2.zero, new Vector2(280, 100)).onClick.AddListener(QuitGame);
@@ -429,6 +431,7 @@ public class MenuManager_MainMenu : MonoBehaviour
         if (preview == null) return;
         preview.rectTransform.localRotation = Quaternion.Euler(0, 0, angle);
         if (mirror) preview.uvRect = new Rect(1, 0, -1, 1);
+        UiAmbientMotion.Apply(preview.rectTransform,anchor.x*8+anchor.y*3,16,2.3f);
     }
 
     void ApplyMainMenuFonts()

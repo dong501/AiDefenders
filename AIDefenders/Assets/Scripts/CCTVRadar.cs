@@ -3,7 +3,8 @@ using UnityEngine;
 public class CCTVRadar : MonoBehaviour
 {
     public float range = 45f;
-    public float size = 168f;
+    public const float DefaultSize = 240f;
+    public float size = DefaultSize;
     public float margin = 16f;
     public float blipSize = 7f;
 

@@ -1,0 +1,1 @@
+PASS: platform placement and build menu preserved at Prep -> Combat; four cover turrets, no center plasma; both native skill pictograms produce UI geometry.

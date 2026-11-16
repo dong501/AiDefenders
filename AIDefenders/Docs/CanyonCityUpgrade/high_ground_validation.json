@@ -1,0 +1,40 @@
+{
+  "highGround": [
+    {
+      "pad": "HighGround_-1_-10",
+      "position": "(-48.62, 14.38, -9.76)",
+      "distance": 19.2586613,
+      "withinPrecisionRange": true,
+      "blockers": [],
+      "ground": "HighGround_-1_-10"
+    },
+    {
+      "pad": "HighGround_-1_19",
+      "position": "(-32.50, 14.38, 19.24)",
+      "distance": 21.5552063,
+      "withinPrecisionRange": true,
+      "blockers": [],
+      "ground": "HighGround_-1_19"
+    },
+    {
+      "pad": "HighGround_1_-10",
+      "position": "(20.17, 17.38, -9.76)",
+      "distance": 20.4071522,
+      "withinPrecisionRange": true,
+      "blockers": [],
+      "ground": "HighGround_1_-10"
+    },
+    {
+      "pad": "HighGround_1_19",
+      "position": "(0.65, 17.38, 19.24)",
+      "distance": 22.9468288,
+      "withinPrecisionRange": true,
+      "blockers": [],
+      "ground": "HighGround_1_19"
+    }
+  ],
+  "routeSamples": 212,
+  "blockedRouteSamples": [],
+  "spawners": 2,
+  "limit": "Center: (0.00, 35.00, -70.00), Extents: (195.00, 55.00, 215.00)"
+}

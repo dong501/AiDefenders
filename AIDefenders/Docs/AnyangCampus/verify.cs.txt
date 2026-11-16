@@ -1,0 +1,17 @@
+var s=UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Scenes/GameStages/AnyangCampus/AnyangCampus_1.unity",UnityEditor.SceneManagement.OpenSceneMode.Additive);
+try {
+var roots=s.GetRootGameObjects();var all=roots.SelectMany(g=>g.GetComponentsInChildren<Transform>(true)).ToArray();
+if(all.Any(t=>UnityEditor.GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(t.gameObject)>0))throw new Exception("Missing script");
+var d=all.Select(t=>t.GetComponent<WaveDirector>()).First(t=>t);var placer=d.GetComponent<TurretPlatformPlacer>();
+if(d.spawners.Length!=2||d.stage.waves.Length!=3||!d.preparationCamera||!d.waveCamera||!placer.platformPrefab)throw new Exception("Incomplete gameplay references");
+if(d.stage.waves.SelectMany(w=>w.groups).Any(g=>!d.spawners.Any(sp=>sp.Id==g.spawnerId)||g.targets.Any(t=>!t.prefab)))throw new Exception("Broken wave group");
+Physics.SyncTransforms();int samples=0,roofHits=0;float error=0;
+foreach(var sp in d.spawners){var p=sp.paths[0].GetWorldPoints();if(p.Length<5||(p.Last()-sp.destination.position).magnitude>2)throw new Exception("Incomplete route");
+foreach(var v in p){var hits=Physics.RaycastAll(v+Vector3.up*80,Vector3.down,100,sp.groundMask,QueryTriggerInteraction.Ignore).Where(h=>h.collider.gameObject.scene==s).OrderBy(h=>h.distance).ToArray();if(hits.Length==0)throw new Exception("Route without ground");var hit=hits[0];error=Mathf.Max(error,Mathf.Abs(hit.point.y-v.y));if(hit.point.y>v.y+2)roofHits++;samples++;}}
+if(roofHits>0)throw new Exception("Route intersects building roof: "+roofHits);
+if(error>1)throw new Exception("Route exceeds ground tolerance: "+error);
+int valid=0;foreach(var surface in all.Select(t=>t.GetComponent<TurretBuildSurface>()).Where(t=>t)){var c=surface.GetComponent<Collider>();if(!c)throw new Exception("Surface lacks collider");var p=c.bounds.center+Vector3.up*(c.bounds.extents.y+1);RaycastHit hit;if(c.Raycast(new Ray(p,Vector3.down),out hit,100)&&TurretPlacementRules.Allows(hit,new Vector3(.8f,.1f,.8f)))valid++;}
+if(valid<6)throw new Exception("Too few buildable surfaces: "+valid);
+if(!UnityEditor.EditorBuildSettings.scenes.Any(e=>e.enabled&&e.path==s.path))throw new Exception("Scene missing from build");
+return "PASS: no missing scripts; 2 connected spawn routes; 3 valid waves; "+samples+" route samples, maximum surface offset "+error.ToString("F2")+"m, no roof intersections; "+valid+" surfaces support platform footprints; scene in build settings.";
+}finally{UnityEditor.SceneManagement.EditorSceneManager.CloseScene(s,true);}

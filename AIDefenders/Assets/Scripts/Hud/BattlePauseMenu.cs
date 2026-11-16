@@ -34,7 +34,7 @@ public class BattlePauseMenu : MonoBehaviour
             if (!AudioSettingsUi.IsOpen) AudioSettingsUi.Create(canvas);
         });
         UiSkin.Button(panel.transform, "Continue", "▶  계속하기", UiSkin.Green, new Vector2(.5f, .30f), Vector2.zero, new Vector2(700, 84)).onClick.AddListener(Resume);
-        UiSkin.Button(panel.transform, "Restart", "다시 시작", UiSkin.Blue, new Vector2(.29f, .12f), Vector2.zero, new Vector2(320, 72)).onClick.AddListener(() => Leave(SceneManager.GetActiveScene().name));
+        UiSkin.Button(panel.transform, "Restart", "다시하기", UiSkin.Blue, new Vector2(.29f, .12f), Vector2.zero, new Vector2(320, 72)).onClick.AddListener(() => Leave(SceneManager.GetActiveScene().name));
         UiSkin.Button(panel.transform, "Home", "메인 메뉴", UiSkin.Blue, new Vector2(.71f, .12f), Vector2.zero, new Vector2(320, 72)).onClick.AddListener(() => Leave("MainMenu"));
         overlay.SetActive(false);
     }

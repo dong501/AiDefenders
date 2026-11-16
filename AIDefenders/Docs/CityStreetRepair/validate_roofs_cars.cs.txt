@@ -1,0 +1,10 @@
+﻿var s=UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Scenes/GameStages/City/City_1.unity",UnityEditor.SceneManagement.OpenSceneMode.Additive);try{
+var roots=s.GetRootGameObjects();var urban=roots.First(g=>g.name=="City_Urban_Refinement").transform;
+int roofErrors=0;foreach(Transform body in urban){var lid=body.Find(body.name+"_Roof");if(lid&&Vector2.Distance(new Vector2(lid.position.x,lid.position.z),new Vector2(body.position.x,body.position.z))>.01f)roofErrors++;}
+var buildings=roots.Where(g=>g.name=="City_Urban_Refinement"||g.name=="City_Diverse_Skyline").SelectMany(g=>g.GetComponentsInChildren<MeshRenderer>()).Where(r=>r.gameObject.activeInHierarchy&&r.bounds.size.y>4&&r.bounds.min.y<1).ToArray();
+var names=new HashSet<string>{"CitySedan","CitySUV","CityMini","CityHatchback","CityTaxi","CityMinivan","CityWagon","CityCoupe","CityPickup","DeliveryVan","CityBoxTruck"};
+var cars=roots.First(g=>g.name=="City_FourWay_Streetscape").GetComponentsInChildren<MeshRenderer>().Where(r=>r.gameObject.activeInHierarchy&&names.Contains(r.name)).ToArray();int hits=0,pairs=0,ungrounded=0;var details=new List<string>();
+foreach(var car in cars){var b=car.bounds;if(buildings.Any(r=>r.bounds.Intersects(b))){hits++;details.Add("Building hit: "+car.name+" "+b.center);}if(Mathf.Abs(b.min.y-.045f)>.01f)ungrounded++;}
+for(int i=0;i<cars.Length;i++)for(int j=i+1;j<cars.Length;j++)if(cars[i].bounds.Intersects(cars[j].bounds))pairs++;
+var result="Roof alignment errors: "+roofErrors+"; road cars checked: "+cars.Length+"; building collisions: "+hits+"; vehicle collisions: "+pairs+"; grounding errors: "+ungrounded;details.Insert(0,result);System.IO.File.WriteAllLines("Docs/CityRoofVehicleRepair/Validation.txt",details.ToArray());return string.Join("\n",details.ToArray());
+}finally{UnityEditor.SceneManagement.EditorSceneManager.CloseScene(s,true);}

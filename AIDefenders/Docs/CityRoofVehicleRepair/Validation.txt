@@ -1,0 +1,1 @@
+Roof alignment errors: 0; road cars checked: 34; building collisions: 0; vehicle collisions: 0; grounding errors: 0

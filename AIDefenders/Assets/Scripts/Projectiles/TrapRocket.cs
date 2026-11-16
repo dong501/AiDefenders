@@ -61,23 +61,8 @@ public class TrapRocket : Projectile_Base
             return;
         }
 
-        Vector3 aim = homingTarget.position;
         Target_Base body = homingTarget.GetComponentInParent<Target_Base>();
-        if (body != null)
-            aim = body.GetAimPoint(transform.position);
-
-        Vector3 toTarget = (aim - transform.position).normalized;
-        float speed = velocity.magnitude;
-        if (speed <= 0.01f)
-            return;
-
-        Vector3 newDir = Vector3.RotateTowards(
-            velocity.normalized,
-            toTarget,
-            homingTurnRate * Mathf.Deg2Rad * deltaTime,
-            0f
-        );
-        velocity = newDir * speed;
+        velocity = SkillGuidance.Steer(velocity,body,transform.position,homingTurnRate,deltaTime);
     }
 
     protected override void TickMove(float deltaTime)
@@ -94,7 +79,7 @@ public class TrapRocket : Projectile_Base
             velocity += Vector3.down * gravity * deltaTime;
         }
 
-        transform.position += velocity * deltaTime;
+        AdvanceWithSweep(velocity * deltaTime);
         AlignToVelocity();
     }
 
@@ -137,7 +122,7 @@ public class TrapRocket : Projectile_Base
         if (target == null)
             target = homingTarget.GetComponentInParent<Target_Base>();
 
-        return target != null && !target.isDead;
+        return SkillGuidance.Valid(target);
     }
 
     void AlignToVelocity()

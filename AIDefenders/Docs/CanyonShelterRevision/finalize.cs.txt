@@ -1,0 +1,11 @@
+CanyonShelterRevision.Apply();
+foreach(var path in new[]{"Assets/Scenes/GameStages/City/City_1.unity","Assets/Scenes/GameStages/Desert/Desert_1.unity"})
+{
+ var s=UnityEngine.SceneManagement.SceneManager.GetSceneByPath(path);UnityEditor.SceneManagement.EditorSceneManager.CloseScene(s,true);
+ s=UnityEditor.SceneManagement.EditorSceneManager.OpenScene(path,UnityEditor.SceneManagement.OpenSceneMode.Additive);
+ if(s.name=="City_1")CanyonShelterRevision.ValidateCity(s);else CanyonShelterRevision.ValidateDesert(s);
+}
+CanyonAndCityVisualUpgrade.Capture("Assets/Scenes/GameStages/Desert/Desert_1.unity","Shallow_Canyon_Overview",new UnityEngine.Vector3(90,98,60),new UnityEngine.Vector3(0,0,-32));
+CanyonAndCityVisualUpgrade.Capture("Assets/Scenes/GameStages/Desert/Desert_1.unity","Shallow_Canyon_Rim",new UnityEngine.Vector3(-25,15,19),new UnityEngine.Vector3(-38,2,-27));
+CanyonAndCityVisualUpgrade.Capture("Assets/Scenes/GameStages/City/City_1.unity","Shelter_Clearance_North",new UnityEngine.Vector3(-32,27,-52),new UnityEngine.Vector3(0,2,-85));
+return "Saved scenes reloaded; clearance, all route lanes, ground colliders and firing lines verified.";

@@ -1,0 +1,338 @@
+[
+  {
+    "name": "GrasslandFeedTrough",
+    "source": "초원_양목장_소품_3종"
+  },
+  {
+    "name": "GrasslandHayBales",
+    "source": "초원_양목장_소품_3종"
+  },
+  {
+    "name": "GrasslandOrchardWagon",
+    "source": "초원_과수원_소품_3종"
+  },
+  {
+    "name": "GrasslandAppleCrates",
+    "source": "초원_과수원_소품_3종"
+  },
+  {
+    "name": "GrasslandScarecrow",
+    "source": "초원_과수원_소품_3종"
+  },
+  {
+    "name": "FarmPumpkinPatch",
+    "source": "초원_농장경작_9종"
+  },
+  {
+    "name": "FarmBeehive",
+    "source": "초원_농장경작_9종"
+  },
+  {
+    "name": "FarmWheelbarrow",
+    "source": "초원_농장경작_9종"
+  },
+  {
+    "name": "FarmWateringCan",
+    "source": "초원_농장경작_9종"
+  },
+  {
+    "name": "FarmToolShed",
+    "source": "초원_농장경작_9종"
+  },
+  {
+    "name": "GrasslandAppleTree",
+    "source": "초원_특색나무_3종"
+  },
+  {
+    "name": "GrasslandBirchTree",
+    "source": "초원_특색나무_3종"
+  },
+  {
+    "name": "ForestFallenLog",
+    "source": "초원_숲바닥자연물_9종"
+  },
+  {
+    "name": "ForestMushroomCluster",
+    "source": "초원_숲바닥자연물_9종"
+  },
+  {
+    "name": "ForestFern",
+    "source": "초원_숲바닥자연물_9종"
+  },
+  {
+    "name": "Windmill",
+    "source": "초원_헛간_풍차_건초_세트"
+  },
+  {
+    "name": "RuinGate",
+    "source": "사막_유적_소품_세트"
+  },
+  {
+    "name": "BrokenColumn",
+    "source": "사막_유적_소품_세트"
+  },
+  {
+    "name": "FallenColumn",
+    "source": "사막_유적_소품_세트"
+  },
+  {
+    "name": "BrokenRuinWall",
+    "source": "사막_유적_소품_세트"
+  },
+  {
+    "name": "RuinObelisk",
+    "source": "사막_유적_소품_세트"
+  },
+  {
+    "name": "DesertMarketStall",
+    "source": "사막_마을생활_9종"
+  },
+  {
+    "name": "DesertClayJars",
+    "source": "사막_마을생활_9종"
+  },
+  {
+    "name": "DesertWaterCistern",
+    "source": "사막_마을생활_9종"
+  },
+  {
+    "name": "DesertCarpetRack",
+    "source": "사막_마을생활_9종"
+  },
+  {
+    "name": "DesertDatePalm",
+    "source": "사막_마을생활_9종"
+  },
+  {
+    "name": "FieldTent",
+    "source": "군용_천막_보급품_세트"
+  },
+  {
+    "name": "SupplyCrate",
+    "source": "군용_천막_보급품_세트"
+  },
+  {
+    "name": "DrumPallet",
+    "source": "군용_천막_보급품_세트"
+  },
+  {
+    "name": "ParkSlattedBench",
+    "source": "도시_공원시설_9종"
+  },
+  {
+    "name": "ParkCoveredBin",
+    "source": "도시_공원시설_9종"
+  },
+  {
+    "name": "ParkShrubPlanter",
+    "source": "도시_공원시설_9종"
+  },
+  {
+    "name": "ParkPicnicTable",
+    "source": "도시_공원시설_9종"
+  },
+  {
+    "name": "ParkInformationBooth",
+    "source": "도시_공원시설_9종"
+  },
+  {
+    "name": "RuinsCollapsedWarehouse",
+    "source": "도시_폐허건물_9종"
+  },
+  {
+    "name": "RuinsAbandonedCafe",
+    "source": "도시_폐허건물_9종"
+  },
+  {
+    "name": "RuinsStandingFacade",
+    "source": "도시_폐허건물_9종"
+  },
+  {
+    "name": "CitySedan",
+    "source": "도시_민간자동차_세단_에스유브이_세트"
+  },
+  {
+    "name": "CitySUV",
+    "source": "도시_민간자동차_세단_에스유브이_세트"
+  },
+  {
+    "name": "CityMini",
+    "source": "도시_경차_해치백_세트"
+  },
+  {
+    "name": "CityHatchback",
+    "source": "도시_경차_해치백_세트"
+  },
+  {
+    "name": "CityTaxi",
+    "source": "도시용_택시_미니밴_2종"
+  },
+  {
+    "name": "CityMinivan",
+    "source": "도시용_택시_미니밴_2종"
+  },
+  {
+    "name": "CityWagon",
+    "source": "도시용_스테이션왜건_쿠페_2종"
+  },
+  {
+    "name": "CityCoupe",
+    "source": "도시용_스테이션왜건_쿠페_2종"
+  },
+  {
+    "name": "CityPickup",
+    "source": "도시용_픽업트럭_소형탑차_2종"
+  },
+  {
+    "name": "CityBoxTruck",
+    "source": "도시용_픽업트럭_소형탑차_2종"
+  },
+  {
+    "name": "DeliveryVan",
+    "source": "도시_민간_택배배송밴"
+  },
+  {
+    "name": "PoliceCar",
+    "source": "도시_경찰_순찰차"
+  },
+  {
+    "name": "VendingMachine",
+    "source": "도시_생활시설_소품_세트"
+  },
+  {
+    "name": "ATMTerminal",
+    "source": "도시_생활시설_소품_세트"
+  },
+  {
+    "name": "FireHydrant",
+    "source": "도시_생활시설_소품_세트"
+  },
+  {
+    "name": "PostBox",
+    "source": "도시_생활시설_소품_세트"
+  },
+  {
+    "name": "PhoneBooth",
+    "source": "도시_생활시설_소품_세트"
+  },
+  {
+    "name": "BicycleRack",
+    "source": "도시_생활시설_소품_세트"
+  },
+  {
+    "name": "ConstructionScaffold",
+    "source": "도시_공사현장_9종"
+  },
+  {
+    "name": "ConstructionCementMixer",
+    "source": "도시_공사현장_9종"
+  },
+  {
+    "name": "ConstructionConcretePipe",
+    "source": "도시_공사현장_9종"
+  },
+  {
+    "name": "ConstructionCableReel",
+    "source": "도시_공사현장_9종"
+  },
+  {
+    "name": "ConstructionRoadworkFence",
+    "source": "도시_공사현장_9종"
+  },
+  {
+    "name": "ConstructionWorkLight",
+    "source": "도시_공사현장_9종"
+  },
+  {
+    "name": "ResidentialRecyclingBins",
+    "source": "도시_주거골목_9종"
+  },
+  {
+    "name": "ResidentialMailboxBank",
+    "source": "도시_주거골목_9종"
+  },
+  {
+    "name": "ResidentialTreePlanter",
+    "source": "도시_주거골목_9종"
+  },
+  {
+    "name": "StreetTree",
+    "source": "도시_기본소품_세트"
+  },
+  {
+    "name": "TreeOak",
+    "source": "초원_나무_덤불_바위_풀_세트"
+  },
+  {
+    "name": "BushWide",
+    "source": "초원_나무_덤불_바위_풀_세트"
+  },
+  {
+    "name": "Ambulance",
+    "source": "구급차"
+  },
+  {
+    "name": "GuardBooth",
+    "source": "검문소_차단기_세트"
+  },
+  {
+    "name": "ConcreteBarrier",
+    "source": "검문소_차단기_세트"
+  },
+  {
+    "name": "CheckpointSign",
+    "source": "검문소_차단기_세트"
+  },
+  {
+    "name": "BaseFieldGenerator",
+    "source": "군사기지_통신보급_9종"
+  },
+  {
+    "name": "BaseSupplyPallet",
+    "source": "군사기지_통신보급_9종"
+  },
+  {
+    "name": "SandbagStraight",
+    "source": "모래주머니_철조망_세트"
+  },
+  {
+    "name": "BarbedFence",
+    "source": "모래주머니_철조망_세트"
+  },
+  {
+    "name": "WireCoil",
+    "source": "모래주머니_철조망_세트"
+  },
+  {
+    "name": "Watchtower",
+    "source": "감시탑_탐조등_세트"
+  },
+  {
+    "name": "GroundSearchlight",
+    "source": "감시탑_탐조등_세트"
+  },
+  {
+    "name": "CrateStack",
+    "source": "군용_천막_보급품_세트"
+  },
+  {
+    "name": "JerryCan",
+    "source": "군용_천막_보급품_세트"
+  },
+  {
+    "name": "DesertRibbedCactus",
+    "source": "사막_탐사유적_9종 + 세로 능선·가시 보강"
+  },
+  {
+    "name": "DesertTallCactus",
+    "source": "사막_탐사유적_9종 + 세로 능선·가시 보강"
+  },
+  {
+    "name": "DesertYoungCactus",
+    "source": "사막_탐사유적_9종 + 세로 능선·가시 보강"
+  },
+  {
+    "name": "DesertDryShrubs",
+    "source": "사막_탐사유적_9종"
+  }
+]

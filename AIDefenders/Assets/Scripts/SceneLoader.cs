@@ -84,8 +84,21 @@ public class SceneLoader : MonoBehaviour
         overlay.alpha = 1f;
         overlay.blocksRaycasts = true;
         if (label != null)
-            label.text = string.IsNullOrEmpty(sceneName) ? "로딩 중" : sceneName + " 로딩 중";
+            label.text = LoadingLabel(sceneName);
         SetProgress(0f);
+    }
+
+    public static string LoadingLabel(string sceneName)
+    {
+        if(string.IsNullOrWhiteSpace(sceneName))return "로딩 중";
+        string name=System.IO.Path.GetFileNameWithoutExtension(sceneName).ToLowerInvariant();
+        if(name.Contains("grassfield") || name.Contains("grassfiled") || name.Contains("grassland"))return "초원 로딩 중";
+        if(name.Contains("desert"))return "사막 로딩 중";
+        if(name.Contains("city"))return "도시 로딩 중";
+        if(name.Contains("turretlab"))return "포탑 연구소 로딩 중";
+        if(name.Contains("dataset"))return "데이터셋 팩토리 로딩 중";
+        if(name.Contains("mainmenu"))return "메인 화면 로딩 중";
+        return "로딩 중";
     }
 
     void HideOverlay()

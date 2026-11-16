@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class AudioSettingsUi : MonoBehaviour
 {
@@ -76,7 +77,10 @@ public class AudioSettingsUi : MonoBehaviour
         var cameraTab = UiSkin.Button(card, "CameraTabButton", "카메라", UiSkin.Blue, new Vector2(.70f, .76f), Vector2.zero, new Vector2(340, 70));
         soundTab.onClick.AddListener(() => { audio.SetActive(true); camera.SetActive(false); soundTab.image.color = UiSkin.Gold; cameraTab.image.color = UiSkin.Blue; });
         cameraTab.onClick.AddListener(() => { audio.SetActive(false); camera.SetActive(true); soundTab.image.color = UiSkin.Blue; cameraTab.image.color = UiSkin.Gold; });
-        UiSkin.Button(card, "Close", "확인", UiSkin.Green, new Vector2(.5f, .075f), Vector2.zero, new Vector2(320, 72)).onClick.AddListener(controller.Close);
+        bool inStage=Object.FindFirstObjectByType<WaveDirector>()!=null;
+        UiSkin.Button(card, "Close", "확인", UiSkin.Green, new Vector2(inStage?.70f:.5f, .075f), Vector2.zero, new Vector2(320, 72)).onClick.AddListener(controller.Close);
+        if(inStage)
+            UiSkin.Button(card,"RestartStage","다시하기",UiSkin.Blue,new Vector2(.30f,.075f),Vector2.zero,new Vector2(320,72)).onClick.AddListener(controller.RestartStage);
         return controller;
     }
 
@@ -126,4 +130,14 @@ public class AudioSettingsUi : MonoBehaviour
     }
 
     void Close() { closedFrame = Time.frameCount; GameAudioSettings.Save(); Destroy(gameObject); }
+    public void RestartStage()
+    {
+        string scene=SceneManager.GetActiveScene().name;
+        if(Object.FindFirstObjectByType<WaveDirector>()==null)return;
+        var pause=Object.FindFirstObjectByType<BattlePauseMenu>();
+        if(pause!=null)pause.Resume();
+        Time.timeScale=1f;
+        Close();
+        SceneLoader.Load(scene);
+    }
 }

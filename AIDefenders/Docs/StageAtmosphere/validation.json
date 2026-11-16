@@ -1,0 +1,22 @@
+[
+  {
+    "scene": "Desert_1",
+    "samples": 145,
+    "blocked": [],
+    "activeAngularCanyon": false,
+    "visibleGroundCross": 0,
+    "gpParts": 0,
+    "activeTexturedTowers": 0,
+    "spawners": 2
+  },
+  {
+    "scene": "City_1",
+    "samples": 212,
+    "blocked": [],
+    "activeAngularCanyon": false,
+    "visibleGroundCross": 0,
+    "gpParts": 71,
+    "activeTexturedTowers": 36,
+    "spawners": 4
+  }
+]

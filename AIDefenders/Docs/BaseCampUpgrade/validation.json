@@ -1,0 +1,15 @@
+{
+  "tanks": 2,
+  "container_residences": 2,
+  "checkpoints": 4,
+  "decorative_colliders": 0,
+  "desert_route_samples": 212,
+  "maximum_ground_above_route": -0.04138434,
+  "compile_errors": 0,
+  "scenes_saved": true,
+  "photos": 6,
+  "resolution": [
+    1920,
+    1080
+  ]
+}

@@ -1,0 +1,5 @@
+var photos=new System.Collections.Generic.List<string>();
+photos.Add(CanyonAndCityVisualUpgrade.Capture("Assets/Scenes/GameStages/Desert/Desert_1.unity","Shallow_Canyon_Overview",new UnityEngine.Vector3(90,98,60),new UnityEngine.Vector3(0,0,-32)));
+photos.Add(CanyonAndCityVisualUpgrade.Capture("Assets/Scenes/GameStages/Desert/Desert_1.unity","Shallow_Canyon_Rim",new UnityEngine.Vector3(-25,15,19),new UnityEngine.Vector3(-38,2,-27)));
+photos.Add(CanyonAndCityVisualUpgrade.Capture("Assets/Scenes/GameStages/City/City_1.unity","Shelter_Clearance_North",new UnityEngine.Vector3(-32,27,-52),new UnityEngine.Vector3(0,2,-85)));
+return string.Join("\n",photos.ToArray());

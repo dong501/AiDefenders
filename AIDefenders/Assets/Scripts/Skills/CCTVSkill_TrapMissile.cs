@@ -13,7 +13,9 @@ public class CCTVSkill_TrapMissile : CCTVActiveSkill
     public float rocketSpeed = 32f;
     public float rocketLifetime = 6f;
     public float rocketDamage = 8f;
-    public float homingTurnRate = 220f;
+    public float homingTurnRate = 360f;
+    public float homingRange = 180f;
+    [Range(1,90)] public float homingConeAngle = 70f;
     public float spreadAngle = 32f;
     public float verticalSpread = 6f;
     public float muzzleOffset = 1.8f;
@@ -80,8 +82,8 @@ public class CCTVSkill_TrapMissile : CCTVActiveSkill
             if (rocket == null)
                 rocket = spawned.AddComponent<TrapRocket>();
 
-            Transform lockTarget = i < locks.Count && locks[i] != null
-                ? locks[i].transform
+            Transform lockTarget = locks.Count > 0 && locks[i % locks.Count] != null
+                ? locks[i % locks.Count].transform
                 : null;
 
             rocket.Init(
@@ -122,13 +124,15 @@ public class CCTVSkill_TrapMissile : CCTVActiveSkill
                 continue;
             if (ranked.Contains(sighting.target))
                 continue;
+            if(float.IsNegativeInfinity(SkillGuidance.Score(sighting.target,origin,forward,homingRange,homingConeAngle)) ||
+                !SkillGuidance.Visible(sighting.target,origin,transform))continue;
             ranked.Add(sighting.target);
         }
 
         ranked.Sort((a, b) =>
         {
-            float scoreA = LockScore(a, origin, forward);
-            float scoreB = LockScore(b, origin, forward);
+            float scoreA = SkillGuidance.Score(a, origin, forward, homingRange, homingConeAngle);
+            float scoreB = SkillGuidance.Score(b, origin, forward, homingRange, homingConeAngle);
             return scoreB.CompareTo(scoreA);
         });
 

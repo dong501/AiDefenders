@@ -1,0 +1,4 @@
+PASS: cone acquisition, wall rejection, dead target rejection.
+PASS: 40m/s dart guides to moving target and applies enemy identification.
+PASS: eight rockets all lock the single identified enemy.
+PASS: missile turns toward target and releases dead lock.

@@ -1,0 +1,30 @@
+var root=new GameObject("LabUiReview",typeof(RectTransform),typeof(Canvas));
+var cameraObject=new GameObject("LabUiReviewCamera",typeof(Camera));
+var rt=new RenderTexture(1920,1080,24);var previous=RenderTexture.active;Texture2D texture=null;
+try
+{
+ var camera=cameraObject.GetComponent<Camera>();camera.enabled=false;camera.targetTexture=rt;camera.orthographic=true;camera.orthographicSize=540;camera.transform.position=new Vector3(20000,20000,-10);camera.nearClipPlane=.01f;camera.farClipPlane=100;camera.cullingMask=1<<30;camera.clearFlags=CameraClearFlags.SolidColor;camera.backgroundColor=UiSkin.Navy;
+ root.transform.position=new Vector3(20000,20000,0);var canvas=root.GetComponent<Canvas>();canvas.renderMode=RenderMode.WorldSpace;canvas.worldCamera=camera;root.GetComponent<RectTransform>().sizeDelta=new Vector2(1920,1080);
+ var manager=root.AddComponent<MenuManager_TurretLab>();manager.turretCatalog=TurretTierModelConnection.Files.Select((f,i)=>new TurretLabEntry{prefab=TurretTierModelConnection.Prefab(i),displayName=TurretTierModelConnection.Names[i]}).ToArray();
+ var flags=System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance;
+ typeof(MenuManager_TurretLab).GetMethod("BuildLabPanel",flags).Invoke(manager,null);
+ typeof(MenuManager_TurretLab).GetMethod("CreateResearchOverview",flags).Invoke(manager,new object[]{manager.turretCatalog[0],new TurretResearchDef[0]});
+ typeof(MenuManager_TurretLab).GetMethod("CreatePaintOptions",flags).Invoke(manager,new object[]{manager.turretCatalog[0]});
+ var sidebar=root.transform.Find("Panel_TurretLab");var appearance=sidebar.Find("AppearanceSection");var body=appearance.Find("AppearanceContent");
+ if(body.gameObject.activeSelf)throw new Exception("Appearance must start collapsed");
+ var research=sidebar.Find("ResearchList");if(research.GetComponentsInChildren<Transform>(true).Any(t=>t.name=="TurretPaint"))throw new Exception("Paint still in research");
+ var button=appearance.GetComponentInChildren<UnityEngine.UI.Button>();button.onClick.Invoke();Canvas.ForceUpdateCanvases();UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(sidebar.GetComponent<RectTransform>());
+ var corners=new Vector3[4];appearance.GetComponent<RectTransform>().GetWorldCorners(corners);
+ var canvasCorners=new Vector3[4];root.GetComponent<RectTransform>().GetWorldCorners(canvasCorners);
+ if(corners[0].y<canvasCorners[0].y-.1f || !body.gameObject.activeSelf)throw new Exception("Appearance overflow");
+ foreach(var t in root.GetComponentsInChildren<Transform>(true))t.gameObject.layer=30;
+ camera.Render();RenderTexture.active=rt;texture=new Texture2D(1920,1080,TextureFormat.RGB24,false);texture.ReadPixels(new Rect(0,0,1920,1080),0,0);texture.Apply();System.IO.File.WriteAllBytes("Docs/PaletteSkillUpgrade/LabAppearance.png",texture.EncodeToPNG());
+ button.onClick.Invoke();if(body.gameObject.activeSelf)throw new Exception("Appearance did not collapse");
+ foreach(string scene in new[]{"Grassfield_1","Grassfield_2","Grassfield_3","grassfiled","Assets/Scenes/GameStages/GrassField/Grassfield_1.unity"})if(SceneLoader.LoadingLabel(scene)!="초원 로딩 중")throw new Exception("Loading localization failed");
+ var symbol=new GameObject("Symbol",typeof(RectTransform),typeof(CanvasRenderer),typeof(UiSkillSymbol));symbol.transform.SetParent(root.transform,false);var graphic=symbol.GetComponent<UiSkillSymbol>();var method=typeof(UiSkillSymbol).GetMethod("OnPopulateMesh",flags|System.Reflection.BindingFlags.DeclaredOnly);
+ var hashes=new System.Collections.Generic.List<string>();
+ foreach(float phase in new[]{0f,1f})using(var vh=new UnityEngine.UI.VertexHelper()){graphic.previewPhase=phase;method.Invoke(graphic,new object[]{vh});var vertices=new System.Collections.Generic.List<UnityEngine.UIVertex>();vh.GetUIVertexStream(vertices);hashes.Add(string.Join("|",vertices.Select(v=>v.position.ToString()+v.color.ToString()).ToArray()));}
+ if(hashes[0]!=hashes[1])throw new Exception("Identification icon still animates");
+ return "PASS: appearance collapsed by default, separate from research, expands within 1080p layout and collapses; localized grassland labels; icon geometry and gradient remain static.";
+}
+finally{RenderTexture.active=previous;UnityEngine.Object.DestroyImmediate(root);UnityEngine.Object.DestroyImmediate(cameraObject);rt.Release();UnityEngine.Object.DestroyImmediate(rt);if(texture)UnityEngine.Object.DestroyImmediate(texture);}

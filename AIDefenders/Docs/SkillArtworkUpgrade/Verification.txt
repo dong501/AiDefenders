@@ -1,0 +1,1 @@
+PASS: supplied transparent sprites in real HudSkillUi; no fallback overlap; dart prefab reference preserved; core enemy/friendly tints; shared silver/fin materials unchanged; +Z travel 40m/s; outward core normals.

@@ -15,6 +15,9 @@ public class CCTVSkill_IdentificationDart : CCTVActiveSkill
     public float dartGravity = 0f;
     public float dartLifetime = 5f;
     public float muzzleOffset = 1.6f;
+    public float homingTurnRate = 300f;
+    public float homingRange = 180f;
+    [Range(1,45)] public float homingConeAngle = 14f;
     public SfxEvent fireSfx;
 
     bool primed;
@@ -110,6 +113,7 @@ public class CCTVSkill_IdentificationDart : CCTVActiveSkill
         if (direction.sqrMagnitude < 0.0001f)
             direction = transform.forward;
         direction.Normalize();
+        Target_Base lockTarget = SkillGuidance.AcquireDart(origin, direction, transform, homingRange, homingConeAngle);
 
         Quaternion rotation = Quaternion.LookRotation(direction);
         GameObject spawned = Instantiate(dartPrefab, origin, rotation);
@@ -126,6 +130,7 @@ public class CCTVSkill_IdentificationDart : CCTVActiveSkill
             asEnemy,
             transform
         );
+        dart.SetGuidance(lockTarget, homingTurnRate);
         GameSfx.PlayWorld(fireSfx, origin);
 
         primed = false;

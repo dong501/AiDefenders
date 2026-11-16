@@ -1,0 +1,7 @@
+﻿var report=new System.Collections.Generic.List<string>();
+foreach(var guid in UnityEditor.AssetDatabase.FindAssets("t:Prefab",new[]{"Assets/Turrets"})){
+var p=UnityEditor.AssetDatabase.GUIDToAssetPath(guid);var g=UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(p);var t=g.GetComponent<TurretController>();if(t==null)continue;
+report.Add(p+" : "+t.displayName+" group="+t.researchGroup+" scale="+g.transform.localScale+" tiers="+t.MaxLevel);
+foreach(var tier in t.upgradeTiers)report.Add("  "+tier.label+" root="+(tier.visualRoot==null?"NULL":tier.visualRoot.name)+" barrel="+(tier.barrel==null?"NULL":tier.barrel.name)+" fp="+(tier.firePoint==null?"NULL":tier.firePoint.localPosition.ToString())+" damage="+tier.damageScale+" cost="+tier.upgradeCost);
+report.Add("Children: "+string.Join(",",g.transform.Cast<Transform>().Select(c=>c.name).ToArray()));}
+return string.Join("\n",report.ToArray());

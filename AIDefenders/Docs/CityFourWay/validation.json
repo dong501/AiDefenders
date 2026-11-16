@@ -1,0 +1,33 @@
+﻿{
+    "wave_totals_before":  [
+                               52,
+                               52,
+                               40,
+                               73,
+                               92
+                           ],
+    "wave_totals_after":  [
+                              52,
+                              52,
+                              40,
+                              73,
+                              92
+                          ],
+    "runtime_smoke":  {
+                          "directions":  4,
+                          "reached_goal":  4,
+                          "base_hp_before":  1000,
+                          "base_hp_after":  996,
+                          "runtime_errors":  0,
+                          "yolo_tested":  false
+                      },
+    "scene_checks":  {
+                         "spawners":  4,
+                         "all_paths_connected":  true,
+                         "new_streetscape_objects":  83,
+                         "new_vehicles":  36,
+                         "missing_materials":  0,
+                         "decorative_colliders":  0,
+                         "incorrect_layers":  0
+                     }
+}

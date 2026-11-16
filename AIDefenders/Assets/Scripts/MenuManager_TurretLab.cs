@@ -41,6 +41,7 @@ public class MenuManager_TurretLab : MonoBehaviour
 
     Transform turretListContent;
     Transform researchListContent;
+    Transform appearanceContent;
     Text pointsText;
     Image[] turretRowImages = new Image[0];
     int selectedIndex = -1;
@@ -147,7 +148,7 @@ public class MenuManager_TurretLab : MonoBehaviour
         layout.childForceExpandHeight = false;
 
         AddSectionLabel(sidebarRt, "포탑");
-        turretListContent = CreateScrollSection(sidebarRt, "TurretList", 240f);
+        turretListContent = CreateScrollSection(sidebarRt, "TurretList", 200f);
         AddSectionLabel(sidebarRt, "연구");
         researchListContent = CreateScrollSection(sidebarRt, "ResearchList", 380f);
 
@@ -168,6 +169,8 @@ public class MenuManager_TurretLab : MonoBehaviour
         pointsText.rectTransform.offsetMin = new Vector2(16f, 0f);
         pointsText.rectTransform.offsetMax = new Vector2(-16f, 0f);
 
+        BuildAppearanceSection(sidebarRt);
+
         RebuildTurretList();
         RefreshResearchPoints();
     }
@@ -178,6 +181,27 @@ public class MenuManager_TurretLab : MonoBehaviour
         LayoutElement layout = text.gameObject.AddComponent<LayoutElement>();
         layout.minHeight = 36f;
         layout.preferredHeight = 36f;
+    }
+
+    void BuildAppearanceSection(Transform parent)
+    {
+        Image frame=UiFont.AddImage(parent,"AppearanceSection",UiSkin.Navy);
+        var sizing=frame.gameObject.AddComponent<LayoutElement>();sizing.minHeight=sizing.preferredHeight=60;
+        var layout=frame.gameObject.AddComponent<VerticalLayoutGroup>();layout.padding=new RectOffset(8,8,8,8);layout.spacing=8;
+        layout.childControlHeight=layout.childControlWidth=true;layout.childForceExpandHeight=false;
+        var header=UiSkin.Button(frame.transform,"AppearanceToggle","외형 · 색상 변경  ›",UiSkin.Panel,Vector2.zero,Vector2.zero,new Vector2(440,44));
+        var headerSize=header.gameObject.AddComponent<LayoutElement>();headerSize.minHeight=headerSize.preferredHeight=44;
+        header.GetComponentInChildren<Text>().fontSize=20;
+        var body=new GameObject("AppearanceContent",typeof(RectTransform),typeof(VerticalLayoutGroup),typeof(LayoutElement));
+        body.transform.SetParent(frame.transform,false);appearanceContent=body.transform;
+        var bodySize=body.GetComponent<LayoutElement>();bodySize.minHeight=bodySize.preferredHeight=354;
+        var bodyLayout=body.GetComponent<VerticalLayoutGroup>();bodyLayout.childControlWidth=bodyLayout.childControlHeight=true;bodyLayout.childForceExpandHeight=false;
+        body.SetActive(false);
+        header.onClick.AddListener(()=>
+        {
+            bool open=!body.activeSelf;body.SetActive(open);sizing.minHeight=sizing.preferredHeight=open?422:60;
+            header.GetComponentInChildren<Text>().text=open?"외형 · 색상 변경  ▾":"외형 · 색상 변경  ›";
+        });
     }
 
     Transform CreateScrollSection(Transform parent, string name, float height)
@@ -256,6 +280,7 @@ public class MenuManager_TurretLab : MonoBehaviour
         string group = entry != null ? TurretResearch.GroupOfPrefab(entry.prefab) : "";
         TurretResearchDef[] researches = TurretResearch.ForGroup(group);
         CreateResearchOverview(entry, researches);
+        if(appearanceContent!=null){ClearChildren(appearanceContent);CreatePaintOptions(entry);}
         if (researches == null || researches.Length == 0)
         {
             CreateRow(researchListContent, "EmptyResearch", "준비 중 — 연구가 아직 없습니다.", mutedColor);
@@ -414,6 +439,33 @@ public class MenuManager_TurretLab : MonoBehaviour
                 RefreshResearchList();
             });
         }
+    }
+
+    void CreatePaintOptions(TurretLabEntry entry)
+    {
+        if (entry == null || entry.prefab == null) return;
+        var source = entry.prefab.GetComponentInChildren<TurretController>(true);
+        if (source == null) return;
+        if(appearanceContent==null)return;
+        Image row = CreateRow(appearanceContent, "TurretPaint", "포탑 색상", textColor);
+        row.GetComponent<LayoutElement>().minHeight = row.GetComponent<LayoutElement>().preferredHeight = 354;
+        var heading = row.GetComponentInChildren<Text>();
+        UiSkin.Place(heading.rectTransform, new Vector2(.5f,1), new Vector2(0,-18), new Vector2(280,30));
+        heading.text="외장 색상 · 64색";
+        int selected=TurretPaint.Selected(source);
+        for (int i=1; i<TurretPaint.Colors.Length; i++)
+        {
+            int choice=i;
+            int column=(i-1)%8, line=(i-1)/8;
+            var button=UiSkin.Button(row.transform,"Paint_"+i,selected==i?"✓":"",TurretPaint.Colors[i],
+                new Vector2(.5f,1),new Vector2((column-3.5f)*32,-58-line*32),new Vector2(28,28));
+            button.GetComponentInChildren<Text>().fontSize=18;
+            button.GetComponentInChildren<Text>().color=TurretPaint.Colors[i].grayscale>.65f?UiSkin.Navy:Color.white;
+            button.onClick.AddListener(()=>{TurretPaint.Select(source,choice);SpawnPreview(entry);RefreshResearchList();});
+        }
+        var reset=UiSkin.Button(row.transform,"ResetPaint","기본 색상",UiSkin.Blue,new Vector2(.5f,0),new Vector2(0,32),new Vector2(130,34));
+        reset.GetComponentInChildren<Text>().fontSize=16;
+        reset.onClick.AddListener(()=>{TurretPaint.Select(source,0);SpawnPreview(entry);RefreshResearchList();});
     }
 
     Image CreateRow(Transform parent, string name, string label, Color labelColor)

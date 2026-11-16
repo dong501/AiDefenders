@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -12,10 +12,15 @@ public class CCTVDroneController : MonoBehaviour
     public float maxSpeed = 16f;
     public float pullBackStrength = 40f;
 
+    [Header("Ground clearance")]
+    [Min(.25f)] public float minimumGroundClearance = 2f;
+    [Min(0f)] public float groundProbeRadius = .75f;
+    public LayerMask groundCollisionMask;
+
     [Header("Look")]
     public float mouseSensitivity = 0.12f;
-    public float minPitch = 15f;
-    public float maxPitch = 80f;
+    public float minPitch = -85f;
+    public float maxPitch = 85f;
 
     [Header("Zoom")]
     public float[] zoomFovs = { 60f, 40f, 25f };
@@ -46,6 +51,9 @@ public class CCTVDroneController : MonoBehaviour
     AudioSource flightSource;
     float currentPitch;
     float currentVolume;
+    Terrain[] groundTerrains;
+    readonly RaycastHit[] groundHits = new RaycastHit[64];
+    static readonly Vector3[] groundProbeDirections = { Vector3.right, Vector3.left, Vector3.forward, Vector3.back };
 
     void Awake()
     {
@@ -63,6 +71,7 @@ public class CCTVDroneController : MonoBehaviour
 
         bodyRenderers = GetComponents<Renderer>();
         zoomCameras = GetComponentsInChildren<Camera>(true);
+        groundTerrains = Terrain.activeTerrains;
         homePosition = transform.position;
         homeRotation = transform.rotation;
 
@@ -216,7 +225,78 @@ public class CCTVDroneController : MonoBehaviour
             velocity = velocity.normalized * speedLimit;
 
         velocity = ConstrainToLimit(velocity);
+        EnforceGroundClearance();
+        // Check the next physics position as well, including uphill movement.
+        float nextFloor = GetMinimumFlightHeight(body.position + velocity * Time.fixedDeltaTime);
+        if (!float.IsNegativeInfinity(nextFloor))
+            velocity.y = Mathf.Max(velocity.y, (nextFloor - body.position.y) / Time.fixedDeltaTime);
         body.linearVelocity = velocity;
+    }
+
+    void LateUpdate()
+    {
+        if (flying)
+        {
+            if (moveLimit != null && moveLimit.hardBoundary)
+            {
+                Vector3 position = moveLimit.ClampFlightPosition(body.position);
+                if ((position - body.position).sqrMagnitude > .000001f)
+                { body.position = position; transform.position = position; }
+            }
+            EnforceGroundClearance();
+        }
+    }
+
+    void EnforceGroundClearance()
+    {
+        float floor = GetMinimumFlightHeight(body.position);
+        if (float.IsNegativeInfinity(floor) || body.position.y >= floor) return;
+        Vector3 corrected = body.position;
+        corrected.y = floor;
+        body.position = corrected;
+        // Interpolated render transforms must not retain an underground camera pose.
+        transform.position = corrected;
+        Vector3 velocity = body.linearVelocity;
+        if (velocity.y < 0) { velocity.y = 0; body.linearVelocity = velocity; }
+    }
+
+    public float GetMinimumFlightHeight(Vector3 rootPosition)
+    {
+        float height = GroundHeight(rootPosition) + minimumGroundClearance;
+        if (zoomCameras == null) return height;
+        foreach (Camera camera in zoomCameras)
+        {
+            if (camera == null) continue;
+            Vector3 offset = camera.transform.position - transform.position;
+            Vector3 point = rootPosition + offset;
+            height = Mathf.Max(height, GroundHeight(point) + minimumGroundClearance - offset.y);
+            foreach (Vector3 side in groundProbeDirections)
+                height = Mathf.Max(height, GroundHeight(point + side * groundProbeRadius) + minimumGroundClearance - offset.y);
+        }
+        return height;
+    }
+
+    float GroundHeight(Vector3 point)
+    {
+        float height = float.NegativeInfinity;
+        if (groundTerrains != null) foreach (Terrain terrain in groundTerrains)
+        {
+            if (terrain == null || !terrain.isActiveAndEnabled || terrain.gameObject.scene != gameObject.scene) continue;
+            Vector3 origin = terrain.transform.position;
+            Vector3 size = terrain.terrainData.size;
+            if (point.x >= origin.x && point.x <= origin.x + size.x && point.z >= origin.z && point.z <= origin.z + size.z)
+                height = Mathf.Max(height, terrain.SampleHeight(point) + origin.y);
+        }
+        int mask = groundCollisionMask.value;
+        if (mask == 0) mask = Physics.DefaultRaycastLayers & ~LayerMask.GetMask("Enemy", "Friendly", "Turret", "Bullet", "Ignore Raycast");
+        int count = Physics.RaycastNonAlloc(new Vector3(point.x, Mathf.Max(2000, point.y + 1000), point.z), Vector3.down, groundHits, 4000, mask, QueryTriggerInteraction.Ignore);
+        for (int i = 0; i < count; i++)
+        {
+            var collider = groundHits[i].collider;
+            if (collider == null || collider.gameObject.scene != gameObject.scene || collider.transform.IsChildOf(transform)) continue;
+            height = Mathf.Max(height, groundHits[i].point.y);
+        }
+        return height;
     }
 
     Vector3 ReadMoveWish()
@@ -301,6 +381,15 @@ public class CCTVDroneController : MonoBehaviour
         Collider volume = moveLimit != null ? moveLimit.Volume : null;
         if (volume == null)
             return velocity;
+
+        if (moveLimit.hardBoundary)
+        {
+            Vector3 current = moveLimit.ClampFlightPosition(body.position);
+            if ((current - body.position).sqrMagnitude > .000001f)
+            { body.position = current; transform.position = current; }
+            Vector3 next = moveLimit.ClampFlightPosition(current + velocity * Time.fixedDeltaTime);
+            return (next - current) / Time.fixedDeltaTime;
+        }
 
         Vector3 pos = body.position;
         if (IsInside(volume, pos))

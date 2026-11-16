@@ -1,0 +1,12 @@
+var s=UnityEngine.SceneManagement.SceneManager.GetSceneByName("City_1");
+var rs=s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<UnityEngine.Renderer>()).ToArray();
+var props=rs.Where(r=>r.transform.parent&&(r.transform.parent.name=="Environment_Asset_Expansion"||r.transform.parent.name=="City_Emergency_Shelter_Upgrade"||r.transform.parent.name=="City_Extra_Decor")&&Math.Abs(r.transform.position.x)<27&&r.transform.position.z>-120&&r.transform.position.z<-63&&r.name!="BarbedFence").ToArray();
+var lines=new System.Collections.Generic.List<string>();
+foreach(var p in props)foreach(var r in rs)
+{
+ if(p==r||props.Contains(r)||r.name.StartsWith("GP_")||r.name.StartsWith("Gate_")||r.name=="BarbedFence"||r.bounds.size.y<.08f)continue;
+ var a=p.bounds;var b=r.bounds;
+ if(Math.Min(a.max.x,b.max.x)-Math.Max(a.min.x,b.min.x)>.04f&&Math.Min(a.max.y,b.max.y)-Math.Max(a.min.y,b.min.y)>.04f&&Math.Min(a.max.z,b.max.z)-Math.Max(a.min.z,b.min.z)>.04f)
+ lines.Add(p.name+" @ "+p.transform.position+" vs "+r.name+" parent="+(r.transform.parent?r.transform.parent.name:"")+" @ "+r.transform.position);
+}
+System.IO.File.WriteAllLines("Docs/CanyonShelterRevision/Additional_geometry_audit.txt",lines.ToArray());return string.Join("\n",lines.ToArray());

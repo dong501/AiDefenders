@@ -1,0 +1,18 @@
+Enemy spawner1: waypoints=76, route=215.1m, direct=175.1m
+Enemy spawner2: waypoints=82, route=228.3m, direct=173.4m
+Natural_Firing_Terrace_1: range=14.2m, height advantage=6.0m, slope=0.1, ground collider=True, firing line clear=True
+Natural_Firing_Terrace_2: range=16.4m, height advantage=6.0m, slope=0.0, ground collider=True, firing line clear=True
+Natural_Firing_Terrace_3: range=16.4m, height advantage=6.0m, slope=0.0, ground collider=True, firing line clear=True
+Natural_Firing_Terrace_4: range=16.4m, height advantage=6.0m, slope=0.0, ground collider=True, firing line clear=True
+Natural_Firing_Terrace_5: range=16.4m, height advantage=6.0m, slope=0.0, ground collider=True, firing line clear=True
+Natural_Firing_Terrace_6: range=14.8m, height advantage=6.0m, slope=0.0, ground collider=True, firing line clear=True
+Natural_Firing_Terrace_7: range=16.4m, height advantage=6.0m, slope=0.0, ground collider=True, firing line clear=True
+Natural_Firing_Terrace_8: range=16.4m, height advantage=6.0m, slope=0.0, ground collider=True, firing line clear=True
+Natural_Firing_Terrace_9: range=16.4m, height advantage=6.0m, slope=0.1, ground collider=True, firing line clear=True
+Natural_Firing_Terrace_10: range=16.4m, height advantage=6.0m, slope=0.0, ground collider=True, firing line clear=True
+Natural_Firing_Terrace_11: range=16.4m, height advantage=6.0m, slope=0.1, ground collider=True, firing line clear=True
+Natural_Firing_Terrace_12: range=16.4m, height advantage=6.0m, slope=0.0, ground collider=True, firing line clear=True
+Natural_Firing_Terrace_13: range=16.4m, height advantage=6.0m, slope=0.0, ground collider=True, firing line clear=True
+Natural_Firing_Terrace_14: range=16.4m, height advantage=6.0m, slope=0.0, ground collider=True, firing line clear=True
+Natural_Firing_Terrace_15: range=16.4m, height advantage=6.0m, slope=0.1, ground collider=True, firing line clear=True
+Validation errors: 0

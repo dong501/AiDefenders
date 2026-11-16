@@ -1,0 +1,1 @@
+var s=UnityEngine.SceneManagement.SceneManager.GetSceneByName("Desert_1");var terrain=s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<UnityEngine.Terrain>()).First();return string.Join("\n",terrain.terrainData.terrainLayers.Select(l=>l.name+" texture="+(l.diffuseTexture?l.diffuseTexture.name:"")+" tile="+l.tileSize));

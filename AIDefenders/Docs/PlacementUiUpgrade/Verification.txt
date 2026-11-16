@@ -1,0 +1,4 @@
+City: buildable roof centers=26, sidewalks=128
+Sidewalks intersecting enemy center lanes=0
+Desert: high ground accepted=15, canyon lane points rejected=158
+Paint applied and default restored on 6 turret prefabs; original preferences restored

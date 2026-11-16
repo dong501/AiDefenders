@@ -1,0 +1,3 @@
+﻿var targets=UnityEngine.Object.FindObjectsByType<Target_Base>(FindObjectsSortMode.None);System.IO.File.WriteAllLines("Docs/AnyangCampus/runtime_before.csv",targets.Select(t=>t.GetEntityId().ToString()+","+t.transform.position.x.ToString(System.Globalization.CultureInfo.InvariantCulture)+","+t.transform.position.y.ToString(System.Globalization.CultureInfo.InvariantCulture)+","+t.transform.position.z.ToString(System.Globalization.CultureInfo.InvariantCulture)));return "Spawned: "+targets.Length+"; Y: "+string.Join(",",targets.Take(5).Select(t=>t.transform.position.y.ToString("F2")).ToArray());
+
+

@@ -1,0 +1,2 @@
+﻿UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Scenes/MainMenu.unity");UnityEditor.AssetDatabase.ImportAsset("Assets/Resources/UI/Previews/AnyangCampus_1.png");return "Restored main menu";
+

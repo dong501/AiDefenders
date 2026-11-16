@@ -1,0 +1,6 @@
+Assets/Scenes/TurretLab/TurretLab.unity: five types x three preview levels PASS
+Assets/Scenes/GameStages/GrassField/Grassfield_1.unity: all five construction options PASS
+Assets/Scenes/GameStages/GrassField/Grassfield_2.unity: all five construction options PASS
+Assets/Scenes/GameStages/GrassField/Grassfield_3.unity: all five construction options PASS
+Assets/Scenes/GameStages/Desert/Desert_1.unity: all five construction options PASS
+Assets/Scenes/GameStages/City/City_1.unity: all five construction options PASS

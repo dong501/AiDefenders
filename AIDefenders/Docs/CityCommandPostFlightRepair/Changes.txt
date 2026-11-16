@@ -1,0 +1,1 @@
+GP restored to (0.00, 0.34, -100.00). Pitch [-85,85]. Flight X[-779.5,779.5], Z[-759.5,639.5], Y[2.5,239.5]. Combat routes preserved. Ground clearance retained.

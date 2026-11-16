@@ -1,0 +1,2 @@
+PASS: 68 building footprints, zero pavement triangle overlaps; 356 sampled locations support platform footprints. Asphalt unchanged; 128 raised duplicate strips removed.
+PASS: battle settings has separate Restart and Confirm buttons; main settings hides stage restart; no-stage click safely ignored.

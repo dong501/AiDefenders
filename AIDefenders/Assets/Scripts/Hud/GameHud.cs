@@ -49,7 +49,7 @@ public class GameHud : MonoBehaviour
                 modelUi = new HudModelSelectUi(canvasRt, gameManager);
             if (skillSystem != null)
                 skillUi = new HudSkillUi(canvasRt, skillSystem);
-            worldOverlay = new HudWorldOverlay(canvasRt);
+            worldOverlay = new HudWorldOverlay(canvasRt, buildUi);
             waveBanner = new HudWaveBanner(canvasRt);
             spawnerPreview = new HudSpawnerPreview(canvasRt, waveDirector);
             stageResult = new HudStageResult(canvasRt);

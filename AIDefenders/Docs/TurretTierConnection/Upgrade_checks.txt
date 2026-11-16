@@ -1,0 +1,24 @@
+Turret_MG timed level 1: model, muzzle, aiming, stats and collider PASS
+Turret_MG timed level 2: model, muzzle, aiming, stats and collider PASS
+Turret_MG timed level 3: model, muzzle, aiming, stats and collider PASS
+Turret_MG restored levels 2/3: PASS
+Turret_PrecisionShot timed level 1: model, muzzle, aiming, stats and collider PASS
+Turret_PrecisionShot timed level 2: model, muzzle, aiming, stats and collider PASS
+Turret_PrecisionShot timed level 3: model, muzzle, aiming, stats and collider PASS
+Turret_PrecisionShot restored levels 2/3: PASS
+Turret_Test Missile timed level 1: model, muzzle, aiming, stats and collider PASS
+Turret_Test Missile timed level 2: model, muzzle, aiming, stats and collider PASS
+Turret_Test Missile timed level 3: model, muzzle, aiming, stats and collider PASS
+Turret_Test Missile restored levels 2/3: PASS
+Turret_Test Laser timed level 1: model, muzzle, aiming, stats and collider PASS
+Turret_Test Laser timed level 2: model, muzzle, aiming, stats and collider PASS
+Turret_Test Laser timed level 3: model, muzzle, aiming, stats and collider PASS
+Turret_Test Laser restored levels 2/3: PASS
+Turret_Test_Bolt timed level 1: model, muzzle, aiming, stats and collider PASS
+Turret_Test_Bolt timed level 2: model, muzzle, aiming, stats and collider PASS
+Turret_Test_Bolt timed level 3: model, muzzle, aiming, stats and collider PASS
+Turret_Test_Bolt restored levels 2/3: PASS
+Turret_Test MG timed level 1: model, muzzle, aiming, stats and collider PASS
+Turret_Test MG timed level 2: model, muzzle, aiming, stats and collider PASS
+Turret_Test MG timed level 3: model, muzzle, aiming, stats and collider PASS
+Turret_Test MG restored levels 2/3: PASS

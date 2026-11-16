@@ -1,0 +1,7 @@
+﻿var s=UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Scenes/GameStages/City/City_1.unity",UnityEditor.SceneManagement.OpenSceneMode.Additive);
+try {
+var lines=new List<string>();int checkedCount=0;int conflicts=0;
+foreach(var root in s.GetRootGameObjects().Where(g=>g.name=="City_Diverse_Skyline"||g.name=="City_Urban_Refinement"))foreach(Transform t in root.transform){var rr=t.GetComponentsInChildren<MeshRenderer>().Where(r=>r.gameObject.activeInHierarchy).ToArray();if(rr.Length==0)continue;var b=rr[0].bounds;foreach(var r in rr.Skip(1))b.Encapsulate(r.bounds);if(b.size.y<4||b.min.y>1)continue;checkedCount++;bool hit=false;for(int i=-8;i<=8;i++){float x=i*100;if(b.min.x<x+15&&b.max.x>x-15)hit=true;}for(int i=-8;i<=9;i++){float z=-100+i*80;if(b.min.z<z+15&&b.max.z>z-15)hit=true;}if(hit){conflicts++;lines.Add(t.name+" "+b);}}
+lines.Insert(0,"Building footprints checked: "+checkedCount+"; road/sidewalk corridor intersections: "+conflicts);
+System.IO.File.WriteAllLines("Docs/CityStreetRepair/Validation.txt",lines.ToArray());return string.Join("\n",lines.ToArray());
+} finally {UnityEditor.SceneManagement.EditorSceneManager.CloseScene(s,true);}

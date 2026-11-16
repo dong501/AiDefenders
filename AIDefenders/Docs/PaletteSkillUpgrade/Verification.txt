@@ -1,0 +1,3 @@
+64 unique colors + original reset. Tested all 65 choices on 18 tier models (includes legacy machine gun).
+Exterior slots=90; protected weapon/trim/emissive slots=253. No protected color changed. Preferences restored.
+Six Yeongdeungpo street signs: 영등포로 / Yeongdeungpo-ro; 국회대로 / Gukhoe-daero; 양평로 / Yangpyeong-ro; 여의대로 / Yeoui-daero; 여의대방로 / Yeouidaebang-ro; 선유로 / Seonyu-ro

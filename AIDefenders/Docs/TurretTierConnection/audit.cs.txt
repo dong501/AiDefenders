@@ -1,0 +1,14 @@
+﻿var report=new System.Collections.Generic.List<string>();
+foreach(var path in new[]{"Assets/Scenes/TurretLab/TurretLab.unity","Assets/Scenes/GameStages/GrassField/Grassfield_1.unity","Assets/Scenes/GameStages/GrassField/Grassfield_2.unity","Assets/Scenes/GameStages/GrassField/Grassfield_3.unity","Assets/Scenes/GameStages/Desert/Desert_1.unity","Assets/Scenes/GameStages/City/City_1.unity"}){
+var s=UnityEditor.SceneManagement.EditorSceneManager.OpenScene(path,UnityEditor.SceneManagement.OpenSceneMode.Additive);
+try{
+foreach(var placer in s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<TurretPlatformPlacer>(true))){
+foreach(var type in Enumerable.Range(0,5))if(!placer.turretOptions.Any(o=>o.prefab==TurretTierModelConnection.Prefab(type)||(type==0&&o.prefab.name=="Turret_Test MG")))throw new Exception("Missing type "+type+" in "+path);
+report.Add(path+": all five construction options PASS");}
+foreach(var lab in s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<MenuManager_TurretLab>(true))){
+if(lab.turretCatalog.Length!=5)throw new Exception("Expected five lab entries");
+foreach(var entry in lab.turretCatalog){var t=entry.prefab.GetComponent<TurretController>();if(t.MaxLevel!=3||t.upgradeTiers.Any(v=>v.visualRoot==null||v.firePoint==null||v.barrel==null))throw new Exception("Bad lab tier");}
+report.Add(path+": five types x three preview levels PASS");}
+}finally{UnityEditor.SceneManagement.EditorSceneManager.CloseScene(s,true);}}
+System.IO.File.WriteAllLines("Docs/TurretTierConnection/Catalog_checks.txt",report.ToArray());
+UnityEditor.AssetDatabase.Refresh();return string.Join("\n",report.ToArray());

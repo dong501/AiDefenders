@@ -1,0 +1,1 @@
+9 timing cases PASS; emission ON/OFF PASS; 14 junctions wired; green lamps off.

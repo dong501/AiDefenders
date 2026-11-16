@@ -1,0 +1,5 @@
+Assets/Scenes/GameStages/City/City_1.unity: pitch [-85,85]; missile turn 360deg/s; dart turn 300deg/s; unchanged routes and flight boundaries.
+Assets/Scenes/GameStages/Desert/Desert_1.unity: pitch [-85,85]; missile turn 360deg/s; dart turn 300deg/s; unchanged routes and flight boundaries.
+Assets/Scenes/GameStages/GrassField/Grassfield_1.unity: pitch [-85,85]; missile turn 360deg/s; dart turn 300deg/s; unchanged routes and flight boundaries.
+Assets/Scenes/GameStages/GrassField/Grassfield_2.unity: pitch [-85,85]; missile turn 360deg/s; dart turn 300deg/s; unchanged routes and flight boundaries.
+Assets/Scenes/GameStages/GrassField/Grassfield_3.unity: pitch [-85,85]; missile turn 360deg/s; dart turn 300deg/s; unchanged routes and flight boundaries.

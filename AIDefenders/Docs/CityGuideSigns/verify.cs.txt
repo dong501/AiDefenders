@@ -1,0 +1,9 @@
+﻿var scene=UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Scenes/GameStages/City/City_1.unity",UnityEditor.SceneManagement.OpenSceneMode.Additive);
+try{
+var controller=scene.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<CityTrafficAmberBlink>()).Single();int samples=0;
+foreach(float t in new[]{0f,.25f,.49f,.51f,.75f,.99f,1.01f,1.49f,1.51f}){bool expected=(t%1)<.5f;if(controller.IsAmberOn(t)!=expected)throw new Exception("Blink timing failed");samples++;}
+var block=new MaterialPropertyBlock();var binding=controller.signals[0];controller.ApplyState(true);binding.renderer.GetPropertyBlock(block,binding.materialIndex);var on=block.GetColor("_EmissionColor");controller.ApplyState(false);binding.renderer.GetPropertyBlock(block,binding.materialIndex);var off=block.GetColor("_EmissionColor");if(on.maxColorComponent<1||off.maxColorComponent!=0)throw new Exception("Emission did not switch");
+foreach(var s in controller.signals){var materials=s.renderer.sharedMaterials;if(materials.Any(m=>m.name=="Signal_Green_On"))throw new Exception("Green light is still on");}
+controller.ApplyState(true);var p="Assets/Scenes/GameStages/City/City_1.unity";CanyonAndCityVisualUpgrade.Capture(p,"City_Amber_On",new Vector3(2,8,-205),new Vector3(5.5f,7.5f,-194));controller.ApplyState(false);CanyonAndCityVisualUpgrade.Capture(p,"City_Amber_Off",new Vector3(2,8,-205),new Vector3(5.5f,7.5f,-194));
+var report=samples+" timing cases PASS; emission ON/OFF PASS; "+controller.signals.Length+" junctions wired; green lamps off.";System.IO.File.WriteAllText("Docs/CityGuideSigns/Blink_checks.txt",report);return report;
+}finally{UnityEditor.SceneManagement.EditorSceneManager.CloseScene(scene,true);}

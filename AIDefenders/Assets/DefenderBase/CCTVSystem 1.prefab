@@ -153,6 +153,7 @@ MonoBehaviour:
   cctvCamera: {fileID: 8468680228538072520}
   renderTexture: {fileID: 8400000, guid: f0bc070327ecff440a999d2c2fa588c4, type: 2}
   CaptureDelay: 0.1
+  logInferenceTime: 1
 --- !u!1 &2004038716286148742
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +324,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  minConfidence: 0.3
+  enemies: []
+  friendlies: []
 --- !u!114 &3588026141842346243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,9 +343,18 @@ MonoBehaviour:
   brake: 18
   maxSpeed: 16
   pullBackStrength: 40
+  minimumGroundClearance: 2
+  groundProbeRadius: 0.75
+  groundCollisionMask:
+    serializedVersion: 2
+    m_Bits: 0
   mouseSensitivity: 0.12
-  minPitch: 15
-  maxPitch: 80
+  minPitch: -85
+  maxPitch: 85
+  zoomFovs:
+  - 60
+  - 40
+  - 25
   flightLoop: {fileID: 11400000, guid: 4c5d6e7f809142a3b4c5d6e7f8091a2b, type: 2}
   idleLoopPitch: 0.88
   maxLoopPitch: 1.22
@@ -411,11 +424,20 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: d5647f4ce0f6ee94391e8aae09aff9cb, type: 3}
   cooldown: 6
   startCooldownOnUse: 0
+  onCooldownStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onCooldownEnded:
+    m_PersistentCalls:
+      m_Calls: []
   dartPrefab: {fileID: 3223724401015827084, guid: 153daffb4d05f174eb8be740f40da321, type: 3}
   dartSpeed: 40
   dartGravity: 0
   dartLifetime: 5
   muzzleOffset: 1.6
+  homingTurnRate: 300
+  homingRange: 180
+  homingConeAngle: 14
   fireSfx: {fileID: 11400000, guid: 5d6e7f8091a253b4c5d6e7f8091a2b3c, type: 2}
 --- !u!114 &3588026141842346247
 MonoBehaviour:
@@ -433,12 +455,20 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: a926f27eba15cf6438ece0250be93737, type: 3}
   cooldown: 12
   startCooldownOnUse: 1
+  onCooldownStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onCooldownEnded:
+    m_PersistentCalls:
+      m_Calls: []
   rocketPrefab: {fileID: 8136110642335116717, guid: 836fb2bf217f7a145bbfee31b65bc6df, type: 3}
   rocketCount: 8
   rocketSpeed: 32
   rocketLifetime: 6
   rocketDamage: 8
-  homingTurnRate: 220
+  homingTurnRate: 360
+  homingRange: 180
+  homingConeAngle: 70
   spreadAngle: 32
   verticalSpread: 6
   muzzleOffset: 1.8

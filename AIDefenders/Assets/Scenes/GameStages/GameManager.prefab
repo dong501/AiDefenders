@@ -66,6 +66,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TurretPlatformPlacer
   platformPrefab: {fileID: 3605271865678529380, guid: b8cf1a57cbec442478035c14da2212bb, type: 3}
+  turretOptions:
+  - displayName: "\uD50C\uB77C\uC988\uB9C8 \uD3EC\uD0D1"
+    prefab: {fileID: 9211372644908279419, guid: 268533bc8e4219e40a05aa364bd53732, type: 3}
+    cost: 50
+    sellPrice: 25
+    buildTime: 3
+  - displayName: "\uAE30\uAD00\uCD1D \uD3EC\uD0D1"
+    prefab: {fileID: 4558551398018450366, guid: d9b765170d3034842a65937d764a4e52, type: 3}
+    cost: 80
+    sellPrice: 40
+    buildTime: 3
+  - displayName: "\uBBF8\uC0AC\uC77C \uD3EC\uD0D1"
+    prefab: {fileID: 8124240509875344070, guid: 5c6c30979534a1e49906c3c551dc0a65, type: 3}
+    cost: 120
+    sellPrice: 60
+    buildTime: 3
+  - displayName: "\uB808\uC774\uC800 \uD3EC\uD0D1"
+    prefab: {fileID: 6692554674478039121, guid: fc00c3faf402e744ea7d51f07648d55d, type: 3}
+    cost: 150
+    sellPrice: 75
+    buildTime: 3
+  - displayName: "\uC815\uBC00 \uC0AC\uACA9 \uD3EC\uD0D1"
+    prefab: {fileID: 4812985784104538462, guid: a5571dd880d2d9146913d85d18ddfa9d, type: 3}
+    cost: 60
+    sellPrice: 30
+    buildTime: 3
   groundMask:
     serializedVersion: 2
     m_Bits: 0
@@ -74,23 +100,6 @@ MonoBehaviour:
   platformBaseCost: 40
   platformMaxCount: 8
   platformSellPrice: 5
-  turretOptions:
-  - displayName: Turret_Test
-    prefab: {fileID: 9211372644908279419, guid: 268533bc8e4219e40a05aa364bd53732, type: 3}
-    cost: 50
-    sellPrice: 25
-  - displayName: Turret_Test MG
-    prefab: {fileID: 4558551398018450366, guid: d9b765170d3034842a65937d764a4e52, type: 3}
-    cost: 80
-    sellPrice: 40
-  - displayName: Turret_Test Missile
-    prefab: {fileID: 8124240509875344070, guid: 5c6c30979534a1e49906c3c551dc0a65, type: 3}
-    cost: 120
-    sellPrice: 60
-  - displayName: Turret_Test Laser
-    prefab: {fileID: 6692554674478039121, guid: fc00c3faf402e744ea7d51f07648d55d, type: 3}
-    cost: 150
-    sellPrice: 75
 --- !u!114 &5303192905100796401
 MonoBehaviour:
   m_ObjectHideFlags: 0

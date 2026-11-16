@@ -1,0 +1,1 @@
+27 predictive drone boundary checks PASS; 12 background/decor renderers, 0 colliders; hard boundary enabled=True

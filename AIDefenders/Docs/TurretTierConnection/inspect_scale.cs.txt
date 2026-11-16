@@ -1,0 +1,6 @@
+﻿var report=new System.Collections.Generic.List<string>();
+foreach(var guid in UnityEditor.AssetDatabase.FindAssets("t:Prefab",new[]{"Assets/Turrets"})){
+var p=UnityEditor.AssetDatabase.GUIDToAssetPath(guid);var g=UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(p);var t=g.GetComponent<TurretController>();if(t==null)continue;
+foreach(var v in t.upgradeTiers)report.Add(p+" "+v.visualRoot.name+" pos="+v.visualRoot.transform.localPosition+" scale="+v.visualRoot.transform.localScale);
+report.Add("Colliders: "+string.Join(",",g.GetComponentsInChildren<Collider>(true).Select(c=>c.name+":"+c.GetType().Name).ToArray()));}
+return string.Join("\n",report.ToArray());

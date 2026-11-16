@@ -1,0 +1,7 @@
+City_1 saved reload: clean=True
+Active shelter text: 
+Red plaque: Shelter_Red_Plaque, Plaque_Frame, Shelter_Plaque_Face
+Desert_1 saved reload: clean=True
+Supply trucks: 2; army paint assignments=14
+Perimeter panel dimensions: (2.56, 2.95, 3.95)
+New military props: 13

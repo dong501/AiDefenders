@@ -1,0 +1,1 @@
+﻿UnityEditor.SceneManagement.EditorSceneManager.OpenScene(AnyangCampusBuilder.ScenePath);UnityEditor.EditorApplication.isPlaying=true;return "Play requested";

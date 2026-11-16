@@ -1,0 +1,2 @@
+Checked all loose shelter props, legacy planters/cars, containers, lights, sandbags, watchtower and GP: 27
+Overlapping footprints: 0

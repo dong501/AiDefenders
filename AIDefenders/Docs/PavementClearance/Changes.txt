@@ -1,0 +1,1 @@
+Removed 128 raised plain strips. Existing tiled pavement clipped against 68 building footprints. Install surface matches pavement exactly; roads and enemy routes preserved.

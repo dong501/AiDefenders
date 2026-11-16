@@ -1,0 +1,6 @@
+Original models: 32
+Added urban towers: 28
+Retextured skyline towers: 8
+Central GP: 1
+Ground cross: hidden
+Gameplay layout signature unchanged.

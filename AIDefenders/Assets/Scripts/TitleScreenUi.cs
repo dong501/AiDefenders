@@ -21,12 +21,13 @@ public class TitleScreenUi : MonoBehaviour
         rays.transform.SetParent(root.transform, false);
         UiFont.Stretch(rays.GetComponent<RectTransform>());
         rays.GetComponent<TitleScreenRays>().raycastTarget = false;
+        MenuEnergyParticles.Create(root.transform);
 
         // Keep the center clear and bring the larger foreground turrets closer to the viewer.
-        Turret(root.transform, "Build_Turret_Test Missile", new Vector2(.23f, .72f), 490, -12, true);
-        Turret(root.transform, "Build_Turret_Test Laser", new Vector2(.77f, .72f), 490, 12, false);
-        Turret(root.transform, "Build_Turret_MG", new Vector2(.19f, .35f), 600, 8, true);
-        Turret(root.transform, "Build_Turret_PrecisionShot", new Vector2(.81f, .35f), 600, -8, false);
+        Turret(root.transform, "Menu_Tier1_Missile", new Vector2(.23f, .72f), 490, -12, true);
+        Turret(root.transform, "Menu_Tier1_Laser", new Vector2(.77f, .72f), 490, 12, false);
+        Turret(root.transform, "Menu_Tier1_MachineGun", new Vector2(.19f, .35f), 600, 8, true);
+        Turret(root.transform, "Menu_Tier1_Precision", new Vector2(.81f, .35f), 600, -8, false);
 
         var logo = new GameObject("AI_Defenders_Logo", typeof(RectTransform), typeof(RawImage));
         logo.transform.SetParent(root.transform, false);
@@ -45,6 +46,7 @@ public class TitleScreenUi : MonoBehaviour
             new Vector2(.5f, .145f), Vector2.zero, new Vector2(370, 96));
         controller.start.GetComponentInChildren<Text>().fontSize = 44;
         controller.start.onClick.AddListener(controller.Submit);
+        UiAmbientMotion.Apply(controller.start.GetComponent<RectTransform>(),0,0,0,.035f,2);
         Text hint = UiFont.AddText(root.transform, "KeyboardHint", "ENTER 또는 SPACE로 시작", 20, TextAnchor.MiddleCenter, UiSkin.Muted, UiType.Body);
         UiSkin.Place(hint.rectTransform, new Vector2(.5f, .065f), Vector2.zero, new Vector2(600, 40));
         root.transform.SetAsLastSibling();
@@ -57,6 +59,7 @@ public class TitleScreenUi : MonoBehaviour
         if (preview == null) return;
         preview.rectTransform.localRotation = Quaternion.Euler(0, 0, angle);
         if (mirror) preview.uvRect = new Rect(1, 0, -1, 1);
+        UiAmbientMotion.Apply(preview.rectTransform,anchor.x*8+anchor.y*3,18,2.5f);
     }
 
     void Update()

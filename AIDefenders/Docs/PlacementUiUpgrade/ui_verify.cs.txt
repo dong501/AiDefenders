@@ -1,0 +1,27 @@
+var host=new GameObject("PlacementUiVerification");
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+try
+{
+ var director=host.AddComponent<WaveDirector>();var placer=host.AddComponent<TurretPlatformPlacer>();
+ typeof(TurretPlatformPlacer).GetField("waveDirector",flags).SetValue(placer,director);
+ typeof(WaveDirector).GetProperty("Phase").GetSetMethod(true).Invoke(director,new object[]{WavePhase.Prep});
+ placer.ToggleBuildMenu();
+ typeof(TurretPlatformPlacer).GetField("draggingPlatform",flags).SetValue(placer,true);
+ typeof(WaveDirector).GetProperty("Phase").GetSetMethod(true).Invoke(director,new object[]{WavePhase.Combat});
+ typeof(TurretPlatformPlacer).GetMethod("HandleWaveStarted",flags).Invoke(placer,new object[]{0});
+ if(!placer.ShowBuildUi || !placer.IsDraggingPlatform)throw new Exception("Combat placement state lost");
+ typeof(TurretPlatformPlacer).GetField("draggingPlatform",flags).SetValue(placer,false);
+ var canvasObject=new GameObject("Canvas",typeof(RectTransform),typeof(Canvas));canvasObject.transform.SetParent(host.transform);
+ var cover=TitleScreenUi.Create(canvasObject.transform,()=>{});
+ if(cover.GetComponentsInChildren<UnityEngine.UI.RawImage>().Any(t=>t.name.Contains("Plasma")))throw new Exception("Plasma still on cover");
+ int turretCount=cover.GetComponentsInChildren<UnityEngine.UI.RawImage>().Count(t=>t.name.StartsWith("Preview_"));
+ if(turretCount!=4)throw new Exception("Cover turret count="+turretCount);
+ var skills=host.AddComponent<CCTVSkillSystem>();new HudSkillUi(canvasObject.GetComponent<RectTransform>(),skills);
+ var symbols=canvasObject.GetComponentsInChildren<UiSkillSymbol>();
+ if(symbols.Length!=CCTVSkillSystem.SlotCount)throw new Exception("Skill symbols missing");
+ var meshMethod=typeof(UiSkillSymbol).GetMethod("OnPopulateMesh",flags|System.Reflection.BindingFlags.DeclaredOnly);
+ foreach(bool missile in new[]{false,true})using(var vh=new UnityEngine.UI.VertexHelper()){symbols[0].missile=missile;meshMethod.Invoke(symbols[0],new object[]{vh});if(vh.currentVertCount<9)throw new Exception("Empty skill geometry");}
+ string result="PASS: platform placement and build menu preserved at Prep -> Combat; four cover turrets, no center plasma; both native skill pictograms produce UI geometry.";
+ System.IO.File.WriteAllText("Docs/PlacementUiUpgrade/UI_Verification.txt",result);return result;
+}
+finally{UnityEngine.Object.DestroyImmediate(host);}

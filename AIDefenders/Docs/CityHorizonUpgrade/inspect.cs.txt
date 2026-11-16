@@ -1,0 +1,9 @@
+﻿var path="Assets/Scenes/GameStages/City/City_1.unity";var s=UnityEditor.SceneManagement.EditorSceneManager.OpenScene(path,UnityEditor.SceneManagement.OpenSceneMode.Additive);var old=UnityEngine.SceneManagement.SceneManager.GetActiveScene();UnityEngine.SceneManagement.SceneManager.SetActiveScene(s);
+try{
+var lines=new System.Collections.Generic.List<string>();lines.Add("FOG "+RenderSettings.fog+" "+RenderSettings.fogMode+" density="+RenderSettings.fogDensity);
+foreach(var root in s.GetRootGameObjects()){
+var rs=root.GetComponentsInChildren<Renderer>();if(rs.Length==0)continue;var b=rs[0].bounds;foreach(var r in rs)b.Encapsulate(r.bounds);lines.Add(root.name+" bounds="+b+" renderers="+rs.Length);}
+foreach(var limit in s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<CCTVMoveLimit>(true)))lines.Add("LIMIT "+limit.name+" "+limit.Volume.bounds);
+foreach(var c in s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Camera>(true)))lines.Add("CAM "+c.name+" pos="+c.transform.position+" far="+c.farClipPlane);
+return string.Join("\n",lines.ToArray());
+}finally{UnityEngine.SceneManagement.SceneManager.SetActiveScene(old);UnityEditor.SceneManagement.EditorSceneManager.CloseScene(s,true);}

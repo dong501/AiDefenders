@@ -152,7 +152,7 @@ public class TurretPlatformPlacer : MonoBehaviour
 
     void HandleWaveStarted(int waveIndex)
     {
-        CancelPlace();
+        // Keep an in-progress placement available when preparation ends.
     }
 
     void Update()
@@ -167,7 +167,7 @@ public class TurretPlatformPlacer : MonoBehaviour
 
         HandleCombatBuildToggle();
 
-        if (!IsPrep() && draggingPlatform)
+        if (!IsHudPhase && draggingPlatform)
             CancelPlace();
 
         if (!ShowBuildUi)
@@ -321,7 +321,7 @@ public class TurretPlatformPlacer : MonoBehaviour
 
     void BeginPlatformPlace()
     {
-        if (!IsPrep())
+        if (!IsHudPhase)
             return;
 
         ClearSelection();
@@ -422,7 +422,7 @@ public class TurretPlatformPlacer : MonoBehaviour
         ghost.transform.SetParent(null);
         ghost.transform.position = pos;
         ghost.transform.rotation = Quaternion.identity;
-        canPlace = !IsOccupied(pos, ghost.transform.rotation)
+        canPlace = TurretPlacementRules.Allows(hit, GetPlaceExtents()) && !IsOccupied(pos, ghost.transform.rotation)
             && CanAfford(GetPlatformCost())
             && CountPlatforms() < PlatformMaxCount;
         TintGhost(canPlace ? validColor : invalidColor);

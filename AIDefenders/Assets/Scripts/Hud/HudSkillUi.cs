@@ -19,6 +19,7 @@ public class HudSkillUi
     {
         public Image background;
         public Image icon;
+        public UiSkillSymbol symbol;
         public Image cooldown;
         public Outline outline;
         public Text key;
@@ -99,6 +100,9 @@ public class HudSkillUi
     {
         SlotView slot = slots[index];
         CCTVActiveSkill skill = skills.GetEquipped(index);
+        slot.symbol.gameObject.SetActive(skill != null && skill.HudIcon == null);
+        bool missile = skill is CCTVSkill_TrapMissile;
+        if(slot.symbol.missile!=missile){slot.symbol.missile=missile;slot.symbol.SetVerticesDirty();}
         bool primed = skill != null && skill.IsPrimed;
         slot.outline.effectColor = primed ? primedBorder : readyBorder;
         slot.key.text = CCTVSkillSystem.SlotKeyLabels[index];
@@ -154,6 +158,12 @@ public class HudSkillUi
         icon.rectTransform.pivot = new Vector2(0.5f, 1f);
         icon.rectTransform.anchoredPosition = new Vector2(0f, -6f);
         icon.rectTransform.sizeDelta = new Vector2(size - 12f, size - 12f);
+
+        var symbolObject = new GameObject("SkillSymbol", typeof(RectTransform), typeof(CanvasRenderer), typeof(UiSkillSymbol));
+        symbolObject.transform.SetParent(background.transform,false);
+        var symbol = symbolObject.GetComponent<UiSkillSymbol>();
+        symbol.raycastTarget=false;
+        UiSkin.Place(symbol.rectTransform,new Vector2(.5f,1),new Vector2(0,-size*.5f),new Vector2(size-14,size-14));
 
         Image cooldown = CreateImage(background.rectTransform, "Cooldown", new Color(0f, 0f, 0f, 0.6f));
         cooldown.raycastTarget = false;
@@ -221,6 +231,7 @@ public class HudSkillUi
         {
             background = background,
             icon = icon,
+            symbol = symbol,
             cooldown = cooldown,
             outline = outline,
             key = key,

@@ -543,6 +543,7 @@ public class TurretController : MonoBehaviour
 
     void ApplyCurrentTier()
     {
+        TurretPaint.Apply(this);
         TurretUpgradeTier tier = GetTier(upgradeLevel);
         GameObject visible = ResolveVisibleRoot(tier);
 

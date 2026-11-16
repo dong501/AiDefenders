@@ -40,6 +40,14 @@ public class HudBuildUi
     Text upgradeText;
     Text sellText;
 
+    // Use the real panel bounds: the selection popup can also cover the radar.
+    public void CollectRadarObstacles(List<RectTransform> results)
+    {
+        foreach (GameObject panel in new[] { toggleRoot, buildRoot, inspectRoot, storageRoot, skipRoot })
+            if (panel != null && panel.activeInHierarchy)
+                results.Add(panel.GetComponent<RectTransform>());
+    }
+
     public HudBuildUi(RectTransform canvasRoot, TurretPlatformPlacer placer, WaveDirector waveDirector)
     {
         this.placer = placer;
@@ -305,8 +313,7 @@ public class HudBuildUi
         if (platformRow == null)
             return;
 
-        bool prep = placer.IsPrepPhase;
-        platformRow.SetActive(prep && placer.HasPlatformPrefab);
+        platformRow.SetActive(placer.IsHudPhase && placer.HasPlatformPrefab);
         if (!platformRow.activeSelf)
             return;
 

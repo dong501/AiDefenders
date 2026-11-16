@@ -1,0 +1,52 @@
+var report=new System.Collections.Generic.List<string>();
+var scene=UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Scenes/GameStages/City/City_1.unity",UnityEditor.SceneManagement.OpenSceneMode.Additive);
+try
+{
+ var roots=scene.GetRootGameObjects();var street=roots.SelectMany(g=>g.GetComponentsInChildren<Transform>()).First(t=>t.name=="City_Street_Grid");
+ var source=UnityEditor.AssetDatabase.LoadAssetAtPath<Mesh>("Assets/Art/StageAtmosphere/Urban_Street_Grid.asset");var current=street.GetComponent<MeshFilter>().sharedMesh;
+ var a=source.GetTriangles(0).Select(i=>source.vertices[i]).ToArray();var b=current.GetTriangles(0).Select(i=>current.vertices[i]).ToArray();
+ if(a.Length!=b.Length||a.Where((v,i)=>(v-b[i]).sqrMagnitude>.0000001f).Any())throw new Exception("Asphalt geometry changed");
+ var walk=roots.First(g=>g.name=="City_Buildable_Sidewalks");if(walk.GetComponent<Renderer>() || walk.transform.childCount>0)throw new Exception("Raised pavement duplicates remain");
+ var collider=walk.GetComponent<MeshCollider>();var vertices=collider.sharedMesh.vertices;var triangles=collider.sharedMesh.triangles;
+ if(triangles.Length<100)throw new Exception("Pavement surface empty");
+ var buildings=roots.Where(g=>g.name=="City_Diverse_Skyline"||g.name=="City_Urban_Refinement").SelectMany(g=>g.GetComponentsInChildren<MeshRenderer>()).Where(r=>r.gameObject.activeInHierarchy&&r.bounds.size.y>4&&r.bounds.size.x>5&&r.bounds.size.z>5&&r.bounds.min.y<.8f).ToArray();
+ var clip=typeof(CityPavementClearance).GetMethod("Clip",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Static);int overlaps=0,buildable=0;
+ foreach(var building in buildings)
+ {
+  var bounds=building.bounds;var rect=Rect.MinMaxRect(bounds.min.x,bounds.min.z,bounds.max.x,bounds.max.z);
+  for(int n=0;n<triangles.Length;n+=3)
+  {
+   var p=new System.Collections.Generic.List<Vector3>{walk.transform.TransformPoint(vertices[triangles[n]]),walk.transform.TransformPoint(vertices[triangles[n+1]]),walk.transform.TransformPoint(vertices[triangles[n+2]])};
+   if(p.Max(v=>v.x)<=rect.xMin || p.Min(v=>v.x)>=rect.xMax || p.Max(v=>v.z)<=rect.yMin || p.Min(v=>v.z)>=rect.yMax)continue;
+   for(int edge=0;edge<4;edge++)p=(System.Collections.Generic.List<Vector3>)clip.Invoke(null,new object[]{p,rect,edge,true});
+   float area=0;for(int j=1;j<p.Count-1;j++)area+=Vector3.Cross(p[j]-p[0],p[j+1]-p[0]).magnitude*.5f;if(area>.001f)overlaps++;
+  }
+ }
+ Physics.SyncTransforms();
+ for(int n=0;n<triangles.Length;n+=3)
+ {
+  var center=walk.transform.TransformPoint((vertices[triangles[n]]+vertices[triangles[n+1]]+vertices[triangles[n+2]])/3);
+  RaycastHit hit;if(collider.Raycast(new Ray(center+Vector3.up,Vector3.down),out hit,2) && TurretPlacementRules.Allows(hit,Vector3.one*.5f))buildable++;
+ }
+ if(overlaps!=0 || buildable<20)throw new Exception("Pavement validation: overlaps="+overlaps+", buildable="+buildable);
+ report.Add("PASS: "+buildings.Length+" building footprints, zero pavement triangle overlaps; "+buildable+" sampled locations support platform footprints. Asphalt unchanged; 128 raised duplicate strips removed.");
+}
+finally{UnityEditor.SceneManagement.EditorSceneManager.CloseScene(scene,true);}
+var host=new GameObject("SettingsVerification",typeof(RectTransform),typeof(Canvas));
+try
+{
+ var first=AudioSettingsUi.Create(host.transform);
+ if(first.GetComponentsInChildren<UnityEngine.UI.Button>().Any(t=>t.name=="RestartStage"))throw new Exception("Restart should only appear during a stage");
+ UnityEngine.Object.DestroyImmediate(first.gameObject);
+ var director=host.AddComponent<WaveDirector>();var settings=AudioSettingsUi.Create(host.transform);
+ var restart=settings.GetComponentsInChildren<UnityEngine.UI.Button>().FirstOrDefault(t=>t.name=="RestartStage");
+ if(!restart||restart.GetComponentInChildren<UnityEngine.UI.Text>().text!="다시하기")throw new Exception("Restart button missing");
+ var close=settings.GetComponentsInChildren<UnityEngine.UI.Button>().First(t=>t.name=="Close");
+ var restartRt=restart.GetComponent<RectTransform>();var closeRt=close.GetComponent<RectTransform>();
+ float separation=Mathf.Abs((restartRt.anchorMin.x-closeRt.anchorMin.x)*1000+restartRt.anchoredPosition.x-closeRt.anchoredPosition.x);
+ if(separation<320)throw new Exception("Buttons overlap");
+ UnityEngine.Object.DestroyImmediate(director);restart.onClick.Invoke();
+ report.Add("PASS: battle settings has separate Restart and Confirm buttons; main settings hides stage restart; no-stage click safely ignored.");
+}
+finally{UnityEngine.Object.DestroyImmediate(host);}
+System.IO.File.WriteAllLines("Docs/PavementClearance/Verification.txt",report);return string.Join("\n",report.ToArray());

@@ -1,0 +1,16 @@
+var lines=new System.Collections.Generic.List<string>();
+foreach(var path in new[]{"Assets/Scenes/GameStages/City/City_1.unity","Assets/Scenes/GameStages/Desert/Desert_1.unity"})
+{
+ var s=UnityEngine.SceneManagement.SceneManager.GetSceneByPath(path);
+ if(!s.isLoaded)s=UnityEditor.SceneManagement.EditorSceneManager.OpenScene(path,UnityEditor.SceneManagement.OpenSceneMode.Additive);
+ lines.Add(s.name+" dirty="+s.isDirty);
+ var ts=s.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<UnityEngine.Transform>(true)).ToArray();
+ if(s.name=="City_1")foreach(var t in ts.Where(t=>t.gameObject.activeInHierarchy&&t.GetComponent<UnityEngine.Renderer>()&&Math.Abs(t.position.x)<28&&t.position.z>-128&&t.position.z<-60))
+ {var b=t.GetComponent<UnityEngine.Renderer>().bounds;lines.Add(t.name+" parent="+(t.parent?t.parent.name:"")+" p="+t.position+" bounds="+b);}
+ else{
+ foreach(var sp in ts.Select(t=>t.GetComponent<EnemySpawner>()).Where(p=>p))lines.Add("SPAWN "+sp.name+" "+sp.transform.position+" spread="+sp.spawnRange+" paths="+string.Join(",",sp.paths.Where(p=>p).Select(p=>p.name+"["+string.Join(";",p.GetWorldPoints().Select(v=>v.ToString()).ToArray())+"]")));
+ var terrain=ts.Select(t=>t.GetComponent<UnityEngine.Terrain>()).First(t=>t);lines.Add("TERRAIN "+terrain.transform.position+" "+terrain.terrainData.size+" res="+terrain.terrainData.heightmapResolution);
+ foreach(var r in s.GetRootGameObjects())lines.Add("ROOT "+r.name+" "+r.activeSelf);
+ }
+}
+System.IO.File.WriteAllLines("Docs/CanyonShelterRevision/inspection.txt",lines.ToArray());return "Inspection saved";

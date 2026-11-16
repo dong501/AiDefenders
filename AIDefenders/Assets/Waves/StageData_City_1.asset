@@ -21,401 +21,1183 @@ MonoBehaviour:
     nextWavePrepTime: 20
     groups:
     - spawnTime: 0
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 0
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
     - spawnTime: 0.4
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 0.4
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 0.4
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
     - spawnTime: 0.8
-      spawnerId: 
+      spawnerId: City_East
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 0.8
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
     - spawnTime: 1
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 4
+        count: 1
+    - spawnTime: 1
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 1
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 1
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 2
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 4
+        count: 1
+    - spawnTime: 2
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 2
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 2
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 3
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 3
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 3
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 8
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 6
+        count: 1
+    - spawnTime: 8
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 8
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
+    - spawnTime: 8
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
     - spawnTime: 9
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 9
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 11
-      spawnerId: 
+      spawnerId: City_North
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 11
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 13
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 13
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 16
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 4
+        count: 1
+    - spawnTime: 16
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 16
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 16
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 25
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 6
+        count: 1
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 4
+        count: 1
+    - spawnTime: 25
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 25
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 25
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 26
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 8
+        count: 2
+    - spawnTime: 26
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 26
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 26
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
   - waveName: Wave 2
     duration: 60
     nextWavePrepTime: 20
     groups:
     - spawnTime: 0
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 8
+        count: 2
+    - spawnTime: 0
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
+    - spawnTime: 0
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
+    - spawnTime: 0
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
     - spawnTime: 3
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 5
+        count: 1
+    - spawnTime: 3
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 3
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 3
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 5
-      spawnerId: 
+      spawnerId: City_North
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 5
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
     - spawnTime: 7
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 7
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 7
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 8
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 4
+        count: 1
+    - spawnTime: 8
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 8
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 8
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 9
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 9
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 9
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 10
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 10
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 10
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 23
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 6
-    - spawnTime: 26
-      spawnerId: 
+        count: 1
+    - spawnTime: 23
+      spawnerId: City_East
       targets:
-      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 9
-    - spawnTime: 31
-      spawnerId: 
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
+    - spawnTime: 23
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
+    - spawnTime: 23
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 26
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
         count: 2
+    - spawnTime: 26
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 26
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 26
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 3
+    - spawnTime: 31
+      spawnerId: City_West
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 7
+        count: 2
+    - spawnTime: 31
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 31
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
+    - spawnTime: 31
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
   - waveName: Wave 3
     duration: 60
     nextWavePrepTime: 20
     groups:
     - spawnTime: 4
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 4
+      spawnerId: City_East
+      targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 3
-    - spawnTime: 10
-      spawnerId: 
+        count: 1
+    - spawnTime: 4
+      spawnerId: City_North
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 6
+        count: 1
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 4
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 10
+      spawnerId: City_West
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
+    - spawnTime: 10
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
+    - spawnTime: 10
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 10
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 20
+      spawnerId: City_West
+      targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
         count: 2
     - spawnTime: 20
-      spawnerId: 
+      spawnerId: City_East
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 6
+        count: 2
+    - spawnTime: 20
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 20
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 21
-      spawnerId: 
+      spawnerId: City_North
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 21
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
     - spawnTime: 22
-      spawnerId: 
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 2
-    - spawnTime: 23
-      spawnerId: 
+        count: 1
+    - spawnTime: 22
+      spawnerId: City_East
       targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 23
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 23
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 35
+      spawnerId: City_West
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
         count: 2
     - spawnTime: 35
-      spawnerId: 
+      spawnerId: City_East
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 7
+        count: 2
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 7
+        count: 2
+    - spawnTime: 35
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 35
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
   - waveName: Wave 4
     duration: 80
     nextWavePrepTime: 20
     groups:
     - spawnTime: 2
-      spawnerId: Enemy spawner2
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 2
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 2
+      spawnerId: City_North
+      targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 2
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
     - spawnTime: 7
-      spawnerId: Enemy spawner1
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 3
+        count: 1
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 2
-    - spawnTime: 11
-      spawnerId: Enemy spawner2
+        count: 1
+    - spawnTime: 7
+      spawnerId: City_East
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 4
-    - spawnTime: 11
-      spawnerId: Enemy spawner1
+        count: 1
+    - spawnTime: 7
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 7
+      spawnerId: City_South
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 11
+      spawnerId: City_West
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 11
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 11
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 11
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 11
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 11
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 11
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
     - spawnTime: 19
-      spawnerId: Enemy spawner2
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 4
+        count: 1
+    - spawnTime: 19
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 19
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 19
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
     - spawnTime: 20
-      spawnerId: Enemy spawner2
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 20
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 20
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 21
-      spawnerId: Enemy spawner2
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 21
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 21
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 22
-      spawnerId: Enemy spawner2
+      spawnerId: City_North
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 22
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 24
+      spawnerId: City_West
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
         count: 2
     - spawnTime: 24
-      spawnerId: Enemy spawner1
+      spawnerId: City_East
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 5
+        count: 1
+    - spawnTime: 24
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 24
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
     - spawnTime: 25
-      spawnerId: Enemy spawner1
+      spawnerId: City_East
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 25
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 25
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 26
-      spawnerId: Enemy spawner1
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 26
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 26
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 27
-      spawnerId: Enemy spawner1
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 27
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 27
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 35
-      spawnerId: Enemy spawner1
+      spawnerId: City_North
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
         count: 1
     - spawnTime: 35
-      spawnerId: Enemy spawner2
+      spawnerId: City_South
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
         count: 1
     - spawnTime: 49
-      spawnerId: Enemy spawner1
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 7
+        count: 2
     - spawnTime: 49
-      spawnerId: Enemy spawner2
+      spawnerId: City_East
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 7
+        count: 2
+    - spawnTime: 49
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 49
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 49
+      spawnerId: City_West
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 49
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 49
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 49
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
     - spawnTime: 51
-      spawnerId: Enemy spawner1
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 7
+        count: 2
     - spawnTime: 51
-      spawnerId: Enemy spawner2
+      spawnerId: City_East
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 7
+        count: 1
+    - spawnTime: 51
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 51
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 51
+      spawnerId: City_West
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 51
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 51
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 51
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
   - waveName: Wave 5
     duration: 90
     nextWavePrepTime: 20
     groups:
     - spawnTime: 0
-      spawnerId: Enemy spawner1
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 6
-    - spawnTime: 0
-      spawnerId: Enemy spawner2
-      targets:
-      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 6
-    - spawnTime: 6
-      spawnerId: Enemy spawner1
-      targets:
-      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 4
-      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
         count: 2
+    - spawnTime: 0
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
+    - spawnTime: 0
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 0
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 0
+      spawnerId: City_West
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 0
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 0
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
+    - spawnTime: 0
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 2
+    - spawnTime: 6
+      spawnerId: City_West
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 6
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 6
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+      - prefab: {fileID: 8528450990467141018, guid: fb9c7b065b38aef4fa899b370b51feee, type: 3}
+        count: 1
+    - spawnTime: 6
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+    - spawnTime: 15
+      spawnerId: City_West
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 15
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
       - prefab: {fileID: 8528450990467141018, guid: fb9c7b065b38aef4fa899b370b51feee, type: 3}
         count: 1
     - spawnTime: 15
-      spawnerId: Enemy spawner2
+      spawnerId: City_North
       targets:
       - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
-        count: 4
+        count: 1
+    - spawnTime: 15
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 4972366810073893737, guid: 94d62a0cb76a2da40a6641c8d1960736, type: 3}
+        count: 1
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 24
+      spawnerId: City_West
+      targets:
       - prefab: {fileID: 8528450990467141018, guid: fb9c7b065b38aef4fa899b370b51feee, type: 3}
         count: 1
     - spawnTime: 24
-      spawnerId: Enemy spawner2
+      spawnerId: City_East
       targets:
       - prefab: {fileID: 8528450990467141018, guid: fb9c7b065b38aef4fa899b370b51feee, type: 3}
-        count: 4
+        count: 1
     - spawnTime: 24
-      spawnerId: Enemy spawner1
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: fb9c7b065b38aef4fa899b370b51feee, type: 3}
+        count: 1
+    - spawnTime: 24
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: fb9c7b065b38aef4fa899b370b51feee, type: 3}
+        count: 1
+    - spawnTime: 24
+      spawnerId: City_North
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 24
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 25
-      spawnerId: Enemy spawner1
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 25
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 26
-      spawnerId: Enemy spawner1
+      spawnerId: City_North
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 26
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 27
-      spawnerId: Enemy spawner1
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 2
-    - spawnTime: 28
-      spawnerId: Enemy spawner1
+        count: 1
+    - spawnTime: 27
+      spawnerId: City_East
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 2
+        count: 1
     - spawnTime: 28
-      spawnerId: Enemy spawner2
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 28
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 28
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: fb9c7b065b38aef4fa899b370b51feee, type: 3}
-        count: 2
+        count: 1
     - spawnTime: 28
-      spawnerId: Enemy spawner1
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: fb9c7b065b38aef4fa899b370b51feee, type: 3}
+        count: 1
+    - spawnTime: 28
+      spawnerId: City_North
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 28
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 29
-      spawnerId: Enemy spawner1
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 29
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 30
-      spawnerId: Enemy spawner1
+      spawnerId: City_North
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 30
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 31
-      spawnerId: Enemy spawner1
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 31
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 32
-      spawnerId: Enemy spawner1
+      spawnerId: City_North
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 2
+        count: 1
+    - spawnTime: 32
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 33
-      spawnerId: Enemy spawner2
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: fb9c7b065b38aef4fa899b370b51feee, type: 3}
-        count: 2
+        count: 1
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 4
+        count: 1
     - spawnTime: 33
-      spawnerId: Enemy spawner1
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: fb9c7b065b38aef4fa899b370b51feee, type: 3}
+        count: 1
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 33
+      spawnerId: City_North
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 33
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 33
+      spawnerId: City_West
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 33
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 33
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 34
-      spawnerId: Enemy spawner1
+      spawnerId: City_East
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 34
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 34
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 35
-      spawnerId: Enemy spawner1
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 35
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 35
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 36
-      spawnerId: Enemy spawner1
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 3
+        count: 1
+    - spawnTime: 36
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
+    - spawnTime: 36
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 1
     - spawnTime: 46
-      spawnerId: Enemy spawner1
+      spawnerId: City_West
       targets:
       - prefab: {fileID: 8528450990467141018, guid: fb9c7b065b38aef4fa899b370b51feee, type: 3}
-        count: 3
+        count: 1
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 8
+        count: 2
     - spawnTime: 46
-      spawnerId: Enemy spawner2
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 46
+      spawnerId: City_North
       targets:
       - prefab: {fileID: 8528450990467141018, guid: fb9c7b065b38aef4fa899b370b51feee, type: 3}
-        count: 3
+        count: 1
       - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
-        count: 8
+        count: 2
+    - spawnTime: 46
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: fb9c7b065b38aef4fa899b370b51feee, type: 3}
+        count: 1
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 46
+      spawnerId: City_West
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 46
+      spawnerId: City_East
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: fb9c7b065b38aef4fa899b370b51feee, type: 3}
+        count: 1
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 46
+      spawnerId: City_North
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: fb9c7b065b38aef4fa899b370b51feee, type: 3}
+        count: 1
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2
+    - spawnTime: 46
+      spawnerId: City_South
+      targets:
+      - prefab: {fileID: 8528450990467141018, guid: fb9c7b065b38aef4fa899b370b51feee, type: 3}
+        count: 1
+      - prefab: {fileID: 8528450990467141018, guid: 9a51652451728ba44a12133299bc09a9, type: 3}
+        count: 2

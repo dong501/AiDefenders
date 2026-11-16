@@ -1,0 +1,1387 @@
+[
+  {
+    "category": "군사기지_시설",
+    "pack": "감시탑_탐조등_세트",
+    "entry": "포탑제외_전체에셋/군사기지_시설/감시탑_탐조등_세트/유니티자료/에셋파일/에디터/WatchtowerMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "Watchtower",
+      "GroundSearchlight"
+    ],
+    "groups": [],
+    "parts": 91
+  },
+  {
+    "category": "군사기지_시설",
+    "pack": "검문소_차단기_세트",
+    "entry": "포탑제외_전체에셋/군사기지_시설/검문소_차단기_세트/유니티자료/에셋파일/에디터/CheckpointMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "GuardBooth",
+      "BarrierGate",
+      "ConcreteBarrier",
+      "CheckpointSign"
+    ],
+    "groups": [],
+    "parts": 77
+  },
+  {
+    "category": "군사기지_시설",
+    "pack": "군사기지_건물외관_9종",
+    "entry": "포탑제외_전체에셋/군사기지_시설/군사기지_건물외관_9종/유니티자료/에셋파일/에디터/BaseBuildingsNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "BaseCommandHeadquarters",
+      "BaseBarracksBuilding",
+      "BaseMessHall",
+      "BaseMedicalClinic",
+      "BaseAmmunitionMagazine",
+      "BaseVehicleMaintenanceWorkshop",
+      "BaseRadarControlBuilding",
+      "BaseAircraftHangar",
+      "BaseFortifiedGatehouse"
+    ],
+    "groups": [],
+    "parts": 219
+  },
+  {
+    "category": "군사기지_시설",
+    "pack": "군사기지_생활훈련_9종",
+    "entry": "포탑제외_전체에셋/군사기지_시설/군사기지_생활훈련_9종/유니티자료/에셋파일/에디터/TrainingNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "BaseBarracks",
+      "BaseWatchtower",
+      "BaseHelipadTile",
+      "BaseClimbingWall",
+      "BaseLowHurdles",
+      "BaseTrainingTarget",
+      "BaseFlagpole",
+      "BaseSupplyShelter",
+      "BaseLockerBank"
+    ],
+    "groups": [],
+    "parts": 125
+  },
+  {
+    "category": "군사기지_시설",
+    "pack": "군사기지_지원시설건물_9종",
+    "entry": "포탑제외_전체에셋/군사기지_시설/군사기지_지원시설건물_9종/유니티자료/에셋파일/에디터/BaseSupportNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "SupportReinforcedBunker",
+      "SupportElevatedWatchtower",
+      "SupportQuonsetBarracks",
+      "SupportPrefabFieldOffice",
+      "SupportSupplyWarehouse",
+      "SupportGeneratorBuilding",
+      "SupportWaterTowerAndPumpShed",
+      "SupportFuelServiceBuilding",
+      "SupportAirfieldControlTower"
+    ],
+    "groups": [],
+    "parts": 348
+  },
+  {
+    "category": "군사기지_시설",
+    "pack": "군사기지_통신보급_9종",
+    "entry": "포탑제외_전체에셋/군사기지_시설/군사기지_통신보급_9종/유니티자료/에셋파일/에디터/BaseNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "BaseRadioTower",
+      "BaseSatelliteDish",
+      "BaseRadioRack",
+      "BaseGuardBooth",
+      "BaseCheckpointBarrier",
+      "BaseSandbagCover",
+      "BaseFieldGenerator",
+      "BaseFuelTank",
+      "BaseSupplyPallet"
+    ],
+    "groups": [],
+    "parts": 109
+  },
+  {
+    "category": "군사기지_시설",
+    "pack": "군용_막사_격납고_세트",
+    "entry": "포탑제외_전체에셋/군사기지_시설/군용_막사_격납고_세트/유니티자료/에셋파일/에디터/BaseBuildingsMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "MilitaryBarracks",
+      "VehicleHangar"
+    ],
+    "groups": [],
+    "parts": 175
+  },
+  {
+    "category": "군사기지_시설",
+    "pack": "군용_발전기_전력설비_세트",
+    "entry": "포탑제외_전체에셋/군사기지_시설/군용_발전기_전력설비_세트/유니티자료/에셋파일/에디터/PowerFacilitiesMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "FieldGenerator",
+      "PowerCabinet",
+      "CableReel",
+      "FuelStorageTank"
+    ],
+    "groups": [],
+    "parts": 126
+  },
+  {
+    "category": "군사기지_시설",
+    "pack": "군용_천막_보급품_세트",
+    "entry": "포탑제외_전체에셋/군사기지_시설/군용_천막_보급품_세트/유니티자료/에셋파일/에디터/SupplyCampMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "FieldTent",
+      "SupplyCrate",
+      "CrateStack",
+      "FuelDrum",
+      "DrumPallet",
+      "JerryCan"
+    ],
+    "groups": [],
+    "parts": 165
+  },
+  {
+    "category": "군사기지_시설",
+    "pack": "모래주머니_철조망_세트",
+    "entry": "포탑제외_전체에셋/군사기지_시설/모래주머니_철조망_세트/유니티자료/에셋파일/에디터/FieldFortificationsMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "SandbagSingle",
+      "SandbagStraight",
+      "SandbagCorner",
+      "BarbedFence",
+      "WireCoil",
+      "DamagedFence"
+    ],
+    "groups": [],
+    "parts": 280
+  },
+  {
+    "category": "군사기지_시설",
+    "pack": "밀리터리_무인정찰로봇",
+    "entry": "포탑제외_전체에셋/군사기지_시설/밀리터리_무인정찰로봇/유니티자료/에셋파일/에디터/ScoutRoverMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "ScoutRover"
+    ],
+    "groups": [],
+    "parts": 91
+  },
+  {
+    "category": "군사기지_시설",
+    "pack": "밀리터리_방벽_출입게이트_세트",
+    "entry": "포탑제외_전체에셋/군사기지_시설/밀리터리_방벽_출입게이트_세트/유니티자료/에셋파일/에디터/PerimeterWallsMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "Wall4m",
+      "Wall2m",
+      "WallCorner",
+      "WallDamaged4m",
+      "Gate8m",
+      "WallEndPost"
+    ],
+    "groups": [],
+    "parts": 99
+  },
+  {
+    "category": "군사기지_시설",
+    "pack": "밀리터리_방호벙커_개폐문",
+    "entry": "포탑제외_전체에셋/군사기지_시설/밀리터리_방호벙커_개폐문/유니티자료/에셋파일/에디터/BunkerMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "Bunker"
+    ],
+    "groups": [],
+    "parts": 66
+  },
+  {
+    "category": "군사기지_시설",
+    "pack": "방어기지_시설_세트",
+    "entry": "포탑제외_전체에셋/군사기지_시설/방어기지_시설_세트/유니티자료/에셋파일/에디터/DefenseBaseMeshData.json",
+    "keys": [
+      "parts"
+    ],
+    "items": [],
+    "groups": [
+      "DefenseHQ",
+      "GoalMarker"
+    ],
+    "parts": 63
+  },
+  {
+    "category": "군사기지_시설",
+    "pack": "정찰_드론",
+    "entry": "포탑제외_전체에셋/군사기지_시설/정찰_드론/유니티자료/에셋파일/에디터/ReconDroneMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "ReconDrone"
+    ],
+    "groups": [],
+    "parts": 52
+  },
+  {
+    "category": "군사기지_시설",
+    "pack": "통신_안테나_레이더_세트",
+    "entry": "포탑제외_전체에셋/군사기지_시설/통신_안테나_레이더_세트/유니티자료/에셋파일/에디터/CommunicationsMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "CommunicationsMast",
+      "RadarStation",
+      "DishAntenna"
+    ],
+    "groups": [],
+    "parts": 139
+  },
+  {
+    "category": "군사기지_시설",
+    "pack": "헬기_착륙장_세트",
+    "entry": "포탑제외_전체에셋/군사기지_시설/헬기_착륙장_세트/유니티자료/에셋파일/에디터/HelicopterMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "TransportHelicopter",
+      "Helipad"
+    ],
+    "groups": [],
+    "parts": 81
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_건물외관_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_건물외관_9종/유니티자료/에셋파일/에디터/CityBuildingsNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "CityOfficeTower",
+      "CityHotel",
+      "CityBank",
+      "CityHospital",
+      "CityPoliceStation",
+      "CityFireStation",
+      "CityShoppingMall",
+      "CityTownHall",
+      "CityCinema"
+    ],
+    "groups": [],
+    "parts": 397
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_건물외관_추가9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_건물외관_추가9종/유니티자료/에셋파일/에디터/CityBuildingsTwoMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "CitySchool",
+      "CityLibrary",
+      "CityPostOffice",
+      "CitySupermarket",
+      "CityRestaurant",
+      "CityBookstore",
+      "CityAutoRepairShop",
+      "CitySmallFactory",
+      "CityBusTerminal"
+    ],
+    "groups": [],
+    "parts": 231
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_고층스카이라인_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_고층스카이라인_9종/유니티자료/에셋파일/에디터/SkylineNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "SkylineGlassTower",
+      "SkylineSetbackBuilding",
+      "SkylineTwinTowers",
+      "SkylineCylindricalTower",
+      "SkylineLShapedBuilding",
+      "SkylineTerracedApartments",
+      "SkylineSpireBuilding",
+      "SkylineCornerBuilding",
+      "SkylineMixedUseTower"
+    ],
+    "groups": [],
+    "parts": 1498
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_공사현장_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_공사현장_9종/유니티자료/에셋파일/에디터/ConstructionNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "ConstructionScaffold",
+      "ConstructionCementMixer",
+      "ConstructionPortableToilet",
+      "ConstructionConcretePipe",
+      "ConstructionCableReel",
+      "ConstructionSteelBundle",
+      "ConstructionRoadworkFence",
+      "ConstructionWorkLight",
+      "ConstructionSiteOffice"
+    ],
+    "groups": [],
+    "parts": 89
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_공원시설_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_공원시설_9종/유니티자료/에셋파일/에디터/ParkNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "ParkSlattedBench",
+      "ParkCoveredBin",
+      "ParkPergola",
+      "ParkTieredFountain",
+      "ParkShrubPlanter",
+      "ParkAnalogClock",
+      "ParkBicycleRack",
+      "ParkPicnicTable",
+      "ParkInformationBooth"
+    ],
+    "groups": [],
+    "parts": 96
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_관광랜드마크_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_관광랜드마크_9종/유니티자료/에셋파일/에디터/LandmarksNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "LandmarkClockTower",
+      "LandmarkAstronomicalObservatory",
+      "LandmarkBotanicalGreenhouse",
+      "LandmarkCityAquarium",
+      "LandmarkCoveredMarketHall",
+      "LandmarkExhibitionDome",
+      "LandmarkFerryTerminal",
+      "LandmarkCableCarStation",
+      "LandmarkTouristInformationPavilion"
+    ],
+    "groups": [],
+    "parts": 288
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_기반시설건물_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_기반시설건물_9종/유니티자료/에셋파일/에디터/ServicesNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "ServicesWaterPumpHouse",
+      "ServicesWaterFiltrationPlant",
+      "ServicesDistrictHeatingPlant",
+      "ServicesRecyclingCenter",
+      "ServicesWasteTransferHall",
+      "ServicesTelecomExchange",
+      "ServicesDataCenter",
+      "ServicesElectricityControlHouse",
+      "ServicesMunicipalFleetDepot"
+    ],
+    "groups": [],
+    "parts": 320
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_기본건물_세트",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_기본건물_세트/유니티자료/에셋파일/에디터/CityBuildingsMeshData.json",
+    "keys": [
+      "parts"
+    ],
+    "items": [],
+    "groups": [
+      "CityHouse",
+      "CityOffice",
+      "CityShop"
+    ],
+    "parts": 243
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_기본소품_세트",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_기본소품_세트/유니티자료/에셋파일/에디터/CityPropsMeshData.json",
+    "keys": [
+      "parts"
+    ],
+    "items": [],
+    "groups": [
+      "Bollard",
+      "LitterBin",
+      "ParkBench",
+      "StreetTree"
+    ],
+    "parts": 58
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_기본시설_세트",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_기본시설_세트/유니티자료/에셋파일/에디터/CityFacilitiesMeshData.json",
+    "keys": [
+      "parts"
+    ],
+    "items": [],
+    "groups": [
+      "BusShelter",
+      "BusStopSign",
+      "StreetLamp",
+      "TrafficSignal"
+    ],
+    "parts": 73
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_놀이터_소품_세트",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_놀이터_소품_세트/유니티자료/에셋파일/에디터/PlaygroundMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "PlaygroundSlide",
+      "PlaygroundSwing",
+      "PlaygroundSeesaw",
+      "PlaygroundSandbox"
+    ],
+    "groups": [],
+    "parts": 84
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_문화업무건물_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_문화업무건물_9종/유니티자료/에셋파일/에디터/CityBuildingsThreeMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "CityMuseum",
+      "CityArtGallery",
+      "CityConcertHall",
+      "CitySportsHall",
+      "CityCourthouse",
+      "CityBroadcastingStation",
+      "CityResearchCenter",
+      "CityParkingBuilding",
+      "CityDepartmentStore"
+    ],
+    "groups": [],
+    "parts": 220
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_상점가_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_상점가_9종/유니티자료/에셋파일/에디터/ShopsNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "CityConvenienceStore",
+      "CityBakery",
+      "CityPharmacy",
+      "CityDrinkVendingMachine",
+      "CityTelephoneBooth",
+      "CityPostBox",
+      "CityAFrameSign",
+      "CityProductDisplay",
+      "CityStripedAwning"
+    ],
+    "groups": [],
+    "parts": 114
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_생활시설_소품_세트",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_생활시설_소품_세트/유니티자료/에셋파일/에디터/StreetUtilitiesMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "VendingMachine",
+      "ATMTerminal",
+      "FireHydrant",
+      "PostBox",
+      "PhoneBooth",
+      "BicycleRack"
+    ],
+    "groups": [],
+    "parts": 134
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_숙박생활건물_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_숙박생활건물_9종/유니티자료/에셋파일/에디터/CityLivingNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "CityMotel",
+      "CityGuesthouse",
+      "CityTownhouseRow",
+      "CityOfficetel",
+      "CityLaundryShop",
+      "CityHairSalon",
+      "CityVeterinaryClinic",
+      "CityCommunityCenter",
+      "CitySmallStorageBuilding"
+    ],
+    "groups": [],
+    "parts": 282
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_인도_세트",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_인도_세트/유니티자료/에셋파일/에디터/CitySidewalkMeshData.json",
+    "keys": [
+      "parts"
+    ],
+    "items": [],
+    "groups": [
+      "PlanterLong",
+      "PlanterSquare",
+      "SidewalkBlock",
+      "SidewalkCross",
+      "SidewalkCurve",
+      "SidewalkStraight",
+      "SidewalkT"
+    ],
+    "parts": 114
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_저층상가건물_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_저층상가건물_9종/유니티자료/에셋파일/에디터/LowriseNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "LowriseRedBrickShop",
+      "LowriseNarrowThreeStorey",
+      "LowriseCornerRetail",
+      "LowriseArchedArcade",
+      "LowriseConnectedShopRow",
+      "LowriseRooftopTerraceShop",
+      "LowriseShutterWorkshop",
+      "LowriseGlassCafe",
+      "LowriseMixedRetailBuilding"
+    ],
+    "groups": [],
+    "parts": 287
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_주거건물_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_주거건물_9종/유니티자료/에셋파일/에디터/ResidentialNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "ResidentialWalkupVilla",
+      "ResidentialSteppedHouses",
+      "ResidentialCorridorApartment",
+      "ResidentialCourtyardBlock",
+      "ResidentialPitchedRoofDuplex",
+      "ResidentialPilotiApartment",
+      "ResidentialSlimTower",
+      "ResidentialMaisonette",
+      "ResidentialUrbanDetachedHouse"
+    ],
+    "groups": [],
+    "parts": 487
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_주거골목_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_주거골목_9종/유니티자료/에셋파일/에디터/ResidentialNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "ResidentialTwoStoreyHouse",
+      "ResidentialApartmentBlock",
+      "ResidentialGarage",
+      "ResidentialRecyclingBins",
+      "ResidentialMailboxBank",
+      "ResidentialLaundryRack",
+      "ResidentialSwings",
+      "ResidentialPlaygroundSlide",
+      "ResidentialTreePlanter"
+    ],
+    "groups": [],
+    "parts": 175
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_주유세차시설_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_주유세차시설_9종/유니티자료/에셋파일/에디터/FuelNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "FuelStationCanopy",
+      "FuelDispenser",
+      "FuelStationOffice",
+      "FuelPriceBoard",
+      "FuelTyreInflator",
+      "FuelCarWashGate",
+      "FuelVacuumStation",
+      "FuelOilDisplayRack",
+      "FuelSafetyBollards"
+    ],
+    "groups": [],
+    "parts": 117
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_창고공장건물_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_창고공장건물_9종/유니티자료/에셋파일/에디터/IndustrialNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "IndustrialLogisticsWarehouse",
+      "IndustrialSawtoothFactory",
+      "IndustrialBarrelRoofDepot",
+      "IndustrialColdStorage",
+      "IndustrialMaintenanceHangar",
+      "IndustrialBrickBoilerHouse",
+      "IndustrialAssemblyHallOffice",
+      "IndustrialSelfStorageRow",
+      "IndustrialSiloProcessingShed"
+    ],
+    "groups": [],
+    "parts": 329
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_철도역시설_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_철도역시설_9종/유니티자료/에셋파일/에디터/RailwayNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "RailwayStraightTrack",
+      "RailwayPlatformTile",
+      "RailwayStationHall",
+      "RailwayPlatformShelter",
+      "RailwaySignal",
+      "RailwayCrossingBarrier",
+      "RailwayBufferStop",
+      "RailwayTicketMachine",
+      "RailwayStationNameBoard"
+    ],
+    "groups": [],
+    "parts": 102
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_체육공원_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_체육공원_9종/유니티자료/에셋파일/에디터/SportsNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "SportsBasketballHoop",
+      "SportsFootballGoal",
+      "SportsBleachers",
+      "SportsScoreboard",
+      "SportsTennisNet",
+      "SportsExerciseBars",
+      "SportsDrinkingFountain",
+      "SportsEquipmentLocker",
+      "SportsBasketballCourtTile"
+    ],
+    "groups": [],
+    "parts": 177
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시_폐허건물_9종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시_폐허건물_9종/유니티자료/에셋파일/에디터/RuinsNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "RuinsBrokenShop",
+      "RuinsOfficeSkeleton",
+      "RuinsDamagedApartment",
+      "RuinsCollapsedWarehouse",
+      "RuinsBrokenCornerTower",
+      "RuinsAbandonedCafe",
+      "RuinsDamagedParkingGarage",
+      "RuinsExposedStairwell",
+      "RuinsStandingFacade"
+    ],
+    "groups": [],
+    "parts": 351
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시용_교차로_도로타일_3종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시용_교차로_도로타일_3종/유니티자료/에셋파일/에디터/CityRoadsMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "CityRoadStraight8m",
+      "CityRoadLeftTurn8m",
+      "CityRoadIntersection12m"
+    ],
+    "groups": [],
+    "parts": 80
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시용_교차로_차량신호등_세트",
+    "entry": "포탑제외_전체에셋/도시_배경/도시용_교차로_차량신호등_세트/유니티자료/에셋파일/에디터/TrafficSignalMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "TrafficSignalVertical",
+      "TrafficSignalOverhead",
+      "TrafficControllerCabinet"
+    ],
+    "groups": [],
+    "parts": 49
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시용_도로확장_타일_3종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시용_도로확장_타일_3종/유니티자료/에셋파일/에디터/RoadExtensionsMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "CityRoadTJunction12m",
+      "CityRoadCorner12m",
+      "CityRoadDeadEnd8m"
+    ],
+    "groups": [],
+    "parts": 75
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시용_버스정류장_3종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시용_버스정류장_3종/유니티자료/에셋파일/에디터/BusStopMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "BusStopShelterClassic",
+      "BusStopShelterDigital",
+      "BusStopPoleSign"
+    ],
+    "groups": [],
+    "parts": 98
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시용_전차선로_정류장_세트",
+    "entry": "포탑제외_전체에셋/도시_배경/도시용_전차선로_정류장_세트/유니티자료/에셋파일/에디터/TramTrackMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "TramTrackStraight10m",
+      "TramTrackCurve45",
+      "TramRoadCrossing10m",
+      "TramStopPlatform10m"
+    ],
+    "groups": [],
+    "parts": 186
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시용_전차전력선_신호등_세트",
+    "entry": "포탑제외_전체에셋/도시_배경/도시용_전차전력선_신호등_세트/유니티자료/에셋파일/에디터/TramOverheadMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "TramWireStraight10m",
+      "TramWireCurve45",
+      "TramSignalPole"
+    ],
+    "groups": [],
+    "parts": 67
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시용_전차정류장_운영설비_3종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시용_전차정류장_운영설비_3종/유니티자료/에셋파일/에디터/TramStopEquipmentMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "TramTicketMachine",
+      "TramArrivalDisplay",
+      "TramFareValidator"
+    ],
+    "groups": [],
+    "parts": 35
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시용_전차차고지_완충장치_세트",
+    "entry": "포탑제외_전체에셋/도시_배경/도시용_전차차고지_완충장치_세트/유니티자료/에셋파일/에디터/TramDepotMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "TramDepotOpen",
+      "TramDepotClosed",
+      "TramBufferStop"
+    ],
+    "groups": [],
+    "parts": 182
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시용_주차장_시설_3종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시용_주차장_시설_3종/유니티자료/에셋파일/에디터/ParkingMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "CityParkingBay12x8m",
+      "CityParkingBarrier",
+      "CityEVCharger"
+    ],
+    "groups": [],
+    "parts": 34
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시용_주차장_운영소품_3종",
+    "entry": "포탑제외_전체에셋/도시_배경/도시용_주차장_운영소품_3종/유니티자료/에셋파일/에디터/ParkingOperationsMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "CityParkingPaymentKiosk",
+      "CityParkingAvailabilitySign",
+      "CityParkingCCTV"
+    ],
+    "groups": [],
+    "parts": 38
+  },
+  {
+    "category": "도시_배경",
+    "pack": "도시용_횡단보도_보행신호_안전펜스_세트",
+    "entry": "포탑제외_전체에셋/도시_배경/도시용_횡단보도_보행신호_안전펜스_세트/유니티자료/에셋파일/에디터/CrosswalkMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "CityCrosswalkRoad",
+      "PedestrianSignal",
+      "SidewalkSafetyFence2m"
+    ],
+    "groups": [],
+    "parts": 71
+  },
+  {
+    "category": "사막_배경",
+    "pack": "사막_광산채굴_9종",
+    "entry": "포탑제외_전체에셋/사막_배경/사막_광산채굴_9종/유니티자료/에셋파일/에디터/MineNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "MineTunnelEntrance",
+      "MineOreCart",
+      "MineOrePile",
+      "MineConveyor",
+      "MineLoadingHopper",
+      "MineTimberSupport",
+      "MineVentilationShaft",
+      "MineWorkLamp",
+      "MineToolRack"
+    ],
+    "groups": [],
+    "parts": 87
+  },
+  {
+    "category": "사막_배경",
+    "pack": "사막_기본건물_세트",
+    "entry": "포탑제외_전체에셋/사막_배경/사막_기본건물_세트/유니티자료/에셋파일/에디터/DesertBuildingsMeshData.json",
+    "keys": [
+      "parts"
+    ],
+    "items": [],
+    "groups": [
+      "Checkpoint",
+      "HouseSmall",
+      "HouseTall",
+      "Warehouse"
+    ],
+    "parts": 159
+  },
+  {
+    "category": "사막_배경",
+    "pack": "사막_기본소품_세트",
+    "entry": "포탑제외_전체에셋/사막_배경/사막_기본소품_세트/유니티자료/에셋파일/에디터/DesertPropsMeshData.json",
+    "keys": [
+      "parts"
+    ],
+    "items": [],
+    "groups": [
+      "DrumBlue",
+      "DrumRust",
+      "FieldTent",
+      "PalmTree",
+      "Sandbag",
+      "SandbagWall",
+      "SupplyCrate"
+    ],
+    "parts": 103
+  },
+  {
+    "category": "사막_배경",
+    "pack": "사막_기본지형_세트",
+    "entry": "포탑제외_전체에셋/사막_배경/사막_기본지형_세트/유니티자료/에셋파일/에디터/DesertTerrainMeshData.json",
+    "keys": [
+      "parts"
+    ],
+    "items": [],
+    "groups": [
+      "DuneLow",
+      "DuneRidge",
+      "RockBoulder",
+      "RockCluster",
+      "RockSlab",
+      "SandTileFlat",
+      "SandTileRipple"
+    ],
+    "parts": 24
+  },
+  {
+    "category": "사막_배경",
+    "pack": "사막_마을건물_9종",
+    "entry": "포탑제외_전체에셋/사막_배경/사막_마을건물_9종/유니티자료/에셋파일/에디터/DesertBuildingsNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "DesertAdobeHouse",
+      "DesertRooftopTerraceHouse",
+      "DesertArchedBazaar",
+      "DesertCourtyardInn",
+      "DesertDomedBathhouse",
+      "DesertSettlementWatchtower",
+      "DesertCaravanStable",
+      "DesertCoveredWellPavilion",
+      "DesertAdobeGranary"
+    ],
+    "groups": [],
+    "parts": 322
+  },
+  {
+    "category": "사막_배경",
+    "pack": "사막_마을생활_9종",
+    "entry": "포탑제외_전체에셋/사막_배경/사막_마을생활_9종/유니티자료/에셋파일/에디터/VillageNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "DesertAdobeHouse",
+      "DesertMarketStall",
+      "DesertCourtyardArch",
+      "DesertClayJars",
+      "DesertWaterCistern",
+      "DesertCarpetRack",
+      "DesertDatePalm",
+      "DesertStoneStairs",
+      "DesertLowWall"
+    ],
+    "groups": [],
+    "parts": 116
+  },
+  {
+    "category": "사막_배경",
+    "pack": "사막_시장_소품_세트",
+    "entry": "포탑제외_전체에셋/사막_배경/사막_시장_소품_세트/유니티자료/에셋파일/에디터/DesertMarketMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "MarketCanopy",
+      "FruitStand",
+      "PotteryDisplay",
+      "GrainSacks",
+      "CarpetRack",
+      "Handcart"
+    ],
+    "groups": [],
+    "parts": 149
+  },
+  {
+    "category": "사막_배경",
+    "pack": "사막_유적_소품_세트",
+    "entry": "포탑제외_전체에셋/사막_배경/사막_유적_소품_세트/유니티자료/에셋파일/에디터/DesertRuinsMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "RuinGate",
+      "BrokenColumn",
+      "FallenColumn",
+      "BrokenRuinWall",
+      "RuinSteps",
+      "RuinObelisk"
+    ],
+    "groups": [],
+    "parts": 100
+  },
+  {
+    "category": "사막_배경",
+    "pack": "사막_유적건축물_9종",
+    "entry": "포탑제외_전체에셋/사막_배경/사막_유적건축물_9종/유니티자료/에셋파일/에디터/DesertRuinsNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "DesertRuinsTwinPylonGate",
+      "DesertRuinsColumnedTemple",
+      "DesertRuinsStepPyramid",
+      "DesertRuinsRockCutTomb",
+      "DesertRuinsBrokenRotunda",
+      "DesertRuinsMonumentalArch",
+      "DesertRuinsCourtyardRemains",
+      "DesertRuinsObeliskShrine",
+      "DesertRuinsAqueductSpan"
+    ],
+    "groups": [],
+    "parts": 261
+  },
+  {
+    "category": "사막_배경",
+    "pack": "사막_탐사유적_9종",
+    "entry": "포탑제외_전체에셋/사막_배경/사막_탐사유적_9종/유니티자료/에셋파일/에디터/DesertNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "DesertRuinedGate",
+      "DesertBrokenPillar",
+      "DesertStoneAltar",
+      "DesertSupplyCrates",
+      "DesertWaterDrums",
+      "DesertExpeditionShelter",
+      "DesertBranchedCactus",
+      "DesertLayeredRocks",
+      "DesertDryShrubs"
+    ],
+    "groups": [],
+    "parts": 106
+  },
+  {
+    "category": "초원_배경",
+    "pack": "초원_개울_연못_나무다리_세트",
+    "entry": "포탑제외_전체에셋/초원_배경/초원_개울_연못_나무다리_세트/유니티자료/에셋파일/에디터/MeadowWaterMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "StreamStraight",
+      "StreamCurve",
+      "Pond",
+      "WoodenBridge",
+      "SteppingStones",
+      "Reeds"
+    ],
+    "groups": [],
+    "parts": 81
+  },
+  {
+    "category": "초원_배경",
+    "pack": "초원_과수원_소품_3종",
+    "entry": "포탑제외_전체에셋/초원_배경/초원_과수원_소품_3종/유니티자료/에셋파일/에디터/OrchardPropsMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "GrasslandOrchardWagon",
+      "GrasslandAppleCrates",
+      "GrasslandScarecrow"
+    ],
+    "groups": [],
+    "parts": 53
+  },
+  {
+    "category": "초원_배경",
+    "pack": "초원_나무_덤불_바위_풀_세트",
+    "entry": "포탑제외_전체에셋/초원_배경/초원_나무_덤불_바위_풀_세트/유니티자료/에셋파일/에디터/GrasslandNatureMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "TreeOak",
+      "TreeRound",
+      "TreePine",
+      "BushRound",
+      "BushWide",
+      "RockSmall",
+      "RockLarge",
+      "RockCluster",
+      "GrassTuft",
+      "GrassPatch",
+      "Wildflowers",
+      "TreeStump"
+    ],
+    "groups": [],
+    "parts": 34
+  },
+  {
+    "category": "초원_배경",
+    "pack": "초원_농장_작물_돌우물_세트",
+    "entry": "포탑제외_전체에셋/초원_배경/초원_농장_작물_돌우물_세트/유니티자료/에셋파일/에디터/FarmCropsMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "TilledField",
+      "WheatField",
+      "CornField",
+      "VegetableField",
+      "PumpkinField",
+      "StoneWell"
+    ],
+    "groups": [],
+    "parts": 34
+  },
+  {
+    "category": "초원_배경",
+    "pack": "초원_농장경작_9종",
+    "entry": "포탑제외_전체에셋/초원_배경/초원_농장경작_9종/유니티자료/에셋파일/에디터/FarmNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "FarmGreenhouse",
+      "FarmPloughedField",
+      "FarmCornCluster",
+      "FarmPumpkinPatch",
+      "FarmBeehive",
+      "FarmGrainSilo",
+      "FarmWheelbarrow",
+      "FarmWateringCan",
+      "FarmToolShed"
+    ],
+    "groups": [],
+    "parts": 129
+  },
+  {
+    "category": "초원_배경",
+    "pack": "초원_농촌마을건물_9종",
+    "entry": "포탑제외_전체에셋/초원_배경/초원_농촌마을건물_9종/유니티자료/에셋파일/에디터/RuralBuildingsNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "RuralFarmhouse",
+      "RuralRedBarn",
+      "RuralWindmill",
+      "RuralWatermill",
+      "RuralShepherdHut",
+      "RuralDairyShed",
+      "RuralForgeWorkshop",
+      "RuralProducePackingShed",
+      "RuralVillageInn"
+    ],
+    "groups": [],
+    "parts": 263
+  },
+  {
+    "category": "초원_배경",
+    "pack": "초원_배경시설_9종",
+    "entry": "포탑제외_전체에셋/초원_배경/초원_배경시설_9종/유니티자료/에셋파일/에디터/GrasslandNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "GrasslandRedBarn",
+      "GrasslandWindmill",
+      "GrasslandWaterTank",
+      "GrasslandPond",
+      "GrasslandWoodBridge",
+      "GrasslandTrailSign",
+      "GrasslandWolfCave",
+      "GrasslandWolfWarning",
+      "GrasslandWolfBarricade"
+    ],
+    "groups": [],
+    "parts": 157
+  },
+  {
+    "category": "초원_배경",
+    "pack": "초원_숲가장자리_야영지_3종",
+    "entry": "포탑제외_전체에셋/초원_배경/초원_숲가장자리_야영지_3종/유니티자료/에셋파일/에디터/CampsiteMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "GrasslandCampingTent",
+      "GrasslandCampfire",
+      "GrasslandLogSeating"
+    ],
+    "groups": [],
+    "parts": 40
+  },
+  {
+    "category": "초원_배경",
+    "pack": "초원_숲바닥자연물_9종",
+    "entry": "포탑제외_전체에셋/초원_배경/초원_숲바닥자연물_9종/유니티자료/에셋파일/에디터/ForestFloorNineMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "ForestFallenLog",
+      "ForestHollowStump",
+      "ForestMushroomCluster",
+      "ForestGrassClump",
+      "ForestWildflowers",
+      "ForestFern",
+      "ForestRockPile",
+      "ForestSteppingStones",
+      "ForestStreamTile"
+    ],
+    "groups": [],
+    "parts": 175
+  },
+  {
+    "category": "초원_배경",
+    "pack": "초원_양목장_소품_3종",
+    "entry": "포탑제외_전체에셋/초원_배경/초원_양목장_소품_3종/유니티자료/에셋파일/에디터/PastureMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "GrasslandSheepPen",
+      "GrasslandFeedTrough",
+      "GrasslandHayBales"
+    ],
+    "groups": [],
+    "parts": 56
+  },
+  {
+    "category": "초원_배경",
+    "pack": "초원_울타리_목장_출입문_세트",
+    "entry": "포탑제외_전체에셋/초원_배경/초원_울타리_목장_출입문_세트/유니티자료/에셋파일/에디터/MeadowFenceMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "FenceStraight",
+      "FenceHalf",
+      "FenceBraced",
+      "FenceDamaged",
+      "FenceCorner",
+      "FencePost",
+      "GateSingle",
+      "GateDouble"
+    ],
+    "groups": [],
+    "parts": 74
+  },
+  {
+    "category": "초원_배경",
+    "pack": "초원_지형_흙길_타일_세트",
+    "entry": "포탑제외_전체에셋/초원_배경/초원_지형_흙길_타일_세트/유니티자료/에셋파일/에디터/GrasslandTilesMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "GrassA",
+      "GrassB",
+      "PathStraight",
+      "PathCurve",
+      "PathTJunction",
+      "PathCross",
+      "PathEnd",
+      "GrassHill",
+      "GrassRamp",
+      "GrassRaised",
+      "PathRamp",
+      "PathRaisedStraight"
+    ],
+    "groups": [],
+    "parts": 81
+  },
+  {
+    "category": "초원_배경",
+    "pack": "초원_특색나무_3종",
+    "entry": "포탑제외_전체에셋/초원_배경/초원_특색나무_3종/유니티자료/에셋파일/에디터/SpecialTreesMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "GrasslandAppleTree",
+      "GrasslandBirchTree",
+      "GrasslandCherryBlossom"
+    ],
+    "groups": [],
+    "parts": 38
+  },
+  {
+    "category": "초원_배경",
+    "pack": "초원_헛간_풍차_건초_세트",
+    "entry": "포탑제외_전체에셋/초원_배경/초원_헛간_풍차_건초_세트/유니티자료/에셋파일/에디터/MeadowFarmMeshData.json",
+    "keys": [
+      "assets"
+    ],
+    "items": [
+      "Barn",
+      "Windmill",
+      "HayBaleSquare",
+      "HayBaleRound",
+      "HayStack",
+      "FeedTrough"
+    ],
+    "groups": [],
+    "parts": 170
+  }
+]

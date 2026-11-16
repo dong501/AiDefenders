@@ -1,0 +1,1 @@
+﻿var scene="Assets/Scenes/GameStages/AnyangCampus/AnyangCampus_1.unity";var deps=UnityEditor.AssetDatabase.GetDependencies(scene,true);System.IO.Directory.CreateDirectory("MapBackups/AnyangCampus_20261116");System.IO.File.WriteAllLines("MapBackups/AnyangCampus_20261116/Dependencies.txt",deps);return "Dependencies saved: "+deps.Length;

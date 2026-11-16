@@ -1,0 +1,1 @@
+174 background buildings in three batches; all four faces windowed; 1800m ground; four road closures outside spawn points; drone bounds X[-165.5,165.5], Z[-265.5,65.5], Y[2.5,67.5]; fog density .0045; gameplay signature unchanged.

@@ -1,0 +1,3 @@
+var report=new System.Collections.Generic.List<string>();foreach(var name in new[]{"Turret_MG","Turret_PrecisionShot","Turret_Test Missile","Turret_Test Laser","Turret_Test_Bolt","Turret_Test MG"})
+{var p=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/Turrets/Turret_Test/"+name+".prefab");var c=p.GetComponent<TurretController>();report.Add(name+" display="+c.displayName);foreach(var tier in c.upgradeTiers)report.Add("TIER "+tier.visualRoot.name+" active="+tier.visualRoot.activeInHierarchy+" parent="+tier.visualRoot.transform.parent.name+" renderers="+tier.visualRoot.GetComponentsInChildren<UnityEngine.Renderer>(true).Length);}
+return string.Join("\n",report.ToArray());

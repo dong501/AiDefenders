@@ -34,8 +34,8 @@ public class UiLogoDepth : MonoBehaviour
     void LateUpdate()
     {
         float t = Time.unscaledTime;
-        var rotation = Quaternion.Euler(Mathf.Sin(t * .55f) * 1.3f, Mathf.Cos(t * .45f) * 2.2f, 0);
-        face.anchoredPosition = home + Vector2.up * Mathf.Sin(t * .8f) * 3;
+        var rotation = Quaternion.Euler(Mathf.Sin(t * .75f) * 2.5f, Mathf.Cos(t * .65f) * 3.8f, Mathf.Sin(t * .6f) * .55f);
+        face.anchoredPosition = home + Vector2.up * Mathf.Sin(t * 1.2f) * 13;
         face.localRotation = rotation;
         for (int i = 0; i < layers.Length; i++)
         {

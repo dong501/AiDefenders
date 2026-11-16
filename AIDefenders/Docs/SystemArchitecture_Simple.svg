@@ -1,0 +1,117 @@
+<svg width="1400" height="760" viewBox="0 0 1400 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">AIDefenders Simple System Architecture</title>
+  <desc id="desc">Simple architecture diagram showing Unity client, AI detection pipeline, dataset collection, and game defense loop.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#152b3d"/>
+    </linearGradient>
+    <linearGradient id="unityGrad" x1="0" x2="1">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+    <linearGradient id="aiGrad" x1="0" x2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="dataGrad" x1="0" x2="1">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#c4b5fd"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#e5eefc"/>
+    </marker>
+    <style>
+      .title { font: 700 30px 'Segoe UI', Arial, sans-serif; fill: #edf6ff; }
+      .section { font: 700 20px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
+      .box-title { font: 700 20px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
+      .box-text { font: 500 15px 'Segoe UI', Arial, sans-serif; fill: #edf4ff; }
+      .small { font: 600 13px 'Segoe UI', Arial, sans-serif; fill: #dfe9f8; }
+      .arrow { stroke: #e5eefc; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1400" height="760" fill="url(#bg)"/>
+  <text x="700" y="60" text-anchor="middle" class="title">AIDefenders System Architecture</text>
+
+  <!-- User -->
+  <rect x="60" y="120" width="180" height="500" rx="18" fill="#111d2d" stroke="#6ea8ff"/>
+  <text x="150" y="165" text-anchor="middle" class="section">User</text>
+
+  <rect x="85" y="200" width="130" height="90" rx="16" fill="#17355a" stroke="#90c1ff"/>
+  <text x="150" y="237" text-anchor="middle" class="box-title">Main Menu</text>
+  <text x="150" y="260" text-anchor="middle" class="box-text">모델 선택</text>
+
+  <rect x="85" y="320" width="130" height="90" rx="16" fill="#17355a" stroke="#90c1ff"/>
+  <text x="150" y="357" text-anchor="middle" class="box-title">Campaign</text>
+  <text x="150" y="380" text-anchor="middle" class="box-text">전투 시작</text>
+
+  <rect x="85" y="440" width="130" height="90" rx="16" fill="#17355a" stroke="#90c1ff"/>
+  <text x="150" y="477" text-anchor="middle" class="box-title">Dataset Lab</text>
+  <text x="150" y="500" text-anchor="middle" class="box-text">학습/데이터</text>
+
+  <!-- Unity -->
+  <rect x="300" y="120" width="260" height="500" rx="18" fill="#111d2d" stroke="#5aa9ff"/>
+  <text x="430" y="165" text-anchor="middle" class="section">Unity</text>
+
+  <rect x="330" y="200" width="200" height="90" rx="16" fill="url(#unityGrad)"/>
+  <text x="430" y="237" text-anchor="middle" class="box-title">GameManager</text>
+  <text x="430" y="260" text-anchor="middle" class="box-text">서버 실행</text>
+
+  <rect x="330" y="320" width="200" height="90" rx="16" fill="#1f4f8a" stroke="#9cc8ff"/>
+  <text x="430" y="357" text-anchor="middle" class="box-title">AIInputCapture</text>
+  <text x="430" y="380" text-anchor="middle" class="box-text">프레임 전송</text>
+
+  <rect x="330" y="440" width="200" height="90" rx="16" fill="#1f4f8a" stroke="#9cc8ff"/>
+  <text x="430" y="477" text-anchor="middle" class="box-title">CCTV / Turrets</text>
+  <text x="430" y="500" text-anchor="middle" class="box-text">탐지 반영</text>
+
+  <!-- AI -->
+  <rect x="620" y="120" width="280" height="500" rx="18" fill="#111d2d" stroke="#34d399"/>
+  <text x="760" y="165" text-anchor="middle" class="section">AI Engine</text>
+
+  <rect x="655" y="200" width="210" height="92" rx="16" fill="url(#aiGrad)"/>
+  <text x="760" y="237" text-anchor="middle" class="box-title">YOLO Server</text>
+  <text x="760" y="260" text-anchor="middle" class="box-text">객체 탐지</text>
+
+  <rect x="655" y="320" width="210" height="92" rx="16" fill="#156a58" stroke="#76e8c5"/>
+  <text x="760" y="357" text-anchor="middle" class="box-title">Model</text>
+  <text x="760" y="380" text-anchor="middle" class="box-text">weights / class map</text>
+
+  <rect x="655" y="440" width="210" height="92" rx="16" fill="#156a58" stroke="#76e8c5"/>
+  <text x="760" y="477" text-anchor="middle" class="box-title">PyTorch</text>
+  <text x="760" y="500" text-anchor="middle" class="box-text">추론 / 학습</text>
+
+  <!-- Data -->
+  <rect x="980" y="120" width="300" height="500" rx="18" fill="#111d2d" stroke="#c4b5fd"/>
+  <text x="1130" y="165" text-anchor="middle" class="section">Data</text>
+
+  <rect x="1015" y="200" width="230" height="92" rx="16" fill="url(#dataGrad)"/>
+  <text x="1130" y="237" text-anchor="middle" class="box-title">Dataset Manager</text>
+  <text x="1130" y="260" text-anchor="middle" class="box-text">이미지 생성</text>
+
+  <rect x="1015" y="320" width="230" height="92" rx="16" fill="#463380" stroke="#dec9ff"/>
+  <text x="1130" y="357" text-anchor="middle" class="box-title">Datasets</text>
+  <text x="1130" y="380" text-anchor="middle" class="box-text">train / val / test</text>
+
+  <rect x="1015" y="440" width="230" height="92" rx="16" fill="#463380" stroke="#dec9ff"/>
+  <text x="1130" y="477" text-anchor="middle" class="box-title">Trained Models</text>
+  <text x="1130" y="500" text-anchor="middle" class="box-text">weights.pt</text>
+
+  <!-- arrows -->
+  <line x1="240" y1="245" x2="300" y2="245" class="arrow"/>
+  <line x1="240" y1="365" x2="300" y2="365" class="arrow"/>
+  <line x1="560" y1="245" x2="620" y2="245" class="arrow"/>
+  <line x1="560" y1="365" x2="620" y2="365" class="arrow"/>
+  <line x1="900" y1="245" x2="980" y2="245" class="arrow"/>
+  <line x1="900" y1="365" x2="980" y2="365" class="arrow"/>
+
+  <line x1="430" y1="290" x2="430" y2="320" class="arrow"/>
+  <line x1="760" y1="292" x2="760" y2="320" class="arrow"/>
+  <line x1="1130" y1="292" x2="1130" y2="320" class="arrow"/>
+
+  <path d="M 430 530 C 520 610, 660 610, 760 530" class="arrow"/>
+  <path d="M 760 530 C 890 610, 970 610, 1130 530" class="arrow"/>
+
+  <text x="700" y="650" text-anchor="middle" class="small">사용자 → Unity → YOLO AI → 탐지 결과 → 게임 로직</text>
+</svg>

@@ -16,10 +16,13 @@ public class HudWorldOverlay
     readonly List<DamageView> liveDamages = new List<DamageView>();
 
     CCTVRadar radar;
-    TurretPlatformPlacer radarBuildPlacer;
+    readonly HudBuildUi buildUi;
+    readonly List<RectTransform> radarObstacles = new List<RectTransform>();
+    readonly List<Rect> radarObstacleRects = new List<Rect>();
+    readonly Vector3[] radarCorners = new Vector3[4];
     RectTransform radarRt;
     Image radarPanel;
-    Image radarBorder;
+    UiRoundedBorder radarBorder;
     Image radarPlayer;
     GameObject radarRoot;
     Transform markerRoot;
@@ -56,9 +59,10 @@ public class HudWorldOverlay
         public bool active;
     }
 
-    public HudWorldOverlay(RectTransform canvasRoot)
+    public HudWorldOverlay(RectTransform canvasRoot, HudBuildUi buildUi = null)
     {
         canvasRt = canvasRoot;
+        this.buildUi = buildUi;
         BuildRadar();
         markerRoot = CreateLayer("Markers");
         damageRoot = CreateLayer("Damage");
@@ -101,11 +105,19 @@ public class HudWorldOverlay
             return;
 
         radarRt.sizeDelta = new Vector2(radar.size, radar.size);
-        if (radarBuildPlacer == null) radarBuildPlacer = Object.FindFirstObjectByType<TurretPlatformPlacer>();
-        bool building = radarBuildPlacer != null && radarBuildPlacer.ShowBuildUi;
-        // Leave the top controls clear; move left of the 360px construction sidebar when open.
-        float rightInset = building ? 408f : Mathf.Max(24f, radar.margin);
-        radarRt.anchoredPosition = new Vector2(-rightInset, -200f);
+        radarObstacles.Clear();
+        radarObstacleRects.Clear();
+        buildUi?.CollectRadarObstacles(radarObstacles);
+        foreach (RectTransform panel in radarObstacles)
+        {
+            panel.GetWorldCorners(radarCorners);
+            Vector3 min = canvasRt.InverseTransformPoint(radarCorners[0]);
+            Vector3 max = canvasRt.InverseTransformPoint(radarCorners[2]);
+            radarObstacleRects.Add(Rect.MinMaxRect(min.x, min.y, max.x, max.y));
+        }
+        Rect layout = HudRadarLayout.Resolve(canvasRt.rect, radar.size, Mathf.Max(24f, radar.margin), radarObstacleRects);
+        radarRt.sizeDelta = layout.size;
+        radarRt.anchoredPosition = new Vector2(layout.xMax - canvasRt.rect.xMax, layout.yMax - canvasRt.rect.yMax);
         radarPanel.color = radar.backgroundColor;
         radarBorder.color = radar.borderColor;
 
@@ -116,7 +128,7 @@ public class HudWorldOverlay
 
         Vector3 origin = radar.transform.position;
         Quaternion toRadar = Quaternion.Euler(0f, -radar.transform.eulerAngles.y, 0f);
-        float radius = radar.size * 0.5f - 6f;
+        float radius = layout.width * 0.5f - 6f;
         int used = 0;
 
         for (int i = 0; i < targets.Length; i++)
@@ -344,12 +356,12 @@ public class HudWorldOverlay
         radarRt.anchorMax = new Vector2(1f, 1f);
         radarRt.pivot = new Vector2(1f, 1f);
         radarRt.anchoredPosition = new Vector2(-24f, -200f);
-        radarRt.sizeDelta = new Vector2(168f, 168f);
-
-        radarBorder = UiFont.AddImage(radarRt, "Border", new Color(0.55f, 0.85f, 0.7f, 0.9f));
-        radarBorder.raycastTarget = false;
-        radarBorder.type = Image.Type.Sliced;
-        radarBorder.fillCenter = false;
+        radarRt.sizeDelta = Vector2.one * CCTVRadar.DefaultSize;
+        radarPanel.sprite = UiSkin.Rounded;
+        radarPanel.type = Image.Type.Sliced;
+        var edge = new GameObject("RoundedBorder",typeof(RectTransform),typeof(CanvasRenderer),typeof(UiRoundedBorder));
+        edge.transform.SetParent(radarRt,false);
+        radarBorder=edge.GetComponent<UiRoundedBorder>();radarBorder.raycastTarget=false;
         UiFont.Stretch(radarBorder.rectTransform);
 
         radarPlayer = UiFont.AddImage(radarRt, "Player", Color.white);

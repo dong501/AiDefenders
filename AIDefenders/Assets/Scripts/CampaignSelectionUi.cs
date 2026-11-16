@@ -20,7 +20,7 @@ public class CampaignSelectionUi
     public CampaignSelectionUi(Transform root, CampaignStageEntry[] stages, bool requireUnlocks, Action home, Action<string> load)
     {
         this.root = root;
-        this.stages = stages;
+        this.stages = Array.FindAll(stages ?? Array.Empty<CampaignStageEntry>(), entry => entry != null && entry.chapterId != 99 && entry.sceneName != "AnyangCampus_1");
         this.requireUnlocks = requireUnlocks;
         this.home = home;
         this.load = load;
@@ -108,7 +108,7 @@ public class CampaignSelectionUi
         if (preview != null) { preview.rectTransform.pivot = new Vector2(.5f, 1); preview.rectTransform.anchoredPosition = new Vector2(0, -12); }
         var shade = UiFont.AddImage(map.transform, "RoutePanel", new Color(.025f, .09f, .17f, .88f));
         UiSkin.Place(shade.rectTransform, new Vector2(.5f, 0), new Vector2(0, 163), new Vector2(1046, 302));
-        Label(map.transform, "ChapterName", "CHAPTER " + id.ToString("00") + "  /  " + stage.chapterName, new Vector2(.5f, 1), new Vector2(0, -55), new Vector2(1000, 60), 30);
+        Label(map.transform, "ChapterName", ("CHAPTER " + id.ToString("00")) + "  /  " + stage.chapterName, new Vector2(.5f, 1), new Vector2(0, -55), new Vector2(1000, 60), 30);
         int slots = Mathf.Max(3, entries.Count);
         var route = UiFont.AddImage(map.transform, "RouteLine", UiSkin.Sky);
         UiSkin.Place(route.rectTransform, new Vector2(.5f, 0), new Vector2(0, 215), new Vector2(720, 5));
@@ -156,7 +156,7 @@ public class CampaignSelectionUi
         return result;
     }
 
-    static string Description(int id) { return id == 1 ? "넓은 초원과 숲, 고요한 호숫가" : id == 2 ? "모래 언덕 너머, 사막의 전초기지" : "안개 낀 거리, 도시의 마지막 대피소"; }
+    static string Description(int id) { return id == 1 ? "넓은 초원과 숲, 고요한 호숫가" : id == 2 ? "모래 언덕 너머, 사막의 전초기지" : "사방에서 몰려오는 위협, 중앙 대피소 방어"; }
     static string TimeOfDay(CampaignStageEntry entry) { return entry.sceneName == "Grassfield_2" ? "저녁" : entry.sceneName == "Grassfield_3" ? "밤" : "낮"; }
     static Text Label(Transform parent, string name, string text, Vector2 anchor, Vector2 position, Vector2 size, int fontSize)
     {

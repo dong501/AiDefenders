@@ -90,6 +90,23 @@ public abstract class Projectile_Base : MonoBehaviour
         TryHit(other);
     }
 
+    // Guided skill projectiles can cross a small target within a single rendered frame.
+    protected void AdvanceWithSweep(Vector3 displacement)
+    {
+        float distance=displacement.magnitude;
+        if(distance>.0001f)
+        {
+            var hits=Physics.SphereCastAll(transform.position,.08f,displacement/distance,distance,Physics.DefaultRaycastLayers,QueryTriggerInteraction.Collide);
+            System.Array.Sort(hits,(a,b)=>a.distance.CompareTo(b.distance));
+            foreach(var hit in hits)
+            {
+                TryHit(hit.collider);
+                if(spent){transform.position+=displacement.normalized*hit.distance;return;}
+            }
+        }
+        transform.position+=displacement;
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision != null)

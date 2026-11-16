@@ -1,0 +1,35 @@
+{
+  "city": {
+    "horizontal_signal_assemblies": 28,
+    "manholes": 24,
+    "gp_scale": [
+      1.4,
+      1.3,
+      1.4
+    ],
+    "saved": true
+  },
+  "desert": {
+    "extra_overlapping_tent_active": false,
+    "original_camp_retained": true,
+    "terrain": "Rounded winding canyon with smoothly blended two-level shoulders; route and outpost protected"
+  },
+  "validation": {
+    "unity_compile_errors": 0,
+    "desert_underground_recovery_samples_passed": 4,
+    "desert_fast_descent_and_uphill_samples_passed": 2,
+    "city_underground_recovery_samples_passed": 3,
+    "title_animated_turrets": 4,
+    "main_animated_turrets": 5,
+    "main_measured_y_changes": [
+      20.39,
+      11.81,
+      28.48,
+      13.69,
+      27.49
+    ],
+    "particles_block_raycast": false,
+    "main_interactable_buttons": 6
+  },
+  "capture": "No screenshots or video taken; user capture hold honored"
+}

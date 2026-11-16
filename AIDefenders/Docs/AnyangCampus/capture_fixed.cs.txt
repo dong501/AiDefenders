@@ -1,0 +1,1 @@
+﻿var a=CanyonAndCityVisualUpgrade.Capture(AnyangCampusBuilder.ScenePath,"Anyang_Architecture_Fixed",new Vector3(137,81,155),new Vector3(5,26,50));return a;
