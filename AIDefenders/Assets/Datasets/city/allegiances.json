@@ -1,0 +1,36 @@
+{
+    "entries": [
+        {
+            "label": "Target_Enemy_CityWalkerZombie",
+            "isEnemy": true
+        },
+        {
+            "label": "Target_Enemy_CityRunnerZombie",
+            "isEnemy": true
+        },
+        {
+            "label": "Target_Friendly_CitySurvivor",
+            "isEnemy": false
+        },
+        {
+            "label": "Target_Friendly_CityPoliceRescuer",
+            "isEnemy": false
+        },
+        {
+            "label": "Target_Friendly_CityAmbulance",
+            "isEnemy": false
+        },
+        {
+            "label": "Target_Friendly_CityEvacBus",
+            "isEnemy": false
+        },
+        {
+            "label": "Target_Enemy_CityBruteZombie",
+            "isEnemy": true
+        },
+        {
+            "label": "Target_Enemy_CityArmoredZombie",
+            "isEnemy": true
+        }
+    ]
+}

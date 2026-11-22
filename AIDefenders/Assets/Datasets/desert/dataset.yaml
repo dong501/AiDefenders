@@ -1,0 +1,15 @@
+path: "C:/Users/user/Downloads/AIDefendersV5-main/AIDefenders/Assets/Datasets/desert"
+train: images/train
+val: images/val
+test: images/test
+
+nc: 8
+names:
+  0: Target_Enemy_DesertRaider
+  1: Target_Friendly_DesertRescueWorker
+  2: Target_Enemy_DesertRaiderBuggy
+  3: Target_Friendly_DesertSupplyTruck
+  4: Target_Friendly_DesertRescueCrawler
+  5: Target_Friendly_DesertMedic
+  6: Target_Enemy_DesertArmoredBuggy
+  7: Target_Enemy_DesertAttackRover

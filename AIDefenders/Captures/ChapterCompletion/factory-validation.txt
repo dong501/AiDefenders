@@ -1,0 +1,11 @@
+Factory prefabs=37 terrains=4 stages=9 duplicateTerrain=False
+All 22 new models available; name lookup passed.
+초원 1 classes=3
+초원 2 classes=6
+초원 3 classes=7
+사막 1 classes=4
+사막 2 classes=7
+사막 3 classes=10
+도시 1 classes=4
+도시 2 classes=8
+도시 3 classes=12

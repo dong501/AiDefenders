@@ -1,0 +1,14 @@
+path: "C:/Users/user/Downloads/AIDefendersV5-main/AIDefenders/Assets/Datasets/grass3"
+train: images/train
+val: images/val
+test: images/test
+
+nc: 7
+names:
+  0: Target_Friendly_Sheep
+  1: Target_Enemy_Thief
+  2: Target_Friendly_Farmer
+  3: Target_Enemy_ThiefMotorCycle
+  4: Target_Friendly_FarmerTruck
+  5: Target_Enemy_ThiefBoat
+  6: Target_Friendly_FarmerBoat

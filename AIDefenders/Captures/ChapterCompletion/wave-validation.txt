@@ -1,0 +1,30 @@
+Desert_1 방어 웨이브 1 enemy=10 friendly=5 totalEnemyHP=3650
+Desert_1 방어 웨이브 2 enemy=13 friendly=5 totalEnemyHP=4650
+Desert_1 방어 웨이브 3 enemy=16 friendly=6 totalEnemyHP=5840
+Desert_1 최종 방어선 enemy=19 friendly=6 totalEnemyHP=6840
+Desert_2 방어 웨이브 1 enemy=15 friendly=6 totalEnemyHP=5380
+Desert_2 방어 웨이브 2 enemy=19 friendly=6 totalEnemyHP=7050
+Desert_2 방어 웨이브 3 enemy=23 friendly=7 totalEnemyHP=9610
+Desert_2 방어 웨이브 4 enemy=27 friendly=7 totalEnemyHP=11590
+Desert_2 최종 방어선 enemy=31 friendly=8 totalEnemyHP=12990
+Desert_3 방어 웨이브 1 enemy=20 friendly=7 totalEnemyHP=7450
+Desert_3 방어 웨이브 2 enemy=25 friendly=7 totalEnemyHP=10730
+Desert_3 방어 웨이브 3 enemy=30 friendly=8 totalEnemyHP=12820
+Desert_3 방어 웨이브 4 enemy=35 friendly=8 totalEnemyHP=15720
+Desert_3 방어 웨이브 5 enemy=40 friendly=9 totalEnemyHP=18910
+Desert_3 최종 방어선 enemy=45 friendly=9 totalEnemyHP=22940
+City_1 방어 웨이브 1 enemy=12 friendly=5 totalEnemyHP=3420
+City_1 방어 웨이브 2 enemy=15 friendly=5 totalEnemyHP=4290
+City_1 방어 웨이브 3 enemy=18 friendly=6 totalEnemyHP=5130
+City_1 최종 방어선 enemy=21 friendly=6 totalEnemyHP=6000
+City_2 방어 웨이브 1 enemy=17 friendly=6 totalEnemyHP=4860
+City_2 방어 웨이브 2 enemy=21 friendly=6 totalEnemyHP=7700
+City_2 방어 웨이브 3 enemy=25 friendly=7 totalEnemyHP=11600
+City_2 방어 웨이브 4 enemy=29 friendly=7 totalEnemyHP=12970
+City_2 최종 방어선 enemy=33 friendly=8 totalEnemyHP=15530
+City_3 방어 웨이브 1 enemy=22 friendly=7 totalEnemyHP=8000
+City_3 방어 웨이브 2 enemy=27 friendly=7 totalEnemyHP=10960
+City_3 방어 웨이브 3 enemy=32 friendly=8 totalEnemyHP=14040
+City_3 방어 웨이브 4 enemy=37 friendly=8 totalEnemyHP=16470
+City_3 방어 웨이브 5 enemy=42 friendly=9 totalEnemyHP=20250
+City_3 최종 방어선 enemy=47 friendly=9 totalEnemyHP=24270

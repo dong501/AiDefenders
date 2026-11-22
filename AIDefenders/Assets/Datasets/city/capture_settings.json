@@ -1,0 +1,43 @@
+{
+    "targetPrefabPaths": [
+        "Assets/Resources/ChapterTargets/City/Target_Enemy_CityWalkerZombie.prefab",
+        "Assets/Resources/ChapterTargets/City/Target_Enemy_CityRunnerZombie.prefab",
+        "Assets/Resources/ChapterTargets/City/Target_Friendly_CitySurvivor.prefab",
+        "Assets/Resources/ChapterTargets/City/Target_Friendly_CityPoliceRescuer.prefab",
+        "Assets/Resources/ChapterTargets/City/Target_Friendly_CityAmbulance.prefab",
+        "Assets/Resources/ChapterTargets/City/Target_Friendly_CityEvacBus.prefab",
+        "Assets/Resources/ChapterTargets/City/Target_Enemy_CityBruteZombie.prefab",
+        "Assets/Resources/ChapterTargets/City/Target_Enemy_CityArmoredZombie.prefab"
+    ],
+    "terrainNames": [
+        "City_1"
+    ],
+    "minCaptureCount": 1,
+    "maxCaptureCount": 7,
+    "minSpacing": 2.7095484733581545,
+    "spawnViewFill": 0.800000011920929,
+    "cameraDistanceMin": 16.214298248291017,
+    "cameraDistanceMax": 25.13216209411621,
+    "cameraPitchMin": 18.0,
+    "cameraPitchMax": 62.0,
+    "cameraYawMin": 0.0,
+    "cameraYawMax": 360.0,
+    "cameraFovMin": 40.0,
+    "cameraFovMax": 62.0,
+    "jpegQuality": 70,
+    "trainSampleCount": 1600,
+    "valSampleCount": 300,
+    "testSampleCount": 100,
+    "trainEpochs": 50,
+    "trainBatchSize": 16,
+    "classPrefabPaths": [
+        "Assets/Resources/ChapterTargets/City/Target_Enemy_CityWalkerZombie.prefab",
+        "Assets/Resources/ChapterTargets/City/Target_Enemy_CityRunnerZombie.prefab",
+        "Assets/Resources/ChapterTargets/City/Target_Friendly_CitySurvivor.prefab",
+        "Assets/Resources/ChapterTargets/City/Target_Friendly_CityPoliceRescuer.prefab",
+        "Assets/Resources/ChapterTargets/City/Target_Friendly_CityAmbulance.prefab",
+        "Assets/Resources/ChapterTargets/City/Target_Friendly_CityEvacBus.prefab",
+        "Assets/Resources/ChapterTargets/City/Target_Enemy_CityBruteZombie.prefab",
+        "Assets/Resources/ChapterTargets/City/Target_Enemy_CityArmoredZombie.prefab"
+    ]
+}

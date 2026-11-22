@@ -1,0 +1,43 @@
+{
+    "targetPrefabPaths": [
+        "Assets/Resources/ChapterTargets/Desert/Target_Enemy_DesertRaider.prefab",
+        "Assets/Resources/ChapterTargets/Desert/Target_Friendly_DesertRescueWorker.prefab",
+        "Assets/Resources/ChapterTargets/Desert/Target_Enemy_DesertRaiderBuggy.prefab",
+        "Assets/Resources/ChapterTargets/Desert/Target_Friendly_DesertSupplyTruck.prefab",
+        "Assets/Resources/ChapterTargets/Desert/Target_Friendly_DesertRescueCrawler.prefab",
+        "Assets/Resources/ChapterTargets/Desert/Target_Friendly_DesertMedic.prefab",
+        "Assets/Resources/ChapterTargets/Desert/Target_Enemy_DesertArmoredBuggy.prefab",
+        "Assets/Resources/ChapterTargets/Desert/Target_Enemy_DesertAttackRover.prefab"
+    ],
+    "terrainNames": [
+        "Desert_1"
+    ],
+    "minCaptureCount": 1,
+    "maxCaptureCount": 7,
+    "minSpacing": 4.345215320587158,
+    "spawnViewFill": 0.800000011920929,
+    "cameraDistanceMin": 26.00234603881836,
+    "cameraDistanceMax": 40.30363464355469,
+    "cameraPitchMin": 18.0,
+    "cameraPitchMax": 62.0,
+    "cameraYawMin": 0.0,
+    "cameraYawMax": 360.0,
+    "cameraFovMin": 40.0,
+    "cameraFovMax": 62.0,
+    "jpegQuality": 70,
+    "trainSampleCount": 1600,
+    "valSampleCount": 300,
+    "testSampleCount": 100,
+    "trainEpochs": 50,
+    "trainBatchSize": 16,
+    "classPrefabPaths": [
+        "Assets/Resources/ChapterTargets/Desert/Target_Enemy_DesertRaider.prefab",
+        "Assets/Resources/ChapterTargets/Desert/Target_Friendly_DesertRescueWorker.prefab",
+        "Assets/Resources/ChapterTargets/Desert/Target_Enemy_DesertRaiderBuggy.prefab",
+        "Assets/Resources/ChapterTargets/Desert/Target_Friendly_DesertSupplyTruck.prefab",
+        "Assets/Resources/ChapterTargets/Desert/Target_Friendly_DesertRescueCrawler.prefab",
+        "Assets/Resources/ChapterTargets/Desert/Target_Friendly_DesertMedic.prefab",
+        "Assets/Resources/ChapterTargets/Desert/Target_Enemy_DesertArmoredBuggy.prefab",
+        "Assets/Resources/ChapterTargets/Desert/Target_Enemy_DesertAttackRover.prefab"
+    ]
+}

@@ -1,0 +1,562 @@
+using UnityEngine;
+using System.Collections;
+
+public class WeaponSystem : MonoBehaviour
+{
+    public AmmoData ammo;
+
+    public float fireDelay = 0.5f;
+    public int maxAmmo = 10;
+    public float reloadTime = 2f;
+    [Tooltip("발사 방향이 조준 축에서 어긋날 수 있는 최대 각도(도). 0이면 집탄.")]
+    public float spreadAngle = 0f;
+
+    int currentAmmo;
+    bool isReloading = false;
+    float lastFireTime = 0f;
+    float damageScale = 1f;
+    TurretController turret;
+    float baseSpread;
+    bool capturedSpread;
+    GameObject beamRoot;
+    LineRenderer beamGlow;
+    LineRenderer beamCore;
+    float lastBeamTime;
+    float currentHeat;
+    bool overheated;
+    bool beamFiring;
+    float ventTimer;
+
+    public bool UsesHeat
+    {
+        get { return ammo != null && ammo.fireMode == WeaponFireMode.Beam; }
+    }
+
+    public bool IsBursting
+    {
+        get
+        {
+            if (lastFireTime <= 0f)
+                return false;
+            return Time.time - lastFireTime <= Mathf.Max(0.16f, fireDelay * 2f);
+        }
+    }
+
+    public bool IsOverheated
+    {
+        get { return overheated; }
+    }
+
+    public int CurrentAmmo
+    {
+        get { return UsesHeat ? Mathf.RoundToInt(currentHeat) : currentAmmo; }
+    }
+
+    public int MagazineSize
+    {
+        get { return maxAmmo; }
+    }
+
+    public bool IsReloading
+    {
+        get { return isReloading || overheated; }
+    }
+
+    public string AmmoLabel
+    {
+        get
+        {
+            if (UsesHeat)
+                return "과열";
+            if (ammo == null)
+                return "없음";
+            return string.IsNullOrWhiteSpace(ammo.name) ? "탄환" : ammo.name;
+        }
+    }
+
+    void Awake()
+    {
+        turret = GetComponent<TurretController>();
+        if (turret == null)
+            turret = GetComponentInParent<TurretController>();
+        CaptureBaseSpread();
+    }
+
+    void Start()
+    {
+        currentAmmo = maxAmmo;
+        currentHeat = 0f;
+        overheated = false;
+    }
+
+    public void ApplyTierStats(float delay, int magazine, float reload, float scale)
+    {
+        CaptureBaseSpread();
+        fireDelay = Mathf.Max(0.01f, delay / (1f + TurretResearch.FireRateBonus(turret)));
+        maxAmmo = Mathf.Max(1, magazine);
+        reloadTime = Mathf.Max(0.01f, (reload + TurretResearch.ReloadBonus(turret)) * TurretResearch.ReloadTimeScale(turret));
+        spreadAngle = Mathf.Max(0f, baseSpread + TurretResearch.SpreadBonus(turret));
+        damageScale = Mathf.Max(0.01f, scale);
+        if (UsesHeat)
+        {
+            if (currentHeat > maxAmmo)
+                currentHeat = maxAmmo;
+            return;
+        }
+
+        if (currentAmmo > maxAmmo)
+            currentAmmo = maxAmmo;
+        if (!isReloading && currentAmmo <= 0)
+            currentAmmo = maxAmmo;
+    }
+
+    public float HeatRatio
+    {
+        get
+        {
+            if (maxAmmo <= 0)
+                return 0f;
+            return Mathf.Clamp01(currentHeat / maxAmmo);
+        }
+    }
+
+    float GetShotDamage()
+    {
+        if (ammo == null)
+            return 0f;
+        return ammo.damage * damageScale * HeatFeedbackScale();
+    }
+
+    float GetArmorPierce()
+    {
+        float pierce = turret != null ? turret.armorPierce : 3f;
+        return pierce * HeatFeedbackScale();
+    }
+
+    float HeatFeedbackScale()
+    {
+        if (!UsesHeat)
+            return 1f;
+        return 1f + TurretResearch.HeatFeedbackBonus(turret) * HeatRatio;
+    }
+
+    public bool UsesProjectileLead
+    {
+        get
+        {
+            if (ammo == null)
+                return false;
+
+            return ammo.fireMode == WeaponFireMode.Projectile
+                || ammo.fireMode == WeaponFireMode.Homing;
+        }
+    }
+
+    public float GetMuzzleSpeed()
+    {
+        if (ammo == null)
+            return 0f;
+
+        return (ammo.bulletSpeed + TurretResearch.BulletSpeedBonus(turret)) * (turret != null ? CCTVSkill_Overdrive.ProjectileSpeedScale : 1f);
+    }
+
+    void CaptureBaseSpread()
+    {
+        if (capturedSpread)
+            return;
+        baseSpread = spreadAngle;
+        capturedSpread = true;
+    }
+
+    public void RestoreAmmo(int amount)
+    {
+        if (amount <= 0)
+            return;
+        currentAmmo = Mathf.Min(maxAmmo, currentAmmo + amount);
+    }
+
+    public float EffectiveFireDelay => fireDelay / (turret != null ? CCTVSkill_Overdrive.AttackSpeedScale : 1f);
+
+    public bool CanFire()
+    {
+        if (ammo == null) return false;
+        if (isReloading || overheated) return false;
+        if (Time.time - lastFireTime < EffectiveFireDelay) return false;
+        if (!UsesHeat && currentAmmo <= 0) return false;
+
+        return true;
+    }
+
+    public bool Fire(Vector3 origin, Vector3 direction, Transform target = null)
+    {
+        if (ammo == null)
+            return false;
+
+        Vector3 dir = direction.sqrMagnitude > 0.0001f
+            ? direction.normalized
+            : transform.forward;
+        dir = ApplySpread(dir);
+
+        if (ammo.fireMode == WeaponFireMode.Beam)
+        {
+            if (overheated)
+            {
+                StopBeam();
+                return false;
+            }
+
+            FireBeam(origin, dir);
+            return true;
+        }
+
+        if (!CanFire())
+            return false;
+
+        CombatVfx.PlayMuzzle(ammo.muzzleEffect, origin, dir);
+
+        switch (ammo.fireMode)
+        {
+            case WeaponFireMode.Projectile:
+                FireProjectile(origin, dir, target);
+                break;
+            case WeaponFireMode.Homing:
+                FireProjectile(origin, dir, target);
+                break;
+            case WeaponFireMode.Hitscan:
+                FireHitscan(origin, dir);
+                break;
+        }
+
+        lastFireTime = Time.time;
+        PlayFireSfx();
+        ConsumeAmmo();
+        return true;
+    }
+
+    void LateUpdate()
+    {
+        if (UsesHeat)
+            TickHeat(Time.deltaTime);
+
+        if (beamRoot == null)
+            return;
+
+        if (Time.time - lastBeamTime > 0.08f)
+            StopBeam();
+    }
+
+    void OnDestroy()
+    {
+        StopBeam();
+        if (beamRoot != null)
+            Destroy(beamRoot);
+    }
+
+    Vector3 ApplySpread(Vector3 direction)
+    {
+        if (spreadAngle <= 0.01f)
+            return direction;
+
+        Vector3 right = Vector3.Cross(direction, Vector3.up);
+        if (right.sqrMagnitude < 0.0001f)
+            right = Vector3.Cross(direction, Vector3.right);
+        right.Normalize();
+        Vector3 up = Vector3.Cross(right, direction);
+
+        Vector2 offset = Random.insideUnitCircle * spreadAngle;
+        return (Quaternion.AngleAxis(offset.x, up) * Quaternion.AngleAxis(offset.y, right) * direction).normalized;
+    }
+
+    void FireProjectile(Vector3 origin, Vector3 direction, Transform homingTarget)
+    {
+        if (ammo.bulletPrefab == null)
+        {
+            Debug.LogWarning(name + ": bulletPrefab?? ???????.");
+            return;
+        }
+
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        GameObject bulletObj = Instantiate(ammo.bulletPrefab, origin, rotation);
+        Bullet bullet = bulletObj.GetComponent<Bullet>();
+
+        if (bullet == null)
+        {
+            Debug.LogWarning(name + ": ? ??????? Bullet?? ???????.");
+            Destroy(bulletObj);
+            return;
+        }
+
+        Vector3 velocity = direction * GetMuzzleSpeed();
+        float turn = ammo.homingTurnRate + TurretResearch.HomingTurnBonus(turret);
+        bool loft = TurretResearch.HasTopAttack(turret);
+        bool homing = ammo.fireMode == WeaponFireMode.Homing || turn > 0.01f || loft;
+        float life = ammo.lifetime;
+        if (loft)
+            life *= 1.4f;
+
+        bullet.Init(
+            velocity,
+            ammo.gravity,
+            GetShotDamage(),
+            life,
+            homing ? homingTarget : null,
+            homing ? turn : 0f,
+            ammo,
+            GetArmorPierce(),
+            turret,
+            loft
+        );
+
+        CombatVfx.AttachTrail(ammo.trailEffect, bulletObj.transform);
+    }
+
+    void FireHitscan(Vector3 origin, Vector3 direction)
+    {
+        float range = ammo.hitscanRange > 0f ? ammo.hitscanRange : 50f;
+
+        if (Physics.Raycast(origin, direction, out RaycastHit hit, range, ammo.hitMask))
+        {
+            Target_Base target = hit.collider.GetComponentInParent<Target_Base>();
+            if (target != null)
+                target.TakeDamage(GetShotDamage(), GetArmorPierce(), TurretResearch.WeakspotBonus(turret, target), turret);
+
+            ammo.ApplyExplosion(hit.point, null, GetArmorPierce());
+            CombatVfx.PlayImpact(ammo.impactEffect, hit.point, hit.normal);
+            Debug.DrawLine(origin, hit.point, Color.cyan, 0.1f);
+        }
+        else
+        {
+            Debug.DrawRay(origin, direction * range, Color.cyan, 0.1f);
+        }
+    }
+
+    void FireBeam(Vector3 origin, Vector3 direction)
+    {
+        float range = ammo.hitscanRange > 0f ? ammo.hitscanRange : 50f;
+        Vector3 end = origin + direction * range;
+        Vector3 impactNormal = -direction;
+        bool hitSomething = false;
+
+        if (Physics.Raycast(origin, direction, out RaycastHit hit, range, ammo.hitMask))
+        {
+            end = hit.point;
+            impactNormal = hit.normal;
+            hitSomething = true;
+
+            if (CanFire())
+            {
+                Target_Base target = hit.collider.GetComponentInParent<Target_Base>();
+                if (target != null)
+                {
+                    target.TakeDamage(GetShotDamage(), GetArmorPierce(), TurretResearch.WeakspotBonus(turret, target), turret);
+                    TryApplyBurn(target);
+                }
+
+                ammo.ApplyExplosion(hit.point, null, GetArmorPierce());
+                CombatVfx.PlayBeamImpact(ammo.impactEffect, hit.point, impactNormal);
+                lastFireTime = Time.time;
+            }
+        }
+
+        ShowBeam(origin, end);
+        lastBeamTime = Time.time;
+        beamFiring = true;
+        if (turret != null)
+            turret.StartFireLoop();
+        if (!hitSomething)
+            Debug.DrawRay(origin, direction * range, Color.red, 0.05f);
+    }
+
+    void TickHeat(float deltaTime)
+    {
+        bool beaming = beamFiring && Time.time - lastBeamTime <= 0.12f && !overheated;
+        if (!beaming)
+            StopBeam();
+
+        if (beaming)
+        {
+            currentHeat += HeatPerSecond * deltaTime;
+            if (currentHeat >= maxAmmo)
+            {
+                currentHeat = maxAmmo;
+                overheated = true;
+                StopBeam();
+                if (turret != null)
+                    turret.PlayReloadSfx();
+            }
+            return;
+        }
+
+        if (overheated)
+        {
+            ventTimer += deltaTime;
+            while (ventTimer >= 0.5f)
+            {
+                ventTimer -= 0.5f;
+                if (TurretResearch.HasEmergencyVent(turret) && Random.value < 0.05f)
+                {
+                    currentHeat = 0f;
+                    overheated = false;
+                    ventTimer = 0f;
+                    return;
+                }
+            }
+        }
+        else
+        {
+            ventTimer = 0f;
+        }
+
+        currentHeat -= CoolPerSecond * deltaTime;
+        if (currentHeat > 0f)
+            return;
+
+        currentHeat = 0f;
+        overheated = false;
+        ventTimer = 0f;
+    }
+
+    float HeatPerSecond
+    {
+        get
+        {
+            if (ammo != null && ammo.heatPerSecond > 0.01f)
+                return ammo.heatPerSecond;
+            return 20f;
+        }
+    }
+
+    float CoolPerSecond
+    {
+        get
+        {
+            float rate;
+            if (reloadTime > 0.01f && maxAmmo > 0)
+                rate = maxAmmo / reloadTime;
+            else if (ammo != null && ammo.coolPerSecond > 0.01f)
+                rate = ammo.coolPerSecond;
+            else
+                rate = 16f;
+
+            if (overheated)
+                rate *= 1f + TurretResearch.OverheatCoolBonus(turret);
+            return rate;
+        }
+    }
+
+    void TryApplyBurn(Target_Base target)
+    {
+        if (target == null || target.isDead)
+            return;
+
+        float chance = TurretResearch.BurnChance(turret);
+        if (chance <= 0f || Random.value > chance)
+            return;
+
+        target.ApplyStatus(new StatusEffect_Burn(3f, 50f, turret));
+    }
+
+    void ShowBeam(Vector3 start, Vector3 end)
+    {
+        EnsureBeam();
+        SetBeamVisible(true);
+        beamGlow.SetPosition(0, start);
+        beamGlow.SetPosition(1, end);
+        beamCore.SetPosition(0, start);
+        beamCore.SetPosition(1, end);
+
+        float width = ammo.beamWidth > 0.01f ? ammo.beamWidth : 0.12f;
+        beamGlow.startWidth = width;
+        beamGlow.endWidth = width * 0.65f;
+        beamCore.startWidth = width * 0.35f;
+        beamCore.endWidth = width * 0.18f;
+        ApplyBeamColors();
+    }
+
+    void EnsureBeam()
+    {
+        if (beamRoot != null)
+            return;
+
+        beamRoot = new GameObject("TurretBeam");
+        beamRoot.transform.SetParent(transform, false);
+        beamGlow = CreateBeamLine(beamRoot.transform, "Glow", 8);
+        beamCore = CreateBeamLine(beamRoot.transform, "Core", 12);
+    }
+
+    LineRenderer CreateBeamLine(Transform parent, string name, int caps)
+    {
+        GameObject go = new GameObject(name);
+        go.transform.SetParent(parent, false);
+        LineRenderer line = go.AddComponent<LineRenderer>();
+        line.useWorldSpace = true;
+        line.positionCount = 2;
+        line.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        line.receiveShadows = false;
+        line.numCapVertices = caps;
+        line.alignment = LineAlignment.View;
+        line.textureMode = LineTextureMode.Stretch;
+        line.material = CreateBeamMaterial();
+        return line;
+    }
+
+    static Material CreateBeamMaterial()
+    {
+        Shader shader = Shader.Find("Sprites/Default");
+        if (shader == null)
+            shader = Shader.Find("Universal Render Pipeline/Unlit");
+        if (shader == null)
+            shader = Shader.Find("Hidden/InternalErrorShader");
+        return new Material(shader);
+    }
+
+    void ApplyBeamColors()
+    {
+        Color glow = ammo != null ? ammo.beamColor : new Color(1f, 0.35f, 0.12f, 0.9f);
+        Color core = ammo != null ? ammo.beamCoreColor : Color.white;
+        beamGlow.startColor = glow;
+        beamGlow.endColor = glow;
+        beamCore.startColor = core;
+        beamCore.endColor = new Color(core.r, core.g, core.b, core.a * 0.65f);
+    }
+
+    void SetBeamVisible(bool visible)
+    {
+        if (beamRoot != null)
+            beamRoot.SetActive(visible);
+    }
+
+    void StopBeam()
+    {
+        beamFiring = false;
+        SetBeamVisible(false);
+        if (turret != null)
+            turret.StopFireLoop();
+    }
+
+    void PlayFireSfx()
+    {
+        if (turret != null)
+            turret.PlayFireSfx();
+    }
+
+    void ConsumeAmmo()
+    {
+        if (ammo.fireMode == WeaponFireMode.Beam)
+            return;
+
+        currentAmmo--;
+        if (currentAmmo <= 0)
+            StartCoroutine(Reload());
+    }
+
+    IEnumerator Reload()
+    {
+        isReloading = true;
+        if (turret != null)
+            turret.PlayReloadSfx();
+        yield return new WaitForSeconds(reloadTime);
+        currentAmmo = maxAmmo;
+        isReloading = false;
+    }
+}

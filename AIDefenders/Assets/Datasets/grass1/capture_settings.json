@@ -1,0 +1,33 @@
+{
+    "targetPrefabPaths": [
+        "Assets/Targets/Sheep/Target_Friendly_Sheep.prefab",
+        "Assets/Targets/Wolf/Target_Enemy_Wolf.prefab",
+        "Assets/Targets/Wolf/Target_Enemy_WolfLeader.prefab"
+    ],
+    "terrainNames": [
+        "Terrain_GrassField"
+    ],
+    "minCaptureCount": 1,
+    "maxCaptureCount": 7,
+    "minSpacing": 5.795283794403076,
+    "spawnViewFill": 0.800000011920929,
+    "cameraDistanceMin": 34.67974853515625,
+    "cameraDistanceMax": 53.75360870361328,
+    "cameraPitchMin": 18.0,
+    "cameraPitchMax": 62.0,
+    "cameraYawMin": 0.0,
+    "cameraYawMax": 360.0,
+    "cameraFovMin": 40.0,
+    "cameraFovMax": 62.0,
+    "jpegQuality": 70,
+    "trainSampleCount": 700,
+    "valSampleCount": 200,
+    "testSampleCount": 100,
+    "trainEpochs": 50,
+    "trainBatchSize": 16,
+    "classPrefabPaths": [
+        "Assets/Targets/Sheep/Target_Friendly_Sheep.prefab",
+        "Assets/Targets/Wolf/Target_Enemy_Wolf.prefab",
+        "Assets/Targets/Wolf/Target_Enemy_WolfLeader.prefab"
+    ]
+}

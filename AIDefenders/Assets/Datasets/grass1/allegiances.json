@@ -1,0 +1,16 @@
+{
+    "entries": [
+        {
+            "label": "Target_Friendly_Sheep",
+            "isEnemy": false
+        },
+        {
+            "label": "Target_Enemy_Wolf",
+            "isEnemy": true
+        },
+        {
+            "label": "Target_Enemy_WolfLeader",
+            "isEnemy": true
+        }
+    ]
+}

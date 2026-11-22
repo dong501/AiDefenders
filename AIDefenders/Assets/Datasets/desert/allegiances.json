@@ -1,0 +1,36 @@
+{
+    "entries": [
+        {
+            "label": "Target_Enemy_DesertRaider",
+            "isEnemy": true
+        },
+        {
+            "label": "Target_Friendly_DesertRescueWorker",
+            "isEnemy": false
+        },
+        {
+            "label": "Target_Enemy_DesertRaiderBuggy",
+            "isEnemy": true
+        },
+        {
+            "label": "Target_Friendly_DesertSupplyTruck",
+            "isEnemy": false
+        },
+        {
+            "label": "Target_Friendly_DesertRescueCrawler",
+            "isEnemy": false
+        },
+        {
+            "label": "Target_Friendly_DesertMedic",
+            "isEnemy": false
+        },
+        {
+            "label": "Target_Enemy_DesertArmoredBuggy",
+            "isEnemy": true
+        },
+        {
+            "label": "Target_Enemy_DesertAttackRover",
+            "isEnemy": true
+        }
+    ]
+}

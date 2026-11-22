@@ -1,0 +1,7 @@
+사막 1 friendly=2 enemy=2 terrain=Desert_1 fog=0.0012 roleToggle=PASS
+사막 2 friendly=3 enemy=4 terrain=Desert_2 fog=0.0062 roleToggle=PASS
+사막 3 friendly=4 enemy=6 terrain=Desert_3 fog=0.0018 roleToggle=PASS
+도시 1 friendly=2 enemy=2 terrain=City_1 fog=0.0018 roleToggle=PASS
+도시 2 friendly=4 enemy=4 terrain=City_2 fog=0.0028 roleToggle=PASS
+도시 3 friendly=6 enemy=6 terrain=City_3 fog=0.0048 roleToggle=PASS
+City 1 reselect: 4 classes; previous stage classes cleared.

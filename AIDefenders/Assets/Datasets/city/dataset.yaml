@@ -1,0 +1,15 @@
+path: "C:/Users/user/Downloads/AIDefendersV5-main/AIDefenders/Assets/Datasets/city"
+train: images/train
+val: images/val
+test: images/test
+
+nc: 8
+names:
+  0: Target_Enemy_CityWalkerZombie
+  1: Target_Enemy_CityRunnerZombie
+  2: Target_Friendly_CitySurvivor
+  3: Target_Friendly_CityPoliceRescuer
+  4: Target_Friendly_CityAmbulance
+  5: Target_Friendly_CityEvacBus
+  6: Target_Enemy_CityBruteZombie
+  7: Target_Enemy_CityArmoredZombie

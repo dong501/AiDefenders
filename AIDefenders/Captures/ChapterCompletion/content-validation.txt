@@ -1,0 +1,31 @@
+Target_Enemy_CityArmoredZombie | 장갑 좀비 | HP=1700 speed=2.7 faction=enemy
+Target_Enemy_CityBruteZombie | 거대 좀비 | HP=1200 speed=2.5 faction=enemy
+Target_Enemy_CityHazmatZombie | 감염 방역 좀비 | HP=720 speed=3.8 faction=enemy
+Target_Enemy_CityRunnerZombie | 질주 좀비 | HP=270 speed=5.6 faction=enemy
+Target_Enemy_CityWalkerZombie | 일반 좀비 | HP=300 speed=2.9 faction=enemy
+Target_Enemy_CityWorkerZombie | 작업복 좀비 | HP=530 speed=3.3 faction=enemy
+Target_Friendly_CityAmbulance | 구급차 | HP=850 speed=4.5 faction=friendly
+Target_Friendly_CityEvacBus | 대피 버스 | HP=1250 speed=3.8 faction=friendly
+Target_Friendly_CityFirefighter | 소방 구조대원 | HP=420 speed=3.6 faction=friendly
+Target_Friendly_CityHazmatRescuer | 방역 구조대원 | HP=380 speed=3.5 faction=friendly
+Target_Friendly_CityPoliceRescuer | 구조 경찰 | HP=320 speed=4.2 faction=friendly
+Target_Friendly_CitySurvivor | 생존자 | HP=220 speed=3.8 faction=friendly
+Target_Enemy_DesertArmoredBuggy | 장갑 버기 | HP=850 speed=4.4 faction=enemy
+Target_Enemy_DesertAssaultRaider | 돌격 약탈자 | HP=400 speed=4.6 faction=enemy
+Target_Enemy_DesertAttackRover | 중장갑 공격차 | HP=1500 speed=3.5 faction=enemy
+Target_Enemy_DesertHeavyRaider | 중장갑 약탈자 | HP=950 speed=2.8 faction=enemy
+Target_Enemy_DesertRaider | 사막 약탈자 | HP=270 speed=3.5 faction=enemy
+Target_Enemy_DesertRaiderBuggy | 약탈 버기 | HP=460 speed=5.4 faction=enemy
+Target_Friendly_DesertMedic | 사막 의무병 | HP=240 speed=4.1 faction=friendly
+Target_Friendly_DesertRescueCrawler | 구조 궤도차 | HP=950 speed=3.4 faction=friendly
+Target_Friendly_DesertRescueWorker | 사막 구조대원 | HP=260 speed=3.8 faction=friendly
+Target_Friendly_DesertSupplyTruck | 보급 트럭 | HP=720 speed=4.4 faction=friendly
+초원 1 waves=5 classes=3 funds=400
+초원 2 waves=5 classes=6 funds=400
+초원 3 waves=4 classes=7 funds=400
+사막 1 waves=4 classes=4 funds=500
+사막 2 waves=5 classes=7 funds=625
+사막 3 waves=6 classes=10 funds=750
+도시 1 waves=4 classes=4 funds=650
+도시 2 waves=5 classes=8 funds=775
+도시 3 waves=6 classes=12 funds=900

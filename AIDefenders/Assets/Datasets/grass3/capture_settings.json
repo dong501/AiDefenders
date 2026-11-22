@@ -1,0 +1,41 @@
+{
+    "targetPrefabPaths": [
+        "Assets/Targets/Sheep/Target_Friendly_Sheep.prefab",
+        "Assets/Targets/Thief/Target_Enemy_Thief.prefab",
+        "Assets/Targets/Farmer/Target_Friendly_Farmer.prefab",
+        "Assets/Targets/Thief/Target_Enemy_ThiefMotorCycle.prefab",
+        "Assets/Targets/Farmer/Target_Friendly_FarmerTruck.prefab",
+        "Assets/Targets/Thief/Target_Enemy_ThiefBoat.prefab",
+        "Assets/Targets/Farmer/Target_Friendly_FarmerBoat.prefab"
+    ],
+    "terrainNames": [
+        "Terrain_GrassField"
+    ],
+    "minCaptureCount": 1,
+    "maxCaptureCount": 7,
+    "minSpacing": 7.6022162437438969,
+    "spawnViewFill": 0.800000011920929,
+    "cameraDistanceMin": 45.492671966552737,
+    "cameraDistanceMax": 70.51364135742188,
+    "cameraPitchMin": 18.0,
+    "cameraPitchMax": 62.0,
+    "cameraYawMin": 0.0,
+    "cameraYawMax": 360.0,
+    "cameraFovMin": 40.0,
+    "cameraFovMax": 62.0,
+    "jpegQuality": 70,
+    "trainSampleCount": 700,
+    "valSampleCount": 200,
+    "testSampleCount": 100,
+    "trainEpochs": 50,
+    "trainBatchSize": 16,
+    "classPrefabPaths": [
+        "Assets/Targets/Sheep/Target_Friendly_Sheep.prefab",
+        "Assets/Targets/Thief/Target_Enemy_Thief.prefab",
+        "Assets/Targets/Farmer/Target_Friendly_Farmer.prefab",
+        "Assets/Targets/Thief/Target_Enemy_ThiefMotorCycle.prefab",
+        "Assets/Targets/Farmer/Target_Friendly_FarmerTruck.prefab",
+        "Assets/Targets/Thief/Target_Enemy_ThiefBoat.prefab",
+        "Assets/Targets/Farmer/Target_Friendly_FarmerBoat.prefab"
+    ]
+}

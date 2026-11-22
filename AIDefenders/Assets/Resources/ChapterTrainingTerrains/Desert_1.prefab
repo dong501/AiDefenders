@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1737171794265621870
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1786575291565347352, guid: 236120151e1d3ed48aab2d634ad4fce7, type: 3}
+      propertyPath: m_Name
+      value: Desert_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786575291565347352, guid: 236120151e1d3ed48aab2d634ad4fce7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301623467196419407, guid: 236120151e1d3ed48aab2d634ad4fce7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301623467196419407, guid: 236120151e1d3ed48aab2d634ad4fce7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301623467196419407, guid: 236120151e1d3ed48aab2d634ad4fce7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301623467196419407, guid: 236120151e1d3ed48aab2d634ad4fce7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301623467196419407, guid: 236120151e1d3ed48aab2d634ad4fce7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301623467196419407, guid: 236120151e1d3ed48aab2d634ad4fce7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301623467196419407, guid: 236120151e1d3ed48aab2d634ad4fce7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301623467196419407, guid: 236120151e1d3ed48aab2d634ad4fce7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301623467196419407, guid: 236120151e1d3ed48aab2d634ad4fce7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301623467196419407, guid: 236120151e1d3ed48aab2d634ad4fce7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1786575291565347352, guid: 236120151e1d3ed48aab2d634ad4fce7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2067375873649359018}
+  m_SourcePrefab: {fileID: 100100000, guid: 236120151e1d3ed48aab2d634ad4fce7, type: 3}
+--- !u!1 &58718636482353014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1786575291565347352, guid: 236120151e1d3ed48aab2d634ad4fce7, type: 3}
+  m_PrefabInstance: {fileID: 1737171794265621870}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2067375873649359018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58718636482353014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeafc2b15e546d4494998cf8260b62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DatasetCaptureEnvironment
+  stageId: Desert_1
+  daySky: {fileID: 2100000, guid: 8b1c43f1591c4db47b64f02fa567f2ea, type: 2}

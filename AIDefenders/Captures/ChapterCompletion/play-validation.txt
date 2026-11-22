@@ -1,0 +1,59 @@
+Desert_1 spawned 사막 약탈자 at (-63.66, 0.45, -103.16) route=Enemy spawner1 corners=77
+Desert_1 spawned 약탈 버기 at (76.96, 0.45, -96.94) route=Enemy spawner2 corners=83
+Desert_1 spawned 사막 구조대원 at (-62.23, 0.45, -104.53) route=Enemy spawner1 corners=77
+Desert_1 spawned 보급 트럭 at (77.86, 0.45, -97.92) route=Enemy spawner2 corners=83
+Desert_1 ROUTE RESULT spawned=4 remaining=0 elapsed=58.39947 baseHP=9998 funds=570
+Desert_1 COMBAT enemyReward=16 friendlyPenalty=-35
+Desert_2 spawned 사막 약탈자 at (-64.93, 0.45, -105.68) route=Enemy spawner1 corners=77
+Desert_2 spawned 약탈 버기 at (77.75, 0.45, -98.62) route=Enemy spawner2 corners=82
+Desert_2 spawned 사막 구조대원 at (-65.00, 0.45, -102.49) route=Enemy spawner1 corners=77
+Desert_2 spawned 보급 트럭 at (75.55, 0.45, -99.11) route=Enemy spawner2 corners=83
+Desert_2 spawned 구조 궤도차 at (-65.10, 0.45, -102.17) route=Enemy spawner1 corners=77
+Desert_2 spawned 돌격 약탈자 at (74.20, 0.45, -95.83) route=Enemy spawner2 corners=83
+Desert_2 spawned 장갑 버기 at (-65.89, 0.45, -104.01) route=Enemy spawner1 corners=77
+Desert_2 ROUTE RESULT spawned=7 remaining=0 elapsed=57.9999 baseHP=9995 funds=740
+Desert_2 COMBAT enemyReward=16 friendlyPenalty=-35
+Desert_3 spawned 사막 약탈자 at (-65.86, 0.45, -102.93) route=Enemy spawner1 corners=77
+Desert_3 spawned 돌격 약탈자 at (75.23, 0.45, -95.40) route=Enemy spawner2 corners=83
+Desert_3 spawned 사막 구조대원 at (-64.34, 0.45, -104.09) route=Enemy spawner1 corners=77
+Desert_3 spawned 약탈 버기 at (75.81, 0.45, -98.29) route=Enemy spawner2 corners=83
+Desert_3 spawned 보급 트럭 at (-66.00, 0.45, -102.58) route=Enemy spawner1 corners=77
+Desert_3 spawned 구조 궤도차 at (75.80, 0.45, -95.69) route=Enemy spawner2 corners=83
+Desert_3 spawned 사막 의무병 at (-66.00, 0.45, -105.10) route=Enemy spawner1 corners=77
+Desert_3 spawned 장갑 버기 at (74.97, 0.45, -94.76) route=Enemy spawner2 corners=83
+Desert_3 spawned 중장갑 약탈자 at (-64.51, 0.45, -102.49) route=Enemy spawner1 corners=77
+Desert_3 spawned 중장갑 공격차 at (76.19, 0.45, -97.37) route=Enemy spawner2 corners=83
+Desert_3 ROUTE RESULT spawned=10 remaining=0 elapsed=70.79974 baseHP=9990 funds=890
+Desert_3 COMBAT enemyReward=16 friendlyPenalty=-35
+City_1 spawned 일반 좀비 at (133.53, 0.05, -100.81) route=City_East corners=6
+City_1 spawned 질주 좀비 at (0.27, 0.05, 35.60) route=City_North corners=7
+City_1 spawned 생존자 at (1.24, 0.05, -236.93) route=City_South corners=7
+City_1 spawned 구조 경찰 at (-136.14, 0.05, -98.56) route=City_West corners=6
+City_1 ROUTE RESULT spawned=4 remaining=0 elapsed=41.19989 baseHP=9998 funds=700
+City_1 COMBAT enemyReward=16 friendlyPenalty=-35
+City_2 spawned 일반 좀비 at (136.17, 0.05, -101.94) route=City_East corners=6
+City_2 spawned 질주 좀비 at (-0.71, 0.05, 35.46) route=City_North corners=7
+City_2 spawned 생존자 at (1.59, 0.05, -235.52) route=City_South corners=7
+City_2 spawned 구조 경찰 at (-136.75, 0.05, -100.59) route=City_West corners=7
+City_2 spawned 소방 구조대원 at (134.38, 0.05, -100.95) route=City_East corners=7
+City_2 spawned 구급차 at (0.82, 0.05, 34.13) route=City_North corners=6
+City_2 spawned 작업복 좀비 at (1.83, 0.05, -236.69) route=City_South corners=7
+City_2 spawned 거대 좀비 at (-133.03, 0.05, -101.79) route=City_West corners=7
+City_2 ROUTE RESULT spawned=8 remaining=0 elapsed=48.00562 baseHP=9994 funds=895
+City_2 COMBAT enemyReward=16 friendlyPenalty=-35
+City_3 spawned 일반 좀비 at (136.42, 0.05, -98.67) route=City_East corners=6
+City_3 spawned 질주 좀비 at (-3.00, 0.05, 37.15) route=City_North corners=7
+City_3 spawned 생존자 at (-1.97, 0.05, -232.29) route=City_South corners=6
+City_3 spawned 작업복 좀비 at (-137.81, 0.05, -98.08) route=City_West corners=7
+City_3 spawned 구조 경찰 at (135.82, 0.05, -101.26) route=City_East corners=7
+City_3 spawned 소방 구조대원 at (-2.09, 0.05, 32.66) route=City_North corners=7
+City_3 spawned 구급차 at (1.94, 0.05, -233.98) route=City_South corners=7
+City_3 spawned 방역 구조대원 at (-135.61, 0.05, -100.90) route=City_West corners=7
+City_3 spawned 대피 버스 at (137.41, 0.05, -98.13) route=City_East corners=6
+City_3 spawned 감염 방역 좀비 at (2.74, 0.05, 35.84) route=City_North corners=6
+City_3 spawned 거대 좀비 at (1.32, 0.05, -235.55) route=City_South corners=7
+City_3 spawned 장갑 좀비 at (-133.97, 0.05, -102.96) route=City_West corners=7
+City_3 ROUTE RESULT spawned=12 remaining=0 elapsed=48.39917 baseHP=9989 funds=1090
+City_3 COMBAT enemyReward=16 friendlyPenalty=-35
+
+VALIDATION FINISHED

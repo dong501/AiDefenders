@@ -1,0 +1,32 @@
+{
+    "entries": [
+        {
+            "label": "Target_Friendly_Sheep",
+            "isEnemy": false
+        },
+        {
+            "label": "Target_Enemy_Thief",
+            "isEnemy": true
+        },
+        {
+            "label": "Target_Friendly_Farmer",
+            "isEnemy": false
+        },
+        {
+            "label": "Target_Enemy_ThiefMotorCycle",
+            "isEnemy": true
+        },
+        {
+            "label": "Target_Friendly_FarmerTruck",
+            "isEnemy": false
+        },
+        {
+            "label": "Target_Enemy_ThiefBoat",
+            "isEnemy": true
+        },
+        {
+            "label": "Target_Friendly_FarmerBoat",
+            "isEnemy": false
+        }
+    ]
+}
